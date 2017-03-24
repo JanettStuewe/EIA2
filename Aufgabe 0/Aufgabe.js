@@ -5,3 +5,4 @@ document.addEventListener('DOMContentLoaded', function () {
     begruessung = "Guten Tag ";
     document.body.innerHTML = begruessung + getname + " :D";
 });
+//# sourceMappingURL=Aufgabe.js.map
