@@ -1,0 +1,13 @@
+.black {
+	background: black;
+}
+
+.white {
+	background: white;
+}
+
+.board {
+	height: 80px;
+	weight: 80px;
+	border: 1px solid black;
+}
