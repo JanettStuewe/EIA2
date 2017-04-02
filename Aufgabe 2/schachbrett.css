@@ -1,13 +1,26 @@
-.black {
-	background: black;
+body {
+    width: 1800px;
+}
+div {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+    float: left;
+    text-align: center;
+    line-height: 0;
 }
 
 .white {
-	background: white;
+    background: white;
 }
 
-.board {
-	height: 80px;
-	weight: 80px;
-	border: 1px solid black;
+.black {
+    background: black;
+    color: white;   
+}
+
+div:before, div:after {
+	content: '';
+	display: block;
+	padding-top: 50%;
 }

@@ -1,25 +1,52 @@
 document.addEventListener('DOMContentLoaded', function () {
     
-    let table:HTMLTableElement= documentcreateElement("tabele");
-    let row:HTMLTableRowElement= documentcreateElement("tr");    
-    let column:HTMLTableCellElement= documentcreateElement("td");    
-    
-    table.body.appendChild(row);
-    row.body.appendChild(column);
-    
-    document.body.appendChild(table);
-});  
-  
-function placeDivs(): void {
-        for(let i=0; i<64; i++){
-        let element: HTMLElement=document.createElement("div");
+    let brett: number = 63;
+    let zahl: number = 1;
+    let reihenmaximum: number = 8;
+    let k: number = 1;    
+
+    function Legende() {
+    for (let i: number = 0; i < reihenmaximum; i++) {
         
-            if (i%2 ==0) {
-                element.className= "board white";
-                } 
+                    if (i % 2 == 0) {
+                for (let z: number = 0; z < reihenmaximum; z++) {
+                    if (z % 2 == 0) {
+                        let elem: HTMLDivElement = document.createElement("div");
+                        document.body.appendChild(elem);
+                        elem.className = "black";
+                        elem.textContent = (k + "");
+                        k = k * 2;
+                    }
+                    else {
+                        let elem: HTMLDivElement = document.createElement("div");
+                        document.body.appendChild(elem);
+                        elem.className = "white";
+                        elem.textContent = (k + "");
+                        k = k * 2;
+                            }
+                        }
+                    }
+            
             else {
-                element.className= "board black";
-                 }
-    document.body.appendChild(element);
+                for (let z: number = 0; z < reihenmaximum; z++) {
+                    if (z % 2 == 0) {
+                        let elem: HTMLDivElement = document.createElement("div");
+                        document.body.appendChild(elem);
+                        elem.className = "white";
+                        elem.textContent = (k + "");
+                        k = k * 2;
+                            }
+                    
+                    else {
+                        let elem: HTMLDivElement = document.createElement("div");
+                        document.body.appendChild(elem);
+                        elem.className = "black";
+                        elem.textContent = (k + "");
+                        k = k * 2;
+                            }
+                        }
+                    }
     }
-}
+        }
+    Legende();
+});
