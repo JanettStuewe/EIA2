@@ -6,8 +6,13 @@ div {
     width: 200px;
     border: 1px solid black;
     float: left;
-    text-align: center;
-    line-height: 0;
+	text-align: center;
+	-webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
 }
 
 .white {
@@ -23,4 +28,21 @@ div:before, div:after {
 	content: '';
 	display: block;
 	padding-top: 50%;
+}
+
+.farbe {
+	background-color: blue;
+}
+
+#tooltip {
+	display: none;
+	position: absolute;
+	padding: 2px;
+	background-color: black;
+	color: white;
+	border: red solid 5px;
+	z-index: 10000;
+	white-space: pre;
+    height: 200px;
+    width: 300px;
 }
