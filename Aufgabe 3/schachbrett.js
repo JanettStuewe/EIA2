@@ -3,19 +3,22 @@ window.onload = function () {
     var brett = 63; //es werden 64 schachbrettfelder
     var reihenmaximum = 8; //es werden pro reihe max. 8 schachbrettfelder neben einander gelegt
     var k = 1; //es beginnt mit einem reiskorn
-    var elem = document.createElement("div"); //hier wird eine variable elem deklariert und ihm wird gesagt das er ein neues div erstellt im dokument
     function Schachbrett() {
         for (var i = 0; i < reihenmaximum; i++) {
             if (i % 2 == 0) {
                 for (var z = 0; z < reihenmaximum; z++) {
                     if (z % 2 == 0) {
+                        var elem = document.createElement("div"); //hier wird eine variable elem deklariert und ihm wird gesagt das er ein neues div erstellt im dokument
                         document.body.appendChild(elem); //hier wird das neue div in den body eingef�gt
+                        elem.className = "textMittig";
                         elem.className = "black"; //hier wird dem neuen div die cssKlasse zugewiesen "black" welches es schwarz macht
                         elem.textContent = (k + ""); //hier wird dem neuen div der Textinhalt(=Anzahl der Reisk�rner auf dem Feld) gegeben
                         k = k * 2; //hier wird der Textinhalt berechnet, in dem vom vorheriegen schahbrettfeld die zahl genommen wird und verdoppelt wird
                     }
                     else {
+                        var elem = document.createElement("div"); //hier wird eine variable elem deklariert und ihm wird gesagt das er ein neues div erstellt im dokument
                         document.body.appendChild(elem); //hier wird das neue div in den body eingef�gt
+                        elem.className = "textMittig";
                         elem.className = "white"; //hier wird dem neuen div die cssKlasse zugewiesen "white" welches es wei� macht
                         elem.textContent = (k + ""); //hier wird dem neuen div der Textinhalt(=Anzahl der Reisk�rner auf dem Feld) gegeben
                         k = k * 2; //hier wird der Textinhalt berechnet, in dem vom vorheriegen schahbrettfeld die zahl genommen wird und verdoppelt wird
@@ -25,13 +28,17 @@ window.onload = function () {
             else {
                 for (var z = 0; z < reihenmaximum; z++) {
                     if (z % 2 == 0) {
+                        var elem = document.createElement("div"); //hier wird eine variable elem deklariert und ihm wird gesagt das er ein neues div erstellt im dokument
                         document.body.appendChild(elem); //hier wird das neue div in den body eingef�gt
+                        elem.className = "textMittig";
                         elem.className = "white"; //hier wird dem neuen div die cssKlasse zugewiesen "white" welches es wei� macht
                         elem.textContent = (k + ""); //hier wird dem neuen div der Textinhalt(=Anzahl der Reisk�rner auf dem Feld) gegeben
                         k = k * 2; //hier wird der Textinhalt berechnet, in dem vom vorheriegen schahbrettfeld die zahl genommen wird und verdoppelt wird
                     }
                     else {
+                        var elem = document.createElement("div"); //hier wird eine variable elem deklariert und ihm wird gesagt das er ein neues div erstellt im dokument
                         document.body.appendChild(elem); //hier wird das neue div in den body eingef�gt
+                        elem.className = "textMittig";
                         elem.className = "black"; //hier wird dem neuen div die cssKlasse zugewiesen "black" welches es schwarz macht
                         elem.textContent = (k + ""); //hier wird dem neuen div der Textinhalt(=Anzahl der Reisk�rner auf dem Feld) gegeben
                         k = k * 2; //hier wird der Textinhalt berechnet, in dem vom vorheriegen schahbrettfeld die zahl genommen wird und verdoppelt wird
@@ -66,11 +73,9 @@ window.onload = function () {
             toolTip.textContent = "Summe vom Reis:" + "\r\n" /* absatz */ + "Dezimal: " + dezi + "\r\n" + "Hexadezimal: " + hexa; //schreibt in das tooltip.div die ben�tigten zahlen
         }
     }
-    document.getElementById("tooltip").addEventListener("mousemove", function (event) {
-        var x = event.clientX; /* gibt die position des mousecursors an auf der x- und y-achse */
-        var y = event.clientY;
-        toolTip.style.left = (x + 10) + "px"; /* setzt die tooltip.box 10px neben den mousecursor */
-        toolTip.style.top = (y + 10) + "px";
+    document.addEventListener("mousemove", function (Event) {
+        document.getElementById("tooltip").style.left = (Event.clientX + 10) + "px";
+        document.getElementById("tooltip").style.top = (Event.clientY + 10) + "px";
     });
 };
 //# sourceMappingURL=schachbrett.js.map

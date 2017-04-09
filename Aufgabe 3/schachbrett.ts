@@ -3,7 +3,6 @@ window.onload = function(): void {
     let brett: number = 63;         //es werden 64 schachbrettfelder
     let reihenmaximum: number = 8;  //es werden pro reihe max. 8 schachbrettfelder neben einander gelegt
     let k: number = 1;              //es beginnt mit einem reiskorn
-    let elem: HTMLDivElement = document.createElement("div"); //hier wird eine variable elem deklariert und ihm wird gesagt das er ein neues div erstellt im dokument
     
     function Schachbrett(): void {  /* bildet das Schachbrett */
         for (let i: number = 0; i < reihenmaximum; i++) {   //durchläuft die reihen einzelnd
@@ -11,13 +10,17 @@ window.onload = function(): void {
             if (i % 2 == 0) {   //wenn der restwert 0 ist von i und 2, dann:
                 for (let z: number = 0; z < reihenmaximum; z++) { //wird diese reihe durchlaufen 
                     if (z % 2 == 0) { 
+                        let elem: HTMLDivElement = document.createElement("div"); //hier wird eine variable elem deklariert und ihm wird gesagt das er ein neues div erstellt im dokument
                         document.body.appendChild(elem);    //hier wird das neue div in den body eingefügt
+                        elem.className = "textMittig";
                         elem.className = "black";           //hier wird dem neuen div die cssKlasse zugewiesen "black" welches es schwarz macht
                         elem.textContent = (k + "");        //hier wird dem neuen div der Textinhalt(=Anzahl der Reiskörner auf dem Feld) gegeben
                         k = k * 2;                          //hier wird der Textinhalt berechnet, in dem vom vorheriegen schahbrettfeld die zahl genommen wird und verdoppelt wird
                     }
                     else {
+                        let elem: HTMLDivElement = document.createElement("div"); //hier wird eine variable elem deklariert und ihm wird gesagt das er ein neues div erstellt im dokument
                         document.body.appendChild(elem);    //hier wird das neue div in den body eingefügt
+                        elem.className = "textMittig";
                         elem.className = "white";           //hier wird dem neuen div die cssKlasse zugewiesen "white" welches es weiß macht
                         elem.textContent = (k + "");        //hier wird dem neuen div der Textinhalt(=Anzahl der Reiskörner auf dem Feld) gegeben
                         k = k * 2;                          //hier wird der Textinhalt berechnet, in dem vom vorheriegen schahbrettfeld die zahl genommen wird und verdoppelt wird
@@ -27,15 +30,19 @@ window.onload = function(): void {
 
             else {      //ansonsten, wenn der restwert nicht 0 ist von i und 2, dann:
                 for (let z: number = 0; z < reihenmaximum; z++) {
-                    if (z % 2 == 0) {
+                    if (z % 2 == 0) {    
+                        let elem: HTMLDivElement = document.createElement("div"); //hier wird eine variable elem deklariert und ihm wird gesagt das er ein neues div erstellt im dokument
                         document.body.appendChild(elem);    //hier wird das neue div in den body eingefügt
+                        elem.className = "textMittig";
                         elem.className = "white";           //hier wird dem neuen div die cssKlasse zugewiesen "white" welches es weiß macht
                         elem.textContent = (k + "");        //hier wird dem neuen div der Textinhalt(=Anzahl der Reiskörner auf dem Feld) gegeben
                         k = k * 2;                          //hier wird der Textinhalt berechnet, in dem vom vorheriegen schahbrettfeld die zahl genommen wird und verdoppelt wird
                     }
 
                     else {
+                        let elem: HTMLDivElement = document.createElement("div"); //hier wird eine variable elem deklariert und ihm wird gesagt das er ein neues div erstellt im dokument
                         document.body.appendChild(elem);    //hier wird das neue div in den body eingefügt
+                        elem.className = "textMittig";
                         elem.className = "black";           //hier wird dem neuen div die cssKlasse zugewiesen "black" welches es schwarz macht
                         elem.textContent = (k + "");        //hier wird dem neuen div der Textinhalt(=Anzahl der Reiskörner auf dem Feld) gegeben
                         k = k * 2;                          //hier wird der Textinhalt berechnet, in dem vom vorheriegen schahbrettfeld die zahl genommen wird und verdoppelt wird
@@ -77,11 +84,8 @@ function summeK(): void {
     }
 }
     
-document.getElementById("tooltip").addEventListener("mousemove", function (event: MouseEvent): void { /* hängt tooltip.box dem mousecursor an */
-    let x: number = event.clientX; /* gibt die position des mousecursors an auf der x- und y-achse */
-    let y: number = event.clientY;
-    toolTip.style.left = (x + 10) + "px"; /* setzt die tooltip.box 10px neben den mousecursor */
-    toolTip.style.top = (y + 10) + "px";
-});
-    
+    document.addEventListener("mousemove", function(Event) {
+        document.getElementById("tooltip").style.left = (Event.clientX + 10) + "px";
+        document.getElementById("tooltip").style.top = (Event.clientY + 10) + "px";
+    }); 
 };
