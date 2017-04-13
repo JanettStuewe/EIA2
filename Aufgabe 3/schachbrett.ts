@@ -59,7 +59,7 @@ let obereDivReihe: NodeListOf<HTMLElement> = document.getElementsByTagName("div"
 for (let i: number = 0; i < 9; i++) {                               //durchläuft die obere reihe der gesamtlänge nach
     obereDivReihe[i].addEventListener("click", function(): void {   //registriert welches div genau angeklickt worden ist von der oberen schachbrettreihe
         this.classList.toggle("farbe");                             //färbt genau dieses angeklickte div durch die cssKlasse farbe ein
-        summeK();                                                   // hier wird der funktion summeK bei aktivierung gesagt welches div angeklickt worden ist
+        summeK();                                                    // hier wird der funktion summeK bei aktivierung gesagt welches div angeklickt worden ist
     });
 }
 
@@ -80,7 +80,7 @@ function summeK(): void {
         summe += Number(roteDivs[i].textContent);           //der nummerninhat der angeklickten divs summiert sich
         let hexa: string = summe.toString(16);              //berechnet die hexadezimalzahl aus der summe der reiskörner der angeklickten divs
         let dezi: string = summe.toString();                //berechnet die dezimalzahl aus der summe der reiskörner der angeklickten divs
-        toolTip.textContent = "Summe vom Reis:" + "\r\n" /* absatz */ + "Dezimal: " + dezi + "\r\n" + "Hexadezimal: " + hexa; //schreibt in das tooltip.div die benötigten zahlen
+        toolTip.textContent = "Summe vom Reis:" + summe + "\r\n" /* absatz */ + "Dezimal: " + dezi + "\r\n" + "Hexadezimal: " + hexa; //schreibt in das tooltip.div die benötigten zahlen
     }
 }
     

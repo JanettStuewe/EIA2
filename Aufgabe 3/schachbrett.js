@@ -70,7 +70,7 @@ window.onload = function () {
             summe += Number(roteDivs[i].textContent); //der nummerninhat der angeklickten divs summiert sich
             var hexa = summe.toString(16); //berechnet die hexadezimalzahl aus der summe der reisk�rner der angeklickten divs
             var dezi = summe.toString(); //berechnet die dezimalzahl aus der summe der reisk�rner der angeklickten divs
-            toolTip.textContent = "Summe vom Reis:" + "\r\n" /* absatz */ + "Dezimal: " + dezi + "\r\n" + "Hexadezimal: " + hexa; //schreibt in das tooltip.div die ben�tigten zahlen
+            toolTip.textContent = "Summe vom Reis:" + summe + "\r\n" /* absatz */ + "Dezimal: " + dezi + "\r\n" + "Hexadezimal: " + hexa; //schreibt in das tooltip.div die ben�tigten zahlen
         }
     }
     document.addEventListener("mousemove", function (Event) {
