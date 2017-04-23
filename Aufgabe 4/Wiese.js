@@ -1,31 +1,162 @@
-var Wiese;
-(function (Wiese) {
+var Aufgabe_4_Bild;
+(function (Aufgabe_4_Bild) {
     window.addEventListener("load", init);
     var crc2;
     function init(_event) {
         var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
-        console.log(canvas);
         crc2 = canvas.getContext("2d");
-        console.log(crc2);
-        crc2.fillStyle = "#0000ff";
+        //________________HINTERGRUND______________________________
+        //Himmel_hellblau
+        crc2.fillStyle = "#b0e2ff";
         crc2.fillRect(0, 0, canvas.width, canvas.height);
-        crc2.moveTo(0, 0);
-        crc2.lineTo(canvas.width, canvas.height);
-        crc2.stroke();
-        drawTriangle(200, 150, "#00ff00", "#ff0000");
+        //Berge_gro�ers
+        drawBerg(850, 210, "#919191", "#919191");
+        drawBergSpitze(850, 210, "#e0eeee", "#e0eeee");
+        //Berge_klein
+        drawKleinenBerg(500, 400, "#cccccc", "#cccccc");
+        drawKleinenBergSpitze(500, 400, "#f0ffff", "#f0ffff");
+        //Wiese_gr�n
+        crc2.fillStyle = "#b3ee3a";
+        crc2.fillRect(0, 500, canvas.width, canvas.height);
+        //____________________MITTE__________________________________________
+        drawBaeume(20, 460, "#a0522d", "#006400");
+        drawBaeume(800, 500, "#a0522d", "#006400");
+        drawBaeume(144, 551, "#a0522d", "#008000");
+        drawSonne(300, 80, "yellow", "yellow");
+        //      //____________________VORDERGRUND_____________________________________
+        //    //Blumen
+        //  drawBlumeGelb(500, 400, "#838b8b", "#838b8b");
+        //     drawBlumeRot(500, 400, "#838b8b", "#838b8b");
+        //   drawBlumeLila(500, 400, "#838b8b", "#838b8b");
+        //
+        //      //Steinhaufen plus Schwert
+        //    drawBerghaufen(500, 400, "#838b8b", "#838b8b");
+        //  drawSchwert(500, 400, "#838b8b", "#838b8b");
+        //Gras_gr�n
+        //drawGras(500, 400, "#838b8b", "#838b8b");
     }
-    function drawTriangle(_x, _y, _strokeColor, _fillColor) {
+    /////////////////////////////GRO�ER BERG/////////////////////////////////////////////   
+    function drawBerg(_x, _y, _strokeColor, _fillColor) {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x - 10, _y + 10);
-        crc2.lineTo(_x, _y - 10);
-        crc2.lineTo(_x + 10, _y + 10);
+        crc2.moveTo(_x - 348, _y + 320); //punkt unten links des berges
+        crc2.lineTo(_x + 90, _y - 200); //oberepunkt/spitze des berges
+        crc2.lineTo(_x + 300, _y + 320); //punkt unten rechts vom berg
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        //draw a triangle around the coordinates (_x, _y);
     }
-})(Wiese || (Wiese = {}));
+    function drawBergSpitze(_x, _y, _strokeColor, _fillColor) {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(_x - 80, _y + 0); //punkt unten links des berges
+        crc2.lineTo(_x + 90, _y - 200); //oberepunkt/spitze des berges
+        crc2.lineTo(_x + 180, _y + 0); //punkt unten rechts vom berg
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+    ////////////////////////////////////KLEINER BERG//////////////////////////////////
+    function drawKleinenBerg(_x, _y, _strokeColor, _fillColor) {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(_x - 380, _y + 220); //punkt unten links des berges
+        crc2.lineTo(_x + 90, _y - 200); //oberepunkt/spitze des berges
+        crc2.lineTo(_x + 300, _y + 220); //punkt unten rechts vom berg
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+    function drawKleinenBergSpitze(_x, _y, _strokeColor, _fillColor) {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(_x - 60, _y - 67); //punkt unten links des berges
+        crc2.lineTo(_x + 90, _y - 200); //oberepunkt/spitze des berges
+        crc2.lineTo(_x + 156, _y - 67); //punkt unten rechts vom berg
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+    ////////////////////////////////B�UME/////////////////////////////////////////
+    function drawBaeume(_x, _y, _strokeColor, _fillColor) {
+        //Baumstamm
+        crc2.beginPath();
+        crc2.fillStyle = _strokeColor;
+        crc2.fillRect(_x, _y - 15, 40, 60);
+        crc2.closePath();
+        crc2.stroke();
+        //Baumkrone
+        crc2.beginPath();
+        crc2.arc(_x + 20, _y - 90, 80, 0 * Math.PI, 2 * Math.PI);
+        crc2.arc(_x - 60, _y - 130, 50, 0 * Math.PI, 2 * Math.PI);
+        crc2.arc(_x + 60, _y - 120, 80, 0 * Math.PI, 2 * Math.PI);
+        crc2.arc(_x + 20, _y - 240, 80, 0 * Math.PI, 2 * Math.PI);
+        crc2.arc(_x + 100, _y - 180, 70, 0 * Math.PI, 2 * Math.PI);
+        crc2.arc(_x - 30, _y - 200, 80, 0 * Math.PI, 2 * Math.PI);
+        crc2.arc(_x + 80, _y - 260, 60, 0 * Math.PI, 2 * Math.PI);
+        //        crc2.arc( _x, _y, 40, 0 * Math.PI, 2 * Math.PI);
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _fillColor;
+        crc2.fill();
+        crc2.closePath();
+        crc2.stroke();
+    }
+    function drawSonne(_x, _y, _strokeColor, _fillColor) {
+        crc2.beginPath();
+        crc2.arc(_x, _y, 40, 0 * Math.PI, 2 * Math.PI);
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _fillColor;
+        crc2.fill();
+        crc2.closePath();
+        crc2.stroke();
+    }
+    ////////////////////////////////ECALIBUR/////////////////////////////////////////
+    function drawSteinhaufen(_x, _y, _strokeColor) {
+        crc2.beginPath();
+        crc2.fill();
+        crc2.closePath();
+        crc2.stroke();
+    }
+    function drawSchwert(_x, _y, _strokeColor) {
+        crc2.beginPath();
+        crc2.fill();
+        crc2.closePath();
+        crc2.stroke();
+    }
+    ////////////////////////////////BLUMEN/////////////////////////////////////////
+    function drawBlumeGelb(_x, _y, _strokeColor) {
+        crc2.beginPath();
+        crc2.fill();
+        crc2.closePath();
+        crc2.stroke();
+    }
+    function drawBlumeRot(_x, _y, _strokeColor) {
+        crc2.beginPath();
+        crc2.fill();
+        crc2.closePath();
+        crc2.stroke();
+    }
+    function drawBlumeLila(_x, _y, _strokeColor) {
+        crc2.beginPath();
+        crc2.fill();
+        crc2.closePath();
+        crc2.stroke();
+    }
+    ////////////////////////////////GRAS/////////////////////////////////////////
+    function drawGras(_x, _y, _strokeColor) {
+        crc2.beginPath();
+        crc2.fill();
+        crc2.closePath();
+        crc2.stroke();
+    }
+})(Aufgabe_4_Bild || (Aufgabe_4_Bild = {}));
+//DRAW A LINE
+//        crc2.moveTo(0, 0);
+//        crc2.lineTo(canvas.width, canvas.height);
+//        crc2.stroke(); 
 //# sourceMappingURL=Wiese.js.map
