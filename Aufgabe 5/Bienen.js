@@ -1,8 +1,12 @@
-var Aufgabe_4_Bild;
-(function (Aufgabe_4_Bild) {
-    window.addEventListener("load", init);
+var Bienenschwarm;
+(function (Bienenschwarm) {
+    window.addEventListener("load", Wiese);
     var crc2;
-    function init(_event) {
+    var imgData;
+    var x = [];
+    var y = [];
+    var n = 10;
+    function Wiese(_event) {
         var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
@@ -29,8 +33,8 @@ var Aufgabe_4_Bild;
         drawBlumeTulpe(100, 590, "#006400", "red");
         drawBlumeBlue(19, 560, "blue", "white", "#006400");
         drawBlume3(50, 500, "#DF7CF3", "#722F80", "#006400");
-        //Gras_gr�n
-        //drawGras(500, 400, "#838b8b", "#838b8b");
+        drawBienenkorb(930, 530);
+        drawBienenkorbBlack(950, 550);
         //Blumenwiese
         for (var i = 0; i < 10; i++) {
             var flowerField = Math.floor((Math.random() * 3) + 0);
@@ -49,6 +53,43 @@ var Aufgabe_4_Bild;
                 default:
                     break;
             }
+        }
+        //gemaltes Bild abspeichern
+        imgData = crc2.getImageData(0, 0, 1000, 600);
+        //Startposition f�r n Bienen in Array abspeichern
+        for (var i_1 = 0; i_1 < n; i_1++) {
+            x[i_1] = 950;
+            y[i_1] = 550;
+        }
+        window.setTimeout(Animation, 26);
+        canvas.addEventListener("click", neuesBienchen);
+        canvas.addEventListener("touch", neuesBienchen);
+        //Funktion um eine neue Biene nach Klick zu starten, neue x- und y-Position ins Array hinzuf�gen
+        function neuesBienchen() {
+            x.push(950);
+            y.push(550);
+        }
+        //Funktion f�r die Animation der Bienen
+        function Animation() {
+            //gespeichertes Hintergrundbild erneut aufrufen
+            crc2.putImageData(imgData, 0, 0);
+            //Position der Bienen durch zwei Zufallszahlen bestimmen
+            for (var i_2 = 0; i_2 < x.length; i_2++) {
+                x[i_2] += Math.random() * 1 - 1;
+                y[i_2] += Math.random() * 2 - 1;
+                //if-Abfragen um die Bienen beim erreichen eines Bildrandes auf der anderen Seite wieder erscheinen zu lassen
+                if (x[i_2] >= 995)
+                    x[i_2] = -5;
+                if (y[i_2] <= 3)
+                    y[i_2] = 597;
+                if (x[i_2] < -5)
+                    x[i_2] = 995;
+                if (y[i_2] > 597)
+                    y[i_2] = 3;
+                //Malen der Bienen an der neuen Position
+                drawBiene(x[i_2], y[i_2]);
+            }
+            window.setTimeout(Animation, 20);
         }
     }
     /////////////////////////////GRO�ER BERG/////////////////////////////////////////////   
@@ -260,9 +301,36 @@ var Aufgabe_4_Bild;
         crc2.stroke();
         crc2.closePath();
     }
-})(Aufgabe_4_Bild || (Aufgabe_4_Bild = {}));
-//DRAW A LINE
-//        crc2.moveTo(0, 0);
-//        crc2.lineTo(canvas.width, canvas.height);
-//        crc2.stroke(); 
-//# sourceMappingURL=Wiese.js.map
+    function drawBienenkorb(_x, _y) {
+        crc2.fillStyle = "brown";
+        crc2.fillRect(_x, _y, 50, 50);
+        crc2.beginPath();
+        crc2.arc(955, 525, 25, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
+        crc2.fill();
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.arc(933, 550, 10, 0 * Math.PI, 2 * Math.PI); //linke Seite
+        crc2.arc(933, 532, 10, 0 * Math.PI, 2 * Math.PI);
+        crc2.arc(933, 567, 10, 0 * Math.PI, 2 * Math.PI);
+        crc2.fill();
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.arc(978, 550, 10, 0 * Math.PI, 2 * Math.PI); //rechte Seite
+        crc2.arc(978, 532, 10, 0 * Math.PI, 2 * Math.PI);
+        crc2.arc(978, 567, 10, 0 * Math.PI, 2 * Math.PI);
+        crc2.fill();
+        crc2.closePath();
+    }
+    function drawBienenkorbBlack(_x, _y) {
+        crc2.beginPath();
+        crc2.fillStyle = "black";
+        crc2.fillRect(550, 950, 130, 130);
+        crc2.fill();
+        crc2.closePath();
+    }
+    function drawBiene(_x, _y) {
+        crc2.fillStyle = "yellow";
+        crc2.fillRect(_x, _y, 10, 10);
+    }
+})(Bienenschwarm || (Bienenschwarm = {}));
+//# sourceMappingURL=Bienen.js.map

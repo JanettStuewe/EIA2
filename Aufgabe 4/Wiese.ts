@@ -280,14 +280,6 @@ namespace Aufgabe_4_Bild {
         crc2.closePath();
 
     }
-    ////////////////////////////////GRAS/////////////////////////////////////////
-    function drawGras(_x: number, _y: number, _strokeColor: string): void {
-        crc2.beginPath();
-
-        crc2.fill();
-        crc2.closePath();
-        crc2.stroke();
-    }
 }
      //DRAW A LINE
     //        crc2.moveTo(0, 0);
