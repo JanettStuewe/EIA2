@@ -65,8 +65,8 @@ var Bienenschwarm;
         canvas.addEventListener("click", drawNeuesBienchen); //wenn auf den Canvas geklickt wird, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen l�sst
         canvas.addEventListener("touch", drawNeuesBienchen); //wenn jmd auf den Canvas toucht, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen l�sst  
         function drawNeuesBienchen() {
-            x.push(75);
-            y.push(345);
+            x.push(950);
+            y.push(550);
         }
         //Animation der Bienen
         function Animation() {
