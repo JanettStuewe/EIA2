@@ -42,7 +42,7 @@ namespace Bienenschwarm {
         drawBlumeBlue(19, 560, "blue", "white", "#006400");
         drawBlume3(50, 500, "#DF7CF3", "#722F80", "#006400");
         drawBienenkorb(930, 530);
-        drawBienenkorbBlack (950, 550);
+        drawBienenkorbBlack(950, 550);
 
         //Blumenwiese
         for (var i: number = 0; i < 10; i++) {
@@ -65,37 +65,26 @@ namespace Bienenschwarm {
             }
         }
 
-        //gemaltes Bild abspeichern
+        //Hintergrundbild speichern
         imgData = crc2.getImageData(0, 0, 1000, 600);
-
-        //Startposition für n Bienen in Array abspeichern
+        //Bienenstart
         for (let i: number = 0; i < n; i++) {
             x[i] = 950;
             y[i] = 550;
         }
-
         window.setTimeout(Animation, 26);
-        canvas.addEventListener("click", neuesBienchen);
-        canvas.addEventListener("touch", neuesBienchen);
+        canvas.addEventListener("click", Animation);    //wenn auf den Canvas geklickt wird, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen lässt
+        canvas.addEventListener("touch", Animation);    //wenn jmd auf den Canvas toucht, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen lässt  
 
-
-        //Funktion um eine neue Biene nach Klick zu starten, neue x- und y-Position ins Array hinzufügen
-        function neuesBienchen(): void {
-            x.push(950);
-            y.push(550);
-        }
-
-        //Funktion für die Animation der Bienen
+        //Animation der Bienen
         function Animation(): void {
-            //gespeichertes Hintergrundbild erneut aufrufen
-            crc2.putImageData(imgData, 0, 0);
+            crc2.putImageData(imgData, 0, 0);   //Hintergrundbild aufrufen
 
-            //Position der Bienen durch zwei Zufallszahlen bestimmen
-            for (let i: number = 0; i < x.length; i++) {
+            for (let i: number = 0; i < x.length; i++) {  //Bienenposition durch Zufallsgenerator
                 x[i] += Math.random() * 1 - 1;
                 y[i] += Math.random() * 2 - 1;
-                //if-Abfragen um die Bienen beim erreichen eines Bildrandes auf der anderen Seite wieder erscheinen zu lassen
-                if (x[i] >= 995)
+
+                if (x[i] >= 995)    //lässt Bienen bei Randüberschreitung wieder erscheinen
                     x[i] = -5;
                 if (y[i] <= 3)
                     y[i] = 597;
@@ -103,15 +92,11 @@ namespace Bienenschwarm {
                     x[i] = 995;
                 if (y[i] > 597)
                     y[i] = 3;
-
-                //Malen der Bienen an der neuen Position
-                drawBiene(x[i], y[i]);
+                drawBiene(x[i], y[i]);  //Malen der Bienen an der neuen Position
             }
-
             window.setTimeout(Animation, 20);
         }
     }
-
     /////////////////////////////GROßER BERG/////////////////////////////////////////////   
     function drawBerg(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
@@ -351,7 +336,7 @@ namespace Bienenschwarm {
         crc2.fill();
         crc2.closePath();
     }
-    
+
     function drawBienenkorbBlack(_x: number, _y: number): void {
         crc2.beginPath();
         crc2.fillStyle = "black";

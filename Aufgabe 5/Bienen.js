@@ -54,30 +54,22 @@ var Bienenschwarm;
                     break;
             }
         }
-        //gemaltes Bild abspeichern
+        //Hintergrundbild speichern
         imgData = crc2.getImageData(0, 0, 1000, 600);
-        //Startposition f�r n Bienen in Array abspeichern
+        //Bienenstart
         for (var i_1 = 0; i_1 < n; i_1++) {
             x[i_1] = 950;
             y[i_1] = 550;
         }
         window.setTimeout(Animation, 26);
-        canvas.addEventListener("click", neuesBienchen);
-        canvas.addEventListener("touch", neuesBienchen);
-        //Funktion um eine neue Biene nach Klick zu starten, neue x- und y-Position ins Array hinzuf�gen
-        function neuesBienchen() {
-            x.push(950);
-            y.push(550);
-        }
-        //Funktion f�r die Animation der Bienen
+        canvas.addEventListener("click", Animation); //wenn auf den Canvas geklickt wird, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen l�sst
+        canvas.addEventListener("touch", Animation); //wenn jmd auf den Canvas toucht, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen l�sst  
+        //Animation der Bienen
         function Animation() {
-            //gespeichertes Hintergrundbild erneut aufrufen
-            crc2.putImageData(imgData, 0, 0);
-            //Position der Bienen durch zwei Zufallszahlen bestimmen
+            crc2.putImageData(imgData, 0, 0); //Hintergrundbild aufrufen
             for (var i_2 = 0; i_2 < x.length; i_2++) {
                 x[i_2] += Math.random() * 1 - 1;
                 y[i_2] += Math.random() * 2 - 1;
-                //if-Abfragen um die Bienen beim erreichen eines Bildrandes auf der anderen Seite wieder erscheinen zu lassen
                 if (x[i_2] >= 995)
                     x[i_2] = -5;
                 if (y[i_2] <= 3)
@@ -86,8 +78,7 @@ var Bienenschwarm;
                     x[i_2] = 995;
                 if (y[i_2] > 597)
                     y[i_2] = 3;
-                //Malen der Bienen an der neuen Position
-                drawBiene(x[i_2], y[i_2]);
+                drawBiene(x[i_2], y[i_2]); //Malen der Bienen an der neuen Position
             }
             window.setTimeout(Animation, 20);
         }
