@@ -72,10 +72,16 @@ namespace Bienenschwarm {
             x[i] = 950;
             y[i] = 550;
         }
+        
         window.setTimeout(Animation, 26);
-        canvas.addEventListener("click", Animation);    //wenn auf den Canvas geklickt wird, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen lässt
-        canvas.addEventListener("touch", Animation);    //wenn jmd auf den Canvas toucht, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen lässt  
+        canvas.addEventListener("click", drawNeuesBienchen);    //wenn auf den Canvas geklickt wird, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen lässt
+        canvas.addEventListener("touch", drawNeuesBienchen);    //wenn jmd auf den Canvas toucht, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen lässt  
 
+        function drawNeuesBienchen(): void {
+            x.push(75);
+            y.push(345);
+        }
+        
         //Animation der Bienen
         function Animation(): void {
             crc2.putImageData(imgData, 0, 0);   //Hintergrundbild aufrufen
