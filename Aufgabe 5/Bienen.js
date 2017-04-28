@@ -313,15 +313,19 @@ var Bienenschwarm;
         crc2.closePath();
     }
     function drawBienenkorbBlack(_x, _y) {
-        crc2.beginPath();
         crc2.fillStyle = "black";
-        crc2.fillRect(550, 950, 130, 130);
-        crc2.fill();
-        crc2.closePath();
+        crc2.fillRect(944, 547, 11, 11);
     }
     function drawBiene(_x, _y) {
         crc2.fillStyle = "yellow";
-        crc2.fillRect(_x, _y, 10, 10);
+        crc2.beginPath();
+        crc2.arc(_x, _y, 2, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
+        crc2.fill();
+        crc2.closePath();
+        crc2.strokeStyle = "black";
+        crc2.moveTo(_x + 2, _y + 2);
+        crc2.lineTo(_x, _y);
+        crc2.stroke();
     }
 })(Bienenschwarm || (Bienenschwarm = {}));
 //# sourceMappingURL=Bienen.js.map
