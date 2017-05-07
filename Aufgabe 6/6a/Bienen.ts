@@ -1,17 +1,40 @@
 namespace Bienenschwarm {
     window.addEventListener("load", Wiese);
+    
+    interface Square {
+        x: number;
+        y: number;
+        size: number;
+        color: string;
+        geschwindigkeit: boolean;
+        
+    }
+    
     let crc2: CanvasRenderingContext2D;
     let imgData: ImageData;
-    let x: number[] = [];
-    let y: number[] = [];
+    let alleBienen: Square[] = [];
     let n: number = 10;
 
-
+    
     function Wiese(_event: Event): void {
         let canvas: HTMLCanvasElement;
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
 
+        for (let i: number = 0; i < n; i++) {
+                let s: Square = { x: 0, y: 0, size: 0, color: "#0000ff", geschwindigkeit: true }; // default-values
+                s["x"] = Math.random() * 200; // mögliche Schreibweise, hier sind variable Schlüssel möglich
+                s.y = Math.random() * 200; // andere mögliche Schreibweise mit literalem Schlüssel
+                s.size = Math.random() * 1 + 2;
+                s.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+                alleBienen[i] = s;
+              if (i % 2 == 0)
+                { s.geschwindigkeit = true; }
+                else
+                { s.geschwindigkeit = false; }
+                alleBienen[i] = s;
+        }    
+        
         //________________HINTERGRUND______________________________
         //Himmel_hellblau
         crc2.fillStyle = "#b0e2ff";
@@ -69,8 +92,9 @@ namespace Bienenschwarm {
         imgData = crc2.getImageData(0, 0, 1000, 600);
         //Bienenstart
         for (let i: number = 0; i < n; i++) {
-            x[i] = 950;
-            y[i] = 550;
+            let s: Square = alleBienen[i];
+            s.x = 950;
+            s.y = 550;
         }
         
         window.setTimeout(Animation, 26);
@@ -81,27 +105,34 @@ namespace Bienenschwarm {
         Animation();
     }
         function drawNeuesBienchen(): void {
-            x.push(950);
-            y.push(550);
+            let bee: Square = {x: 950, y: 550, size: 200, color: "red", geschwindigkeit: true};
+            alleBienen.push(bee);
         }
        
         //Animation der Bienen
         function Animation(): void {
             crc2.putImageData(imgData, 0, 0);   //Hintergrundbild aufrufen
+        
+        
+            if(s.geschwindigkeit == true){
+            s.x += Math.random() * 6 - 3;
+            s.y += Math.random() * 4 - 2;
+           
+            else (s.geschwindigkeit == false){
+            s.x += Math.random() * 4 - 3;
+            s.y += Math.random() * 4 - 2;
+            alleBienen[i] = s;
+            }
 
-            for (let i: number = 0; i < x.length; i++) {  //Bienenposition durch Zufallsgenerator
-                x[i] += Math.random() * 1 - 1;
-                y[i] += Math.random() * 2 - 1;
-
-                if (x[i] >= 995)    //lässt Bienen bei Randüberschreitung wieder erscheinen
-                    x[i] = -5;
-                if (y[i] <= 3)
-                    y[i] = 597;
-                if (x[i] < -5)
-                    x[i] = 995;
-                if (y[i] > 597)
-                    y[i] = 3;
-                drawBiene(x[i], y[i]);  //Malen der Bienen an der neuen Position
+                if (s.x >= 995)    //lässt Bienen bei Randüberschreitung wieder erscheinen
+                    s.x = -5;
+                if (s.y <= 3)
+                    s.y = 597;
+                if (s.x < -5)
+                    s.x = 995;
+                if (s.y > 597)
+                    s.y = 3;
+                drawBiene(s);  //Malen der Bienen an der neuen Position
             }
             window.setTimeout(Animation, 20);
         }
@@ -351,15 +382,15 @@ namespace Bienenschwarm {
         crc2.fillRect(944, 547, 11, 11);
 
     }
-    function drawBiene(_x: number, _y: number): void {
-        crc2.fillStyle = "yellow";
+    function drawBiene(s: Square): void {
+        crc2.fillStyle = s.color;
         crc2.beginPath();
-        crc2.arc(_x, _y, 2, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
+        crc2.arc(s.x, s.y, s.size, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
         crc2.fill();
         crc2.closePath();
         crc2.strokeStyle = "black";
-        crc2.moveTo(_x + 2, _y + 2);
-        crc2.lineTo(_x, _y);
+        crc2.moveTo(s.x + 2, s.y + 2);
+        crc2.lineTo(s.x, s.y);
         crc2.stroke();
     }
 }

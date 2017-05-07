@@ -3,13 +3,27 @@ var Bienenschwarm;
     window.addEventListener("load", Wiese);
     var crc2;
     var imgData;
-    var x = [];
-    var y = [];
+    var alleBienen = [];
     var n = 10;
     function Wiese(_event) {
         var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
+        for (var i_1 = 0; i_1 < n; i_1++) {
+            var s = { x: 0, y: 0, size: 0, color: "#0000ff", geschwindigkeit: true }; // default-values
+            s["x"] = Math.random() * 200; // m�gliche Schreibweise, hier sind variable Schl�ssel m�glich
+            s.y = Math.random() * 200; // andere m�gliche Schreibweise mit literalem Schl�ssel
+            s.size = Math.random() * 1 + 2;
+            s.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            alleBienen[i_1] = s;
+            if (i_1 % 2 == 0) {
+                s.geschwindigkeit = true;
+            }
+            else {
+                s.geschwindigkeit = false;
+            }
+            alleBienen[i_1] = s;
+        }
         //________________HINTERGRUND______________________________
         //Himmel_hellblau
         crc2.fillStyle = "#b0e2ff";
@@ -57,9 +71,10 @@ var Bienenschwarm;
         //Hintergrundbild speichern
         imgData = crc2.getImageData(0, 0, 1000, 600);
         //Bienenstart
-        for (var i_1 = 0; i_1 < n; i_1++) {
-            x[i_1] = 950;
-            y[i_1] = 550;
+        for (var i_2 = 0; i_2 < n; i_2++) {
+            var s = alleBienen[i_2];
+            s.x = 950;
+            s.y = 550;
         }
         window.setTimeout(Animation, 26);
         canvas.addEventListener("click", drawNeuesBienchen); //wenn auf den Canvas geklickt wird, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen l�sst
@@ -68,24 +83,25 @@ var Bienenschwarm;
         Animation();
     }
     function drawNeuesBienchen() {
-        x.push(950);
-        y.push(550);
+        var bee = { x: 950, y: 550, size: 200, color: "red", geschwindigkeit: true };
+        alleBienen.push(bee);
     }
     //Animation der Bienen
     function Animation() {
         crc2.putImageData(imgData, 0, 0); //Hintergrundbild aufrufen
-        for (var i = 0; i < x.length; i++) {
-            x[i] += Math.random() * 1 - 1;
-            y[i] += Math.random() * 2 - 1;
-            if (x[i] >= 995)
-                x[i] = -5;
-            if (y[i] <= 3)
-                y[i] = 597;
-            if (x[i] < -5)
-                x[i] = 995;
-            if (y[i] > 597)
-                y[i] = 3;
-            drawBiene(x[i], y[i]); //Malen der Bienen an der neuen Position
+        for (var i = 0; i < n; i++) {
+            var s = alleBienen[i];
+            s.x += Math.random() * 5 - 3;
+            s.y += Math.random() * 4 - 2;
+            if (s.x >= 995)
+                s.x = -5;
+            if (s.y <= 3)
+                s.y = 597;
+            if (s.x < -5)
+                s.x = 995;
+            if (s.y > 597)
+                s.y = 3;
+            drawBiene(s); //Malen der Bienen an der neuen Position
         }
         window.setTimeout(Animation, 20);
     }
@@ -322,15 +338,15 @@ var Bienenschwarm;
         crc2.fillStyle = "black";
         crc2.fillRect(944, 547, 11, 11);
     }
-    function drawBiene(_x, _y) {
-        crc2.fillStyle = "yellow";
+    function drawBiene(s) {
+        crc2.fillStyle = s.color;
         crc2.beginPath();
-        crc2.arc(_x, _y, 2, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
+        crc2.arc(s.x, s.y, s.size, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
         crc2.fill();
         crc2.closePath();
         crc2.strokeStyle = "black";
-        crc2.moveTo(_x + 2, _y + 2);
-        crc2.lineTo(_x, _y);
+        crc2.moveTo(s.x + 2, s.y + 2);
+        crc2.lineTo(s.x, s.y);
         crc2.stroke();
     }
 })(Bienenschwarm || (Bienenschwarm = {}));
