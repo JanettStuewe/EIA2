@@ -34,7 +34,7 @@ namespace StudiVZ {
     function saveData(_input: string): string {
         let inputArray: string[] = _input.split(",");
         if (inputArray.length < 5) {
-            return "Eingabe nicht vollständig";
+            return "Eingabe nicht komplett";
         }
         if (isNaN(parseInt(inputArray[0]))) {
             return "Bitte geben Sie die Matrikelnummer als Zahl ein.";
@@ -43,7 +43,7 @@ namespace StudiVZ {
             return "Bitte geben Sie das Alter als Zahl ein.";
         }
         if (parseInt(inputArray[4]) != 0 && parseInt(inputArray[4]) != 1) {
-            return "Bitte geben Sie ihr Geschlecht mit 0 oder 1 an. Beachten Sie dabei 0 steht für weiblich oder 1 für männlich.";
+            return "Bitte geben Sie ihr Geschlecht mit 0 oder 1 an. Beachten Sie dabei 0 steht für Frau oder 1 für Mann.";
         }
         let s: StudentData = {
             Matrikelnummer: parseInt(inputArray[0]),

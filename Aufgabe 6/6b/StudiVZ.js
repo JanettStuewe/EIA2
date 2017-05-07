@@ -23,7 +23,7 @@ var StudiVZ;
     function saveData(_input) {
         var inputArray = _input.split(",");
         if (inputArray.length < 5) {
-            return "Eingabe nicht vollst�ndig";
+            return "Eingabe nicht komplett";
         }
         if (isNaN(parseInt(inputArray[0]))) {
             return "Bitte geben Sie die Matrikelnummer als Zahl ein.";
@@ -32,7 +32,7 @@ var StudiVZ;
             return "Bitte geben Sie das Alter als Zahl ein.";
         }
         if (parseInt(inputArray[4]) != 0 && parseInt(inputArray[4]) != 1) {
-            return "Bitte geben Sie ihr Geschlecht mit 0 oder 1 an. Beachten Sie dabei 0 steht f�r weiblich oder 1 f�r m�nnlich.";
+            return "Bitte geben Sie ihr Geschlecht mit 0 oder 1 an. Beachten Sie dabei 0 steht f�r Frau oder 1 f�r Mann.";
         }
         var s = {
             Matrikelnummer: parseInt(inputArray[0]),
