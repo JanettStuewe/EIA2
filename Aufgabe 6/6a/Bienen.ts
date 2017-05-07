@@ -1,40 +1,42 @@
 namespace Bienenschwarm {
     window.addEventListener("load", Wiese);
-    
+
     interface Square {
         x: number;
         y: number;
         size: number;
         color: string;
         geschwindigkeit: boolean;
-        
+
     }
-    
+
     let crc2: CanvasRenderingContext2D;
     let imgData: ImageData;
     let alleBienen: Square[] = [];
     let n: number = 10;
 
-    
+
     function Wiese(_event: Event): void {
         let canvas: HTMLCanvasElement;
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
 
         for (let i: number = 0; i < n; i++) {
-                let s: Square = { x: 0, y: 0, size: 0, color: "#0000ff", geschwindigkeit: true }; // default-values
-                s["x"] = Math.random() * 200; // mögliche Schreibweise, hier sind variable Schlüssel möglich
-                s.y = Math.random() * 200; // andere mögliche Schreibweise mit literalem Schlüssel
-                s.size = Math.random() * 1 + 2;
-                s.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
-                alleBienen[i] = s;
-              if (i % 2 == 0)
-                { s.geschwindigkeit = true; }
-                else
-                { s.geschwindigkeit = false; }
-                alleBienen[i] = s;
-        }    
-        
+            let s: Square = { x: 0, y: 0, size: 0, color: "#0000ff", geschwindigkeit: true }; // default-values
+            s["x"] = Math.random() * 200; // mögliche Schreibweise, hier sind variable Schlüssel möglich
+            s.y = Math.random() * 200; // andere mögliche Schreibweise mit literalem Schlüssel
+            s.size = Math.random() * 1 + 2;
+            s.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            alleBienen[i] = s;
+            if (i % 2 == 0) {
+                s.geschwindigkeit = true;
+            }
+            else {
+                s.geschwindigkeit = false;
+            }
+            alleBienen[i] = s;
+        }
+
         //________________HINTERGRUND______________________________
         //Himmel_hellblau
         crc2.fillStyle = "#b0e2ff";
@@ -96,33 +98,36 @@ namespace Bienenschwarm {
             s.x = 950;
             s.y = 550;
         }
-        
+
         window.setTimeout(Animation, 26);
         canvas.addEventListener("click", drawNeuesBienchen);    //wenn auf den Canvas geklickt wird, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen lässt
         canvas.addEventListener("touch", drawNeuesBienchen);    //wenn jmd auf den Canvas toucht, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen lässt  
- 
+
         drawNeuesBienchen();
         Animation();
     }
-        function drawNeuesBienchen(): void {
-            let bee: Square = {x: 950, y: 550, size: 200, color: "red", geschwindigkeit: true};
+    function drawNeuesBienchen(): void {
+            let bee: Square = { x: 950, y: 550, size: 2, color: "red", geschwindigkeit: true };
             alleBienen.push(bee);
+
         }
-       
+
         //Animation der Bienen
         function Animation(): void {
             crc2.putImageData(imgData, 0, 0);   //Hintergrundbild aufrufen
-        
-        
-            if(s.geschwindigkeit == true){
-            s.x += Math.random() * 6 - 3;
-            s.y += Math.random() * 4 - 2;
-           
-            else (s.geschwindigkeit == false){
-            s.x += Math.random() * 4 - 3;
-            s.y += Math.random() * 4 - 2;
-            alleBienen[i] = s;
-            }
+
+            for (let i: number = 0; i < alleBienen.length; i++) {
+                let s: Square = alleBienen[i];
+                if (s.geschwindigkeit == true) {
+                    s.x += Math.random() * 5 - 3;
+                    s.y += Math.random() * 4 - 2;
+                }
+                else {
+                    s.x += Math.random() * 4 - 3;
+                    s.y += Math.random() * 4 - 2;
+                    alleBienen[i] = s;
+                }
+
 
                 if (s.x >= 995)    //lässt Bienen bei Randüberschreitung wieder erscheinen
                     s.x = -5;
@@ -136,261 +141,260 @@ namespace Bienenschwarm {
             }
             window.setTimeout(Animation, 20);
         }
-    
-    /////////////////////////////GROßER BERG/////////////////////////////////////////////   
-    function drawBerg(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x - 348, _y + 320);    //punkt unten links des berges
-        crc2.lineTo(_x + 90, _y - 200);     //oberepunkt/spitze des berges
-        crc2.lineTo(_x + 300, _y + 320);     //punkt unten rechts vom berg
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-    }
-    function drawBergSpitze(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x - 80, _y + 0);    //punkt unten links des berges
-        crc2.lineTo(_x + 90, _y - 200);     //oberepunkt/spitze des berges
-        crc2.lineTo(_x + 180, _y + 0);     //punkt unten rechts vom berg
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-    }
+        /////////////////////////////GROßER BERG/////////////////////////////////////////////   
+        function drawBerg(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+            crc2.beginPath();
+            crc2.fillStyle = _fillColor;
+            crc2.strokeStyle = _strokeColor;
+            crc2.moveTo(_x - 348, _y + 320);    //punkt unten links des berges
+            crc2.lineTo(_x + 90, _y - 200);     //oberepunkt/spitze des berges
+            crc2.lineTo(_x + 300, _y + 320);     //punkt unten rechts vom berg
+            crc2.closePath();
+            crc2.fill();
+            crc2.stroke();
+        }
+        function drawBergSpitze(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+            crc2.beginPath();
+            crc2.fillStyle = _fillColor;
+            crc2.strokeStyle = _strokeColor;
+            crc2.moveTo(_x - 80, _y + 0);    //punkt unten links des berges
+            crc2.lineTo(_x + 90, _y - 200);     //oberepunkt/spitze des berges
+            crc2.lineTo(_x + 180, _y + 0);     //punkt unten rechts vom berg
+            crc2.closePath();
+            crc2.fill();
+            crc2.stroke();
+        }
 
-    ////////////////////////////////////KLEINER BERG//////////////////////////////////
-    function drawKleinenBerg(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x - 380, _y + 220);    //punkt unten links des berges
-        crc2.lineTo(_x + 90, _y - 200);     //oberepunkt/spitze des berges
-        crc2.lineTo(_x + 300, _y + 220);     //punkt unten rechts vom berg
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-    }
-    function drawKleinenBergSpitze(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x - 60, _y - 67);    //punkt unten links des berges
-        crc2.lineTo(_x + 90, _y - 200);     //oberepunkt/spitze des berges
-        crc2.lineTo(_x + 156, _y - 67);     //punkt unten rechts vom berg
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-    }
-
-
-    ////////////////////////////////BÄUME/////////////////////////////////////////
-    function drawBaeume(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-        //Baumstamm
-        crc2.beginPath();
-        crc2.fillStyle = _strokeColor;
-
-        crc2.fillRect(_x, _y - 15, 40, 60);
-        crc2.closePath();
-        crc2.stroke();
-
-        //Baumkrone
-        crc2.beginPath();
-        crc2.arc(_x + 20, _y - 90, 80, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(_x - 60, _y - 130, 50, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(_x + 60, _y - 120, 80, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(_x + 20, _y - 240, 80, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(_x + 100, _y - 180, 70, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(_x - 30, _y - 200, 80, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(_x + 80, _y - 260, 60, 0 * Math.PI, 2 * Math.PI);
-        //        crc2.arc( _x, _y, 40, 0 * Math.PI, 2 * Math.PI);
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _fillColor;
-        crc2.fill();
-        crc2.closePath();
-        crc2.stroke();
-    }
-
-    function drawSonne(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-        crc2.beginPath();
-        crc2.arc(_x, _y, 40, 0 * Math.PI, 2 * Math.PI);
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _fillColor;
-        crc2.fill();
-        crc2.closePath();
-        crc2.stroke();
-    }
+        ////////////////////////////////////KLEINER BERG//////////////////////////////////
+        function drawKleinenBerg(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+            crc2.beginPath();
+            crc2.fillStyle = _fillColor;
+            crc2.strokeStyle = _strokeColor;
+            crc2.moveTo(_x - 380, _y + 220);    //punkt unten links des berges
+            crc2.lineTo(_x + 90, _y - 200);     //oberepunkt/spitze des berges
+            crc2.lineTo(_x + 300, _y + 220);     //punkt unten rechts vom berg
+            crc2.closePath();
+            crc2.fill();
+            crc2.stroke();
+        }
+        function drawKleinenBergSpitze(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+            crc2.beginPath();
+            crc2.fillStyle = _fillColor;
+            crc2.strokeStyle = _strokeColor;
+            crc2.moveTo(_x - 60, _y - 67);    //punkt unten links des berges
+            crc2.lineTo(_x + 90, _y - 200);     //oberepunkt/spitze des berges
+            crc2.lineTo(_x + 156, _y - 67);     //punkt unten rechts vom berg
+            crc2.closePath();
+            crc2.fill();
+            crc2.stroke();
+        }
 
 
-    ////////////////////////////////BLUMEN/////////////////////////////////////////
-    function drawBlumeTulpe(_x: number, _y: number, _stalkColor: string, _petalColor: string): void {
-        //Stiel
-        crc2.beginPath();
-        crc2.strokeStyle = _stalkColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x, _y - 32);
-        crc2.stroke();
-        crc2.closePath();
-        //Stielblatt1
-        crc2.beginPath();
-        crc2.strokeStyle = _stalkColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x, _y - 13);       //obere Punkt
-        crc2.lineTo(_x - 7, _y - 26);   //Blattspitze
-        crc2.lineTo(_x, _y - 5);        //untere Punkt
-        crc2.stroke();
-        crc2.closePath();
-        crc2.fillStyle = _stalkColor;
-        crc2.fill();
-        //Stielblatt2
-        crc2.beginPath();
-        crc2.strokeStyle = _stalkColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x, _y - 12);       //obere Punkt
-        crc2.lineTo(_x + 7, _y - 20);   //Blattspitze
-        crc2.lineTo(_x, _y - 5);        //untere Punkt
-        crc2.stroke();
-        crc2.closePath();
-        crc2.fillStyle = _stalkColor;
-        crc2.fill();
-        //TulpenBlütenform
-        crc2.beginPath();
-        crc2.strokeStyle = "white";     //umrandet die Tulpe weiss
-        crc2.arc(_x, _y - 40, 9, 0 * Math.PI, 1 * Math.PI); //Rundung der Tulpe
-        crc2.lineTo(_x - 10, _y - 53);  //links oben der Punkt
-        crc2.lineTo(_x - 5, _y - 45);
-        crc2.lineTo(_x, _y - 53);       //Spitze in der Mitte
-        crc2.lineTo(_x + 5, _y - 45);
-        crc2.lineTo(_x + 10, _y - 53);  //rechts der Punkt
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = _petalColor;
-        crc2.fill();
-    }
-    function drawBlumeBlue(_x: number, _y: number, _fillColor: string, _fillColor1: string, _stalkColor: string): void {
-        //Stiel
-        crc2.beginPath();
-        crc2.strokeStyle = _stalkColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x, _y + 50);
-        crc2.stroke();
-        crc2.closePath();
-        //Stielblatt
-        crc2.beginPath();
-        crc2.strokeStyle = _stalkColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x, _y + 30);       //obere Punkt
-        crc2.lineTo(_x - 10, _y + 25);   //Blattspitze
-        crc2.lineTo(_x, _y + 43);        //untere Punkt
-        crc2.stroke();
-        crc2.closePath();
-        crc2.fillStyle = _stalkColor;
-        crc2.fill();
-        //Blüte
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = "#66ccff";
-        crc2.arc(_x, _y, 10, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(_x - 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(_x + 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(_x, _y + 10, 7, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(_x, _y - 10, 7, 0 * Math.PI, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor1;
-        crc2.arc(_x, _y, 5, 0 * Math.PI, 2 * Math.PI);
-        crc2.fill();
-        crc2.stroke();
-        crc2.closePath();
+        ////////////////////////////////BÄUME/////////////////////////////////////////
+        function drawBaeume(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+            //Baumstamm
+            crc2.beginPath();
+            crc2.fillStyle = _strokeColor;
 
-    }
-    function drawBlume3(_x: number, _y: number, _fillColor: string, _fillColor1: string, _stalkColor: string): void {
-        //Stiel
-        crc2.beginPath();
-        crc2.strokeStyle = _stalkColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x, _y + 50);
-        crc2.stroke();
-        crc2.closePath();
-        //Stielblatt1
-        crc2.beginPath();
-        crc2.strokeStyle = _stalkColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x, _y + 36);       //obere Punkt
-        crc2.lineTo(_x + 10, _y + 27);   //Blattspitze
-        crc2.lineTo(_x, _y + 43);        //untere Punkt
-        crc2.stroke();
-        crc2.closePath();
-        crc2.fillStyle = _stalkColor;
-        crc2.fill();
-        //Stielblatt2
-        crc2.beginPath();
-        crc2.strokeStyle = _stalkColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x, _y + 36);       //obere Punkt
-        crc2.lineTo(_x - 10, _y + 25);   //Blattspitze
-        crc2.lineTo(_x, _y + 43);        //untere Punkt
-        crc2.stroke();
-        crc2.closePath();
-        crc2.fillStyle = _stalkColor;
-        crc2.fill();
-        //Blüte
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = "white";
-        crc2.arc(_x, _y, 10, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(_x - 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(_x + 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(_x, _y + 10, 7, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(_x, _y - 10, 7, 0 * Math.PI, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor1;
-        crc2.arc(_x, _y, 5, 0 * Math.PI, 2 * Math.PI);
-        crc2.fill();
-        crc2.stroke();
-        crc2.closePath();
+            crc2.fillRect(_x, _y - 15, 40, 60);
+            crc2.closePath();
+            crc2.stroke();
 
-    }
-    function drawBienenkorb(_x: number, _y: number): void {
-        crc2.fillStyle = "brown";
-        crc2.fillRect(_x, _y, 50, 50);
-        crc2.beginPath();
-        crc2.arc(955, 525, 25, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
-        crc2.fill();
-        crc2.closePath();
-        crc2.beginPath();
-        crc2.arc(933, 550, 10, 0 * Math.PI, 2 * Math.PI); //linke Seite
-        crc2.arc(933, 532, 10, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(933, 567, 10, 0 * Math.PI, 2 * Math.PI);
-        crc2.fill();
-        crc2.closePath();
-        crc2.beginPath();
-        crc2.arc(978, 550, 10, 0 * Math.PI, 2 * Math.PI); //rechte Seite
-        crc2.arc(978, 532, 10, 0 * Math.PI, 2 * Math.PI);
-        crc2.arc(978, 567, 10, 0 * Math.PI, 2 * Math.PI);
-        crc2.fill();
-        crc2.closePath();
-    }
+            //Baumkrone
+            crc2.beginPath();
+            crc2.arc(_x + 20, _y - 90, 80, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(_x - 60, _y - 130, 50, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(_x + 60, _y - 120, 80, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(_x + 20, _y - 240, 80, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(_x + 100, _y - 180, 70, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(_x - 30, _y - 200, 80, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(_x + 80, _y - 260, 60, 0 * Math.PI, 2 * Math.PI);
+            //        crc2.arc( _x, _y, 40, 0 * Math.PI, 2 * Math.PI);
+            crc2.fillStyle = _fillColor;
+            crc2.strokeStyle = _fillColor;
+            crc2.fill();
+            crc2.closePath();
+            crc2.stroke();
+        }
 
-    function drawBienenkorbBlack(_x: number, _y: number): void {
-        crc2.fillStyle = "black";
-        crc2.fillRect(944, 547, 11, 11);
+        function drawSonne(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+            crc2.beginPath();
+            crc2.arc(_x, _y, 40, 0 * Math.PI, 2 * Math.PI);
+            crc2.fillStyle = _fillColor;
+            crc2.strokeStyle = _fillColor;
+            crc2.fill();
+            crc2.closePath();
+            crc2.stroke();
+        }
 
+
+        ////////////////////////////////BLUMEN/////////////////////////////////////////
+        function drawBlumeTulpe(_x: number, _y: number, _stalkColor: string, _petalColor: string): void {
+            //Stiel
+            crc2.beginPath();
+            crc2.strokeStyle = _stalkColor;
+            crc2.moveTo(_x, _y);
+            crc2.lineTo(_x, _y - 32);
+            crc2.stroke();
+            crc2.closePath();
+            //Stielblatt1
+            crc2.beginPath();
+            crc2.strokeStyle = _stalkColor;
+            crc2.moveTo(_x, _y);
+            crc2.lineTo(_x, _y - 13);       //obere Punkt
+            crc2.lineTo(_x - 7, _y - 26);   //Blattspitze
+            crc2.lineTo(_x, _y - 5);        //untere Punkt
+            crc2.stroke();
+            crc2.closePath();
+            crc2.fillStyle = _stalkColor;
+            crc2.fill();
+            //Stielblatt2
+            crc2.beginPath();
+            crc2.strokeStyle = _stalkColor;
+            crc2.moveTo(_x, _y);
+            crc2.lineTo(_x, _y - 12);       //obere Punkt
+            crc2.lineTo(_x + 7, _y - 20);   //Blattspitze
+            crc2.lineTo(_x, _y - 5);        //untere Punkt
+            crc2.stroke();
+            crc2.closePath();
+            crc2.fillStyle = _stalkColor;
+            crc2.fill();
+            //TulpenBlütenform
+            crc2.beginPath();
+            crc2.strokeStyle = "white";     //umrandet die Tulpe weiss
+            crc2.arc(_x, _y - 40, 9, 0 * Math.PI, 1 * Math.PI); //Rundung der Tulpe
+            crc2.lineTo(_x - 10, _y - 53);  //links oben der Punkt
+            crc2.lineTo(_x - 5, _y - 45);
+            crc2.lineTo(_x, _y - 53);       //Spitze in der Mitte
+            crc2.lineTo(_x + 5, _y - 45);
+            crc2.lineTo(_x + 10, _y - 53);  //rechts der Punkt
+            crc2.closePath();
+            crc2.stroke();
+            crc2.fillStyle = _petalColor;
+            crc2.fill();
+        }
+        function drawBlumeBlue(_x: number, _y: number, _fillColor: string, _fillColor1: string, _stalkColor: string): void {
+            //Stiel
+            crc2.beginPath();
+            crc2.strokeStyle = _stalkColor;
+            crc2.moveTo(_x, _y);
+            crc2.lineTo(_x, _y + 50);
+            crc2.stroke();
+            crc2.closePath();
+            //Stielblatt
+            crc2.beginPath();
+            crc2.strokeStyle = _stalkColor;
+            crc2.moveTo(_x, _y);
+            crc2.lineTo(_x, _y + 30);       //obere Punkt
+            crc2.lineTo(_x - 10, _y + 25);   //Blattspitze
+            crc2.lineTo(_x, _y + 43);        //untere Punkt
+            crc2.stroke();
+            crc2.closePath();
+            crc2.fillStyle = _stalkColor;
+            crc2.fill();
+            //Blüte
+            crc2.beginPath();
+            crc2.fillStyle = _fillColor;
+            crc2.strokeStyle = "#66ccff";
+            crc2.arc(_x, _y, 10, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(_x - 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(_x + 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(_x, _y + 10, 7, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(_x, _y - 10, 7, 0 * Math.PI, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fill();
+            crc2.beginPath();
+            crc2.fillStyle = _fillColor1;
+            crc2.arc(_x, _y, 5, 0 * Math.PI, 2 * Math.PI);
+            crc2.fill();
+            crc2.stroke();
+            crc2.closePath();
+
+        }
+        function drawBlume3(_x: number, _y: number, _fillColor: string, _fillColor1: string, _stalkColor: string): void {
+            //Stiel
+            crc2.beginPath();
+            crc2.strokeStyle = _stalkColor;
+            crc2.moveTo(_x, _y);
+            crc2.lineTo(_x, _y + 50);
+            crc2.stroke();
+            crc2.closePath();
+            //Stielblatt1
+            crc2.beginPath();
+            crc2.strokeStyle = _stalkColor;
+            crc2.moveTo(_x, _y);
+            crc2.lineTo(_x, _y + 36);       //obere Punkt
+            crc2.lineTo(_x + 10, _y + 27);   //Blattspitze
+            crc2.lineTo(_x, _y + 43);        //untere Punkt
+            crc2.stroke();
+            crc2.closePath();
+            crc2.fillStyle = _stalkColor;
+            crc2.fill();
+            //Stielblatt2
+            crc2.beginPath();
+            crc2.strokeStyle = _stalkColor;
+            crc2.moveTo(_x, _y);
+            crc2.lineTo(_x, _y + 36);       //obere Punkt
+            crc2.lineTo(_x - 10, _y + 25);   //Blattspitze
+            crc2.lineTo(_x, _y + 43);        //untere Punkt
+            crc2.stroke();
+            crc2.closePath();
+            crc2.fillStyle = _stalkColor;
+            crc2.fill();
+            //Blüte
+            crc2.beginPath();
+            crc2.fillStyle = _fillColor;
+            crc2.strokeStyle = "white";
+            crc2.arc(_x, _y, 10, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(_x - 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(_x + 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(_x, _y + 10, 7, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(_x, _y - 10, 7, 0 * Math.PI, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fill();
+            crc2.beginPath();
+            crc2.fillStyle = _fillColor1;
+            crc2.arc(_x, _y, 5, 0 * Math.PI, 2 * Math.PI);
+            crc2.fill();
+            crc2.stroke();
+            crc2.closePath();
+
+        }
+        function drawBienenkorb(_x: number, _y: number): void {
+            crc2.fillStyle = "brown";
+            crc2.fillRect(_x, _y, 50, 50);
+            crc2.beginPath();
+            crc2.arc(955, 525, 25, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
+            crc2.fill();
+            crc2.closePath();
+            crc2.beginPath();
+            crc2.arc(933, 550, 10, 0 * Math.PI, 2 * Math.PI); //linke Seite
+            crc2.arc(933, 532, 10, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(933, 567, 10, 0 * Math.PI, 2 * Math.PI);
+            crc2.fill();
+            crc2.closePath();
+            crc2.beginPath();
+            crc2.arc(978, 550, 10, 0 * Math.PI, 2 * Math.PI); //rechte Seite
+            crc2.arc(978, 532, 10, 0 * Math.PI, 2 * Math.PI);
+            crc2.arc(978, 567, 10, 0 * Math.PI, 2 * Math.PI);
+            crc2.fill();
+            crc2.closePath();
+        }
+
+        function drawBienenkorbBlack(_x: number, _y: number): void {
+            crc2.fillStyle = "black";
+            crc2.fillRect(944, 547, 11, 11);
+
+        }
+        function drawBiene(s: Square): void {
+            crc2.fillStyle = s.color;
+            crc2.beginPath();
+            crc2.arc(s.x, s.y, s.size, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
+            crc2.fill();
+            crc2.closePath();
+            crc2.strokeStyle = "black";
+            crc2.moveTo(s.x + 2, s.y + 2);
+            crc2.lineTo(s.x, s.y);
+            crc2.stroke();
+        }
     }
-    function drawBiene(s: Square): void {
-        crc2.fillStyle = s.color;
-        crc2.beginPath();
-        crc2.arc(s.x, s.y, s.size, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
-        crc2.fill();
-        crc2.closePath();
-        crc2.strokeStyle = "black";
-        crc2.moveTo(s.x + 2, s.y + 2);
-        crc2.lineTo(s.x, s.y);
-        crc2.stroke();
-    }
-}

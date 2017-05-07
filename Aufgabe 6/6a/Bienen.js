@@ -83,16 +83,23 @@ var Bienenschwarm;
         Animation();
     }
     function drawNeuesBienchen() {
-        var bee = { x: 950, y: 550, size: 200, color: "red", geschwindigkeit: true };
+        var bee = { x: 950, y: 550, size: 2, color: "red", geschwindigkeit: true };
         alleBienen.push(bee);
     }
     //Animation der Bienen
     function Animation() {
         crc2.putImageData(imgData, 0, 0); //Hintergrundbild aufrufen
-        for (var i = 0; i < n; i++) {
+        for (var i = 0; i < alleBienen.length; i++) {
             var s = alleBienen[i];
-            s.x += Math.random() * 5 - 3;
-            s.y += Math.random() * 4 - 2;
+            if (s.geschwindigkeit == true) {
+                s.x += Math.random() * 5 - 3;
+                s.y += Math.random() * 4 - 2;
+            }
+            else {
+                s.x += Math.random() * 4 - 3;
+                s.y += Math.random() * 4 - 2;
+                alleBienen[i] = s;
+            }
             if (s.x >= 995)
                 s.x = -5;
             if (s.y <= 3)
