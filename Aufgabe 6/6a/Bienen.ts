@@ -1,16 +1,7 @@
-namespace Bienenschwarm {
+namespace Bienenschwarm_Classes {
     window.addEventListener("load", Wiese);
 
-    interface Square {
-        x: number;
-        y: number;
-        size: number;
-        color: string;
-        geschwindigkeit: boolean;
-
-    }
-
-    let crc2: CanvasRenderingContext2D;
+    export let crc2: CanvasRenderingContext2D;
     let imgData: ImageData;
     let alleBienen: Square[] = [];
     let n: number = 10;
@@ -23,7 +14,7 @@ namespace Bienenschwarm {
 
         for (let i: number = 0; i < n; i++) {
             let s: Square = { x: 0, y: 0, size: 0, color: "#0000ff", geschwindigkeit: true }; // default-values
-            s["x"] = Math.random() * 200; // mögliche Schreibweise, hier sind variable Schlüssel möglich
+            s.x = Math.random() * 200; // mögliche Schreibweise, hier sind variable Schlüssel möglich
             s.y = Math.random() * 200; // andere mögliche Schreibweise mit literalem Schlüssel
             s.size = Math.random() * 1 + 2;
             s.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";

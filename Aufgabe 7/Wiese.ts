@@ -1,16 +1,7 @@
 namespace Bienenschwarm {
     window.addEventListener("load", Wiese);
 
-    interface Square {
-        x: number;
-        y: number;
-        size: number;
-        color: string;
-        geschwindigkeit: boolean;
-
-    }
-
-    let crc2: CanvasRenderingContext2D;
+   export  let crc2: CanvasRenderingContext2D;
     let imgData: ImageData;
     let alleBienen: Square[] = [];
     let n: number = 10;
