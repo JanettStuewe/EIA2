@@ -14,9 +14,7 @@ namespace Bienenschwarm {
 
         for (let i: number = 0; i < n; i++) {
             let s: Square = new Square( 0, 0, 0, "#0000ff", true ); // default-values
-            setRandomPosition();
-            setRandomSize();
-            setRandomColor();
+            setRandom();
             alleBienen[i] = s;
             speed();
             alleBienen[i] = s;

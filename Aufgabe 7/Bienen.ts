@@ -9,6 +9,13 @@ namespace Bienenschwarm_Classes {
 
     }
 
+    setRandom: void {
+        setRandomPosiotin();
+        setRandomSize();
+        setRandomColor();
+        
+    }
+    
     setRandomPosiotin: void {
         this.x = Math.random() * 200; // mögliche Schreibweise, hier sind variable Schlüssel möglich
         this.y = Math.random() * 200; // andere mögliche Schreibweise mit literalem Schlüssel    
