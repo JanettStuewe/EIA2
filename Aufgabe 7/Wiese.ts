@@ -13,18 +13,12 @@ namespace Bienenschwarm {
         crc2 = canvas.getContext("2d");
 
         for (let i: number = 0; i < n; i++) {
-            let s: Square = { x: 0, y: 0, size: 0, color: "#0000ff", geschwindigkeit: true }; // default-values
-            s["x"] = Math.random() * 200; // mögliche Schreibweise, hier sind variable Schlüssel möglich
-            s.y = Math.random() * 200; // andere mögliche Schreibweise mit literalem Schlüssel
-            s.size = Math.random() * 1 + 2;
-            s.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            let s: Square = new Square( 0, 0, 0, "#0000ff", true ); // default-values
+            setRandomPosition();
+            setRandomSize();
+            setRandomColor();
             alleBienen[i] = s;
-            if (i % 2 == 0) {
-                s.geschwindigkeit = true;
-            }
-            else {
-                s.geschwindigkeit = false;
-            }
+            speed();
             alleBienen[i] = s;
         }
 
