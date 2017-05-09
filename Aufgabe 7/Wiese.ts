@@ -15,7 +15,6 @@ namespace Bienenschwarm {
         for (let i: number = 0; i < n; i++) {
             let s: Square = new Square( 0, 0, 0, "#0000ff", true ); // default-values
             setRandom();
-            alleBienen[i] = s;
             speed();
             alleBienen[i] = s;
         }
@@ -54,22 +53,7 @@ namespace Bienenschwarm {
 
         //Blumenwiese
         for (var i: number = 0; i < 10; i++) {
-            let flowerField: number = Math.floor((Math.random() * 3) + 0);
-            let _x: number = Math.floor(Math.random() * (700 - 300)) + 300;
-            let _y: number = Math.floor(Math.random() * (600 - 550)) + 550;
-
-            switch (flowerField) {
-                case 0:
-                    drawBlumeTulpe(_x, _y - 35, "#006400", "red");
-                    break;
-                case 1:
-                    drawBlumeBlue(_x, _y - 35, "blue", "white", "#006400");
-                    break;
-                case 2:
-                    drawBlume3(_x, _y - 35, "#DF7CF3", "#722F80", "#006400");
-                    break;
-                default:
-                    break;
+            setRandomFlower();
             }
         }
 
@@ -89,8 +73,9 @@ namespace Bienenschwarm {
         drawNeuesBienchen();
         Animation();
     }
+
     function drawNeuesBienchen(): void {
-            let bee: Square = { x: 950, y: 550, size: 2, color: "red", geschwindigkeit: true };
+            let bee: Square = new Square ( 950, 550, 2, "red", true);
             alleBienen.push(bee);
 
         }
@@ -100,26 +85,9 @@ namespace Bienenschwarm {
             crc2.putImageData(imgData, 0, 0);   //Hintergrundbild aufrufen
 
             for (let i: number = 0; i < alleBienen.length; i++) {
-                let s: Square = alleBienen[i];
-                if (s.geschwindigkeit == true) {
-                    s.x += Math.random() * 5 - 3;
-                    s.y += Math.random() * 4 - 2;
-                }
-                else {
-                    s.x += Math.random() * 4 - 3;
-                    s.y += Math.random() * 4 - 2;
-                    alleBienen[i] = s;
-                }
-
-
-                if (s.x >= 995)    //lässt Bienen bei Randüberschreitung wieder erscheinen
-                    s.x = -5;
-                if (s.y <= 3)
-                    s.y = 597;
-                if (s.x < -5)
-                    s.x = 995;
-                if (s.y > 597)
-                    s.y = 3;
+                let s: Square = new alleBienen[i];
+                setRandomSpeed();
+                overflow();
                 drawBiene(s);  //Malen der Bienen an der neuen Position
             }
             window.setTimeout(Animation, 20);
@@ -369,15 +337,5 @@ namespace Bienenschwarm {
             crc2.fillRect(944, 547, 11, 11);
 
         }
-        function drawBiene(s: Square): void {
-            crc2.fillStyle = s.color;
-            crc2.beginPath();
-            crc2.arc(s.x, s.y, s.size, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
-            crc2.fill();
-            crc2.closePath();
-            crc2.strokeStyle = "black";
-            crc2.moveTo(s.x + 2, s.y + 2);
-            crc2.lineTo(s.x, s.y);
-            crc2.stroke();
-        }
+
     }
