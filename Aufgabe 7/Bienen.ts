@@ -8,11 +8,11 @@ namespace Bienenschwarm_Classes {
         geschwindigkeit: boolean;
 
 
+
         setRandom: void {
             setRandomPosiotin();
-        setRandomSize();
-        setRandomColor();
-
+            setRandomSize();
+            setRandomColor();
         }
 
         setRandomPosiotin: void {
@@ -28,6 +28,9 @@ namespace Bienenschwarm_Classes {
             this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
         }
 
+
+
+
         speed(): void {
             if (i % 2 == 0) {
                 this.geschwindigkeit = true;
@@ -36,29 +39,38 @@ namespace Bienenschwarm_Classes {
                 this.geschwindigkeit = false;
             }
         }
-
-        overflow: void {
-            if(this.x >= 995)    //lässt Bienen bei Randüberschreitung wieder erscheinen
-            this.x = -5;
-            if(this.y <= 3)
-            this.y = 597;
-            if(this.x < -5)
-            this.x = 995;
-            if(this.y > 597)
-            this.y = 3;    
-        }
-
         setRandomSpeed: void {
             if(this.geschwindigkeit == true) {
         this.x += Math.random() * 5 - 3;
         this.y += Math.random() * 4 - 2;
     }
-                else {
+            else {
         this.x += Math.random() * 4 - 3;
         this.y += Math.random() * 4 - 2;
         alleBienen[i] = s;
     }
 }
+
+
+
+
+start: void {
+    this.x = 950;
+    this.y = 550;    
+}
+
+overflow: void {
+    if(this.x >= 995)    //lässt Bienen bei Randüberschreitung wieder erscheinen
+    this.x = -5;
+    if(this.y <= 3)
+    this.y = 597;
+    if(this.x < -5)
+    this.x = 995;
+    if(this.y > 597)
+    this.y = 3;    
+}
+
+
 
 function drawBiene(s: Square = new Square()): void {
     crc2.fillStyle = this.color;
