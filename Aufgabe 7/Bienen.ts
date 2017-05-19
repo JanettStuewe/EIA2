@@ -1,4 +1,4 @@
-namespace Bienenschwarm_Classes {
+namespace Aufgabe7_Wiese {
 
     export class Bee {
         x: number;

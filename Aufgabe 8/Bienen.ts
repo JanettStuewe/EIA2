@@ -1,4 +1,4 @@
-namespace Bienenschwarm_Classes {
+namespace Aufgabe8_Wiese {
 
     export class Bee {
         x: number;
@@ -7,10 +7,8 @@ namespace Bienenschwarm_Classes {
         color: string;
         geschwindigkeit: boolean;
 
+
         constructor(_x: number, _y: number, _geschwindigkeit: boolean) {
-            this.x = _x;
-            this.y = _y;
-            this.geschwindigkeit = _geschwindigkeit;
             this.setRandomSpeed();
             this.setRandomSize();
             this.setRandomColor();
@@ -38,9 +36,9 @@ namespace Bienenschwarm_Classes {
 
 
 
-        
+
         setRandomSpeed(): void {
-           // let i: number = 0;
+            // let i: number = 0;
             if (this.geschwindigkeit == true) {
                 this.x += Math.random() * 5 - 3;
                 this.y += Math.random() * 4 - 2;
@@ -48,8 +46,7 @@ namespace Bienenschwarm_Classes {
             else {
                 this.x += Math.random() * 4 - 3;
                 this.y += Math.random() * 4 - 2;
-              //  let s: Bee = (alleBienen[i]);
-                
+                //  let s: Bee = (alleBienen[i]);  
             }
         }
 

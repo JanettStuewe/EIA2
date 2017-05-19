@@ -1,4 +1,4 @@
-namespace Bienenschwarm_Classes {
+namespace Aufgabe8_Wiese {
     window.addEventListener("load", Wiese);
 
     export let crc2: CanvasRenderingContext2D;
