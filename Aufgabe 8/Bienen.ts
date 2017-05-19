@@ -1,17 +1,20 @@
 namespace Aufgabe8_Wiese {
 
     export class Bee {
-        x: number;
-        y: number;
         size: number;
         color: string;
         geschwindigkeit: boolean;
+        position: Position;
 
 
         constructor(_x: number, _y: number, _geschwindigkeit: boolean) {
             this.setRandomSpeed();
             this.setRandomSize();
             this.setRandomColor();
+            this.position = {
+                x: _x,
+                y: _y
+            };
         }
 
         setRandom(): void {
@@ -21,8 +24,8 @@ namespace Aufgabe8_Wiese {
         }
 
         setRandomPosition(): void {
-            this.x = Math.random() * 200; // mögliche Schreibweise, hier sind variable Schlüssel möglich
-            this.y = Math.random() * 200; // andere mögliche Schreibweise mit literalem Schlüssel    
+            this.position.x = Math.random() * 200; // mögliche Schreibweise, hier sind variable Schlüssel möglich
+            this.position.y = Math.random() * 200; // andere mögliche Schreibweise mit literalem Schlüssel    
         }
 
         setRandomSize(): void {
@@ -40,12 +43,12 @@ namespace Aufgabe8_Wiese {
         setRandomSpeed(): void {
             // let i: number = 0;
             if (this.geschwindigkeit == true) {
-                this.x += Math.random() * 5 - 3;
-                this.y += Math.random() * 4 - 2;
+                this.position.x += Math.random() * 5 - 3;
+                this.position.y += Math.random() * 4 - 2;
             }
             else {
-                this.x += Math.random() * 4 - 3;
-                this.y += Math.random() * 4 - 2;
+                this.position.x += Math.random() * 4 - 3;
+                this.position.y += Math.random() * 4 - 2;
                 //  let s: Bee = (alleBienen[i]);  
             }
         }
@@ -54,33 +57,33 @@ namespace Aufgabe8_Wiese {
 
 
         start(): void {
-            this.x = 950;
-            this.y = 550;
+            this.position.x = 950;
+            this.position.y = 550;
         }
 
         overflow(): void {
-            if (this.x >= 995)    //lässt Bienen bei Randüberschreitung wieder erscheinen
-                this.x = -5;
-            if (this.y <= 3)
-                this.y = 597;
-            if (this.x < -5)
-                this.x = 995;
-            if (this.y > 597)
-                this.y = 3;
+            if (this.position.x >= 995)    //lässt Bienen bei Randüberschreitung wieder erscheinen
+                this.position.x = -5;
+            if (this.position.y <= 3)
+                this.position.y = 597;
+            if (this.position.x < -5)
+                this.position.x = 995;
+            if (this.position.y > 597)
+                this.position.y = 3;
         }
-
-
 
         drawBiene(s: Bee): void {
             crc2.fillStyle = this.color;
             crc2.beginPath();
-            crc2.arc(this.x, this.y, this.size, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
+            crc2.arc(this.position.x, this.position.y, this.size, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
             crc2.fill();
             crc2.closePath();
             crc2.strokeStyle = "black";
-            crc2.moveTo(this.x + 2, this.y + 2);
-            crc2.lineTo(this.x, this.y);
+            crc2.moveTo(this.position.x + 2, this.position.y + 2);
+            crc2.lineTo(this.position.x, this.position.y);
             crc2.stroke();
         } //drawBiene
-    } //classes
+        
+       
+} //classes
 } //namespace

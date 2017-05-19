@@ -1,6 +1,6 @@
 namespace Aufgabe8_Wiese {
 
-    export class BlumeTulpe extends Blume {
+    export class BlumeBlue extends Blume {
         x: number;
         y: number;
         type: string;

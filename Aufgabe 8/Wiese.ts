@@ -209,5 +209,9 @@ namespace Aufgabe8_Wiese {
         crc2.fillRect(944, 547, 11, 11);
 
     }
+    
+     export function signum(_value: number): number {
+        return _value >= 0 ? 1 : -1;
+}
 
 }
