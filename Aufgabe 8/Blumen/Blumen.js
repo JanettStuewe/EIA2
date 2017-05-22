@@ -2,6 +2,7 @@ var Aufgabe8_Wiese;
 (function (Aufgabe8_Wiese) {
     var Blume = (function () {
         function Blume() {
+            this.setRandomFlower();
         }
         Blume.prototype.draw = function () { };
         ;
