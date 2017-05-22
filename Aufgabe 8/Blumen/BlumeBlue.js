@@ -7,12 +7,47 @@ var Aufgabe8_Wiese;
 (function (Aufgabe8_Wiese) {
     var BlumeBlue = (function (_super) {
         __extends(BlumeBlue, _super);
-        function BlumeBlue(_x, _y, _type) {
-            _super.call(this, _x, _y, _type);
-            this.x = _x;
-            this.y = _y;
-            this.type = _type;
+        function BlumeBlue() {
+            _super.call(this);
+            this.drawBlumeBlue();
         }
+        BlumeBlue.prototype.drawBlumeBlue = function () {
+            //Stiel
+            Aufgabe8_Wiese.crc2.beginPath();
+            Aufgabe8_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe8_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe8_Wiese.crc2.lineTo(this.x, this.y + 50);
+            Aufgabe8_Wiese.crc2.stroke();
+            Aufgabe8_Wiese.crc2.closePath();
+            //Stielblatt
+            Aufgabe8_Wiese.crc2.beginPath();
+            Aufgabe8_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe8_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe8_Wiese.crc2.lineTo(this.x, this.y + 30); //obere Punkt
+            Aufgabe8_Wiese.crc2.lineTo(this.x - 10, this.y + 25); //Blattspitze
+            Aufgabe8_Wiese.crc2.lineTo(this.x, this.y + 43); //untere Punkt
+            Aufgabe8_Wiese.crc2.stroke();
+            Aufgabe8_Wiese.crc2.closePath();
+            Aufgabe8_Wiese.crc2.fillStyle = "#006400";
+            Aufgabe8_Wiese.crc2.fill();
+            //Bl�te
+            Aufgabe8_Wiese.crc2.beginPath();
+            Aufgabe8_Wiese.crc2.fillStyle = "blue";
+            Aufgabe8_Wiese.crc2.strokeStyle = "#66ccff";
+            Aufgabe8_Wiese.crc2.arc(this.x, this.y, 10, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe8_Wiese.crc2.arc(this.x - 10, this.y, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe8_Wiese.crc2.arc(this.x + 10, this.y, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe8_Wiese.crc2.arc(this.x, this.y + 10, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe8_Wiese.crc2.arc(this.x, this.y - 10, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe8_Wiese.crc2.closePath();
+            Aufgabe8_Wiese.crc2.fill();
+            Aufgabe8_Wiese.crc2.beginPath();
+            Aufgabe8_Wiese.crc2.fillStyle = "white";
+            Aufgabe8_Wiese.crc2.arc(this.x, this.y, 5, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe8_Wiese.crc2.fill();
+            Aufgabe8_Wiese.crc2.stroke();
+            Aufgabe8_Wiese.crc2.closePath();
+        };
         return BlumeBlue;
     }(Aufgabe8_Wiese.Blume));
     Aufgabe8_Wiese.BlumeBlue = BlumeBlue;

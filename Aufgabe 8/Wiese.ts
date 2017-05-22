@@ -45,31 +45,41 @@ namespace Aufgabe8_Wiese {
 
         //____________________VORDERGRUND_____________________________________
 
-        let f: Blume = new Blume(100, 590, "Tulpe");
-        f.draw();
-        let f1: Blume = new Blume(19, 560, "Blue");
-        f1.draw();
-        let f2: Blume = new Blume(50, 500, "3");
-        f2.draw();
-
         drawBienenkorb(930, 530);
         drawBienenkorbBlack(950, 550);
 
         //Blumenwiese
         for (var i: number = 0; i < 10; i++) {
-            let fr: Blume = new Blume(0, 0, "");
-            fr.setRandomFlower();
-            alleBlumen[i] = fr;
+            let fr: BlumeTulpe = new BlumeTulpe();
+            alleBlumen.push(fr);
             console.log(fr);
-
+            alleBlumen[i].draw();
+        }
+        for (var i: number = 0; i < 10; i++) {
+            let fr: BlumeBlue = new BlumeBlue();
+            alleBlumen.push(fr);
+            console.log(fr);
+            alleBlumen[i].draw();
+        }
+        for (var i: number = 0; i < 10; i++) {
+            let fr: Blume3 =  new Blume3();
+            alleBlumen.push(fr);
+            console.log(fr);
+            alleBlumen[i].draw();
         }
 
         //Hintergrundbild speichern
         imgData = crc2.getImageData(0, 0, 1000, 600);
         //Bienenstart
         for (let i: number = 0; i < n; i++) {
-            let s: Bee = alleBienen[i];
+            let s: Bee = new Bee(950, 550, true);
             s.start();
+            alleBienen.push(s);
+            let h: HonigBiene = new HonigBiene(950, 550, true, 950, 550);
+            s.start();
+            alleBienen.push(h);
+
+
         }
 
         canvas.addEventListener("click", drawNeuesBienchen);    //wenn auf den Canvas geklickt wird, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen lässt
@@ -209,9 +219,9 @@ namespace Aufgabe8_Wiese {
         crc2.fillRect(944, 547, 11, 11);
 
     }
-    
-     export function signum(_value: number): number {
+
+    export function signum(_value: number): number {
         return _value >= 0 ? 1 : -1;
-}
+    }
 
 }

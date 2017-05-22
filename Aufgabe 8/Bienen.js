@@ -2,13 +2,13 @@ var Aufgabe8_Wiese;
 (function (Aufgabe8_Wiese) {
     var Bee = (function () {
         function Bee(_x, _y, _geschwindigkeit) {
-            this.setRandomSpeed();
-            this.setRandomSize();
-            this.setRandomColor();
             this.position = {
                 x: _x,
                 y: _y
             };
+            this.setRandomSpeed();
+            this.setRandomSize();
+            this.setRandomColor();
         }
         Bee.prototype.setRandom = function () {
             this.setRandomPosition();

@@ -33,27 +33,37 @@ var Aufgabe8_Wiese;
         drawBaeume(144, 551, "#a0522d", "#008000");
         drawSonne(300, 80, "yellow", "yellow");
         //____________________VORDERGRUND_____________________________________
-        var f = new Aufgabe8_Wiese.Blume(100, 590, "Tulpe");
-        f.draw();
-        var f1 = new Aufgabe8_Wiese.Blume(19, 560, "Blue");
-        f1.draw();
-        var f2 = new Aufgabe8_Wiese.Blume(50, 500, "3");
-        f2.draw();
         drawBienenkorb(930, 530);
         drawBienenkorbBlack(950, 550);
         //Blumenwiese
         for (var i = 0; i < 10; i++) {
-            var fr = new Aufgabe8_Wiese.Blume(0, 0, "");
-            fr.setRandomFlower();
-            alleBlumen[i] = fr;
+            var fr = new Aufgabe8_Wiese.BlumeTulpe();
+            alleBlumen.push(fr);
             console.log(fr);
+            alleBlumen[i].draw();
+        }
+        for (var i = 0; i < 10; i++) {
+            var fr = new Aufgabe8_Wiese.BlumeBlue();
+            alleBlumen.push(fr);
+            console.log(fr);
+            alleBlumen[i].draw();
+        }
+        for (var i = 0; i < 10; i++) {
+            var fr = new Aufgabe8_Wiese.Blume3();
+            alleBlumen.push(fr);
+            console.log(fr);
+            alleBlumen[i].draw();
         }
         //Hintergrundbild speichern
         imgData = Aufgabe8_Wiese.crc2.getImageData(0, 0, 1000, 600);
         //Bienenstart
         for (var i_2 = 0; i_2 < n; i_2++) {
-            var s = Aufgabe8_Wiese.alleBienen[i_2];
+            var s = new Aufgabe8_Wiese.Bee(950, 550, true);
             s.start();
+            Aufgabe8_Wiese.alleBienen.push(s);
+            var h = new Aufgabe8_Wiese.HonigBiene(950, 550, true, 950, 550);
+            s.start();
+            Aufgabe8_Wiese.alleBienen.push(h);
         }
         canvas.addEventListener("click", drawNeuesBienchen); //wenn auf den Canvas geklickt wird, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen l�sst
         canvas.addEventListener("touch", drawNeuesBienchen); //wenn jmd auf den Canvas toucht, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen l�sst  

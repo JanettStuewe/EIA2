@@ -7,12 +7,54 @@ var Aufgabe8_Wiese;
 (function (Aufgabe8_Wiese) {
     var BlumeTulpe = (function (_super) {
         __extends(BlumeTulpe, _super);
-        function BlumeTulpe(_x, _y, _type) {
-            _super.call(this, _x, _y, _type);
-            this.x = _x;
-            this.y = _y;
-            this.type = _type;
+        function BlumeTulpe() {
+            _super.call(this);
+            this.drawBlumeTulpe();
         }
+        BlumeTulpe.prototype.drawBlumeTulpe = function () {
+            //Stiel
+            Aufgabe8_Wiese.crc2.beginPath();
+            Aufgabe8_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe8_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe8_Wiese.crc2.lineTo(this.x, this.y - 32);
+            Aufgabe8_Wiese.crc2.stroke();
+            Aufgabe8_Wiese.crc2.closePath();
+            //Stielblatt1
+            Aufgabe8_Wiese.crc2.beginPath();
+            Aufgabe8_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe8_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe8_Wiese.crc2.lineTo(this.x, this.y - 13); //obere Punkt
+            Aufgabe8_Wiese.crc2.lineTo(this.x - 7, this.y - 26); //Blattspitze
+            Aufgabe8_Wiese.crc2.lineTo(this.x, this.y - 5); //untere Punkt
+            Aufgabe8_Wiese.crc2.stroke();
+            Aufgabe8_Wiese.crc2.closePath();
+            Aufgabe8_Wiese.crc2.fillStyle = "#006400";
+            Aufgabe8_Wiese.crc2.fill();
+            //Stielblatt2
+            Aufgabe8_Wiese.crc2.beginPath();
+            Aufgabe8_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe8_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe8_Wiese.crc2.lineTo(this.x, this.y - 12); //obere Punkt
+            Aufgabe8_Wiese.crc2.lineTo(this.x + 7, this.y - 20); //Blattspitze
+            Aufgabe8_Wiese.crc2.lineTo(this.x, this.y - 5); //untere Punkt
+            Aufgabe8_Wiese.crc2.stroke();
+            Aufgabe8_Wiese.crc2.closePath();
+            Aufgabe8_Wiese.crc2.fillStyle = "#006400";
+            Aufgabe8_Wiese.crc2.fill();
+            //TulpenBl�tenform
+            Aufgabe8_Wiese.crc2.beginPath();
+            Aufgabe8_Wiese.crc2.strokeStyle = "white"; //umrandet die Tulpe weiss
+            Aufgabe8_Wiese.crc2.arc(this.x, this.y - 40, 9, 0 * Math.PI, 1 * Math.PI); //Rundung der Tulpe
+            Aufgabe8_Wiese.crc2.lineTo(this.x - 10, this.y - 53); //links oben der Punkt
+            Aufgabe8_Wiese.crc2.lineTo(this.x - 5, this.y - 45);
+            Aufgabe8_Wiese.crc2.lineTo(this.x, this.y - 53); //Spitze in der Mitte
+            Aufgabe8_Wiese.crc2.lineTo(this.x + 5, this.y - 45);
+            Aufgabe8_Wiese.crc2.lineTo(this.x + 10, this.y - 53); //rechts der Punkt
+            Aufgabe8_Wiese.crc2.closePath();
+            Aufgabe8_Wiese.crc2.stroke();
+            Aufgabe8_Wiese.crc2.fillStyle = "red";
+            Aufgabe8_Wiese.crc2.fill();
+        };
         return BlumeTulpe;
     }(Aufgabe8_Wiese.Blume));
     Aufgabe8_Wiese.BlumeTulpe = BlumeTulpe;

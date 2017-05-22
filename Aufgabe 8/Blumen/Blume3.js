@@ -7,12 +7,58 @@ var Aufgabe8_Wiese;
 (function (Aufgabe8_Wiese) {
     var Blume3 = (function (_super) {
         __extends(Blume3, _super);
-        function Blume3(_x, _y, _type) {
-            _super.call(this, _x, _y, _type);
-            this.x = _x;
-            this.y = _y;
-            this.type = _type;
+        function Blume3() {
+            _super.call(this);
+            this.drawBlume3();
         }
+        Blume3.prototype.drawBlume3 = function () {
+            //Stiel
+            Aufgabe8_Wiese.crc2.beginPath();
+            Aufgabe8_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe8_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe8_Wiese.crc2.lineTo(this.x, this.y + 50);
+            Aufgabe8_Wiese.crc2.stroke();
+            Aufgabe8_Wiese.crc2.closePath();
+            //Stielblatt1
+            Aufgabe8_Wiese.crc2.beginPath();
+            Aufgabe8_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe8_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe8_Wiese.crc2.lineTo(this.x, this.y + 36); //obere Punkt
+            Aufgabe8_Wiese.crc2.lineTo(this.x + 10, this.y + 27); //Blattspitze
+            Aufgabe8_Wiese.crc2.lineTo(this.x, this.y + 43); //untere Punkt
+            Aufgabe8_Wiese.crc2.stroke();
+            Aufgabe8_Wiese.crc2.closePath();
+            Aufgabe8_Wiese.crc2.fillStyle = "#006400";
+            Aufgabe8_Wiese.crc2.fill();
+            //Stielblatt2
+            Aufgabe8_Wiese.crc2.beginPath();
+            Aufgabe8_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe8_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe8_Wiese.crc2.lineTo(this.x, this.y + 36); //obere Punkt
+            Aufgabe8_Wiese.crc2.lineTo(this.x - 10, this.y + 25); //Blattspitze
+            Aufgabe8_Wiese.crc2.lineTo(this.x, this.y + 43); //untere Punkt
+            Aufgabe8_Wiese.crc2.stroke();
+            Aufgabe8_Wiese.crc2.closePath();
+            Aufgabe8_Wiese.crc2.fillStyle = "#006400";
+            Aufgabe8_Wiese.crc2.fill();
+            //Bl�te
+            Aufgabe8_Wiese.crc2.beginPath();
+            Aufgabe8_Wiese.crc2.fillStyle = "#DF7CF3";
+            Aufgabe8_Wiese.crc2.strokeStyle = "white";
+            Aufgabe8_Wiese.crc2.arc(this.x, this.y, 10, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe8_Wiese.crc2.arc(this.x - 10, this.y, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe8_Wiese.crc2.arc(this.x + 10, this.y, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe8_Wiese.crc2.arc(this.x, this.y + 10, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe8_Wiese.crc2.arc(this.x, this.y - 10, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe8_Wiese.crc2.closePath();
+            Aufgabe8_Wiese.crc2.fill();
+            Aufgabe8_Wiese.crc2.beginPath();
+            Aufgabe8_Wiese.crc2.fillStyle = "#722F80";
+            Aufgabe8_Wiese.crc2.arc(this.x, this.y, 5, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe8_Wiese.crc2.fill();
+            Aufgabe8_Wiese.crc2.stroke();
+            Aufgabe8_Wiese.crc2.closePath();
+        };
         return Blume3;
     }(Aufgabe8_Wiese.Blume));
     Aufgabe8_Wiese.Blume3 = Blume3;
