@@ -1,0 +1,38 @@
+html{
+background-color: grey;
+}
+body{
+background-color: white;
+}
+* {
+	display: block;
+	vertical-align: top
+}
+input[type="radio"], input[type="checkbox"], label {
+	display: inline;
+}
+label::after {
+	content:"";
+	display: block;
+}
+head {
+	display: none;
+}
+input:invalid {
+	background: "red";
+}
+input:valid {
+	background: white;
+}
+input:required {
+	background: #aaaaaa;
+}
+fieldset {
+	width: 200px;
+	background: lightgrey;
+}
+svg, figure, button, option {
+	display: inline;
+	margin: 0px;
+	padding: 0px;
+}

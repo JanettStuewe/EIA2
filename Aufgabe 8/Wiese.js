@@ -3,7 +3,7 @@ var Aufgabe8_Wiese;
     window.addEventListener("load", Wiese);
     var imgData;
     Aufgabe8_Wiese.alleBienen = [];
-    var alleBlumen = []; //fertiege blumen abgespeichert
+    Aufgabe8_Wiese.alleBlumen = []; //fertiege blumen abgespeichert
     Aufgabe8_Wiese.sorts = ["tulpe", "blue", "3"]; //Liste aller verf�gbaren Blumenarten
     var n = 10;
     function Wiese(_event) {
@@ -38,21 +38,21 @@ var Aufgabe8_Wiese;
         //Blumenwiese
         for (var i = 0; i < 10; i++) {
             var fr = new Aufgabe8_Wiese.BlumeTulpe();
-            alleBlumen.push(fr);
+            Aufgabe8_Wiese.alleBlumen.push(fr);
             console.log(fr);
-            alleBlumen[i].draw();
+            Aufgabe8_Wiese.alleBlumen[i].draw();
         }
         for (var i = 0; i < 10; i++) {
             var fr = new Aufgabe8_Wiese.BlumeBlue();
-            alleBlumen.push(fr);
+            Aufgabe8_Wiese.alleBlumen.push(fr);
             console.log(fr);
-            alleBlumen[i].draw();
+            Aufgabe8_Wiese.alleBlumen[i].draw();
         }
         for (var i = 0; i < 10; i++) {
             var fr = new Aufgabe8_Wiese.Blume3();
-            alleBlumen.push(fr);
+            Aufgabe8_Wiese.alleBlumen.push(fr);
             console.log(fr);
-            alleBlumen[i].draw();
+            Aufgabe8_Wiese.alleBlumen[i].draw();
         }
         //Hintergrundbild speichern
         imgData = Aufgabe8_Wiese.crc2.getImageData(0, 0, 1000, 600);
@@ -61,7 +61,7 @@ var Aufgabe8_Wiese;
             var s = new Aufgabe8_Wiese.Bee(950, 550, true);
             s.start();
             Aufgabe8_Wiese.alleBienen.push(s);
-            var h = new Aufgabe8_Wiese.HonigBiene(950, 550, true, 950, 550);
+            var h = new Aufgabe8_Wiese.HonigBiene(950, 550, true);
             s.start();
             Aufgabe8_Wiese.alleBienen.push(h);
         }
@@ -189,9 +189,5 @@ var Aufgabe8_Wiese;
         Aufgabe8_Wiese.crc2.fillStyle = "black";
         Aufgabe8_Wiese.crc2.fillRect(944, 547, 11, 11);
     }
-    function signum(_value) {
-        return _value >= 0 ? 1 : -1;
-    }
-    Aufgabe8_Wiese.signum = signum;
 })(Aufgabe8_Wiese || (Aufgabe8_Wiese = {}));
 //# sourceMappingURL=Wiese.js.map

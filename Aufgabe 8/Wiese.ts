@@ -4,7 +4,7 @@ namespace Aufgabe8_Wiese {
     export let crc2: CanvasRenderingContext2D;
     let imgData: ImageData;
     export let alleBienen: Bee[] = [];
-    let alleBlumen: Blume[] = [];   //fertiege blumen abgespeichert
+    export let alleBlumen: Blume[] = [];   //fertiege blumen abgespeichert
     export let sorts: string[] = ["tulpe", "blue", "3"]; //Liste aller verfügbaren Blumenarten
     let n: number = 10;
 
@@ -75,7 +75,7 @@ namespace Aufgabe8_Wiese {
             let s: Bee = new Bee(950, 550, true);
             s.start();
             alleBienen.push(s);
-            let h: HonigBiene = new HonigBiene(950, 550, true, 950, 550);
+            let h: HonigBiene = new HonigBiene(950, 550, true);
             s.start();
             alleBienen.push(h);
 
@@ -218,10 +218,6 @@ namespace Aufgabe8_Wiese {
         crc2.fillStyle = "black";
         crc2.fillRect(944, 547, 11, 11);
 
-    }
-
-    export function signum(_value: number): number {
-        return _value >= 0 ? 1 : -1;
     }
 
 }

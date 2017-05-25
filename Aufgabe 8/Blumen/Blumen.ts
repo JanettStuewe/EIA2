@@ -4,6 +4,7 @@ namespace Aufgabe8_Wiese {
         x: number;
         y: number;
         type: string;
+        
         constructor() {
         this.setRandomFlower();
         }
