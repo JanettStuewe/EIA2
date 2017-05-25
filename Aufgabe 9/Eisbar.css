@@ -1,38 +1,123 @@
-html{
-background-color: grey;
+title {
+	display: none;
 }
-body{
-background-color: white;
+
+html {
+	background-color: #FFA1B0;
+	height: 100%;
+	width: 100%;
 }
+
+body {
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+main {
+	background-color: #FFEBC0; //
+	font-family: Droid Sans, Arial, sans-serif;
+	color: #888;
+	font-size: 16px;
+	line-height: 1.5;
+	position: relative;
+	font-weight: 400;
+}
+
 * {
 	display: block;
 	vertical-align: top
 }
+
 input[type="radio"], input[type="checkbox"], label {
 	display: inline;
 }
+
 label::after {
-	content:"";
+	content: "";
 	display: block;
 }
-head {
-	display: none;
-}
+
 input:invalid {
 	background: "red";
 }
+
 input:valid {
 	background: white;
 }
+
 input:required {
 	background: #aaaaaa;
 }
+
 fieldset {
 	width: 200px;
-	background: lightgrey;
+	background: #FFFFFF;
+	padding: 2%;
+	margin: 2%;
 }
+
 svg, figure, button, option {
 	display: inline;
 	margin: 0px;
 	padding: 0px;
+}
+
+footer>img {
+	float: left;
+	background-color: #FFA1B0;
+}
+
+#Anmeldebereich { /* Anmeldebereich */
+	width: 33%;
+	float: right;
+	margin-bottom: 5em;
+	display: block;
+	position: absolute;
+	top: 0.5em;
+	right: 2em;
+}
+
+a {
+	color: #FFFFFF; /*macht das die links nicht mehr blau sind*/
+	text-decoration: none;
+}
+
+a:hover /*wirkt bei "Beruehrung"*/ {
+	color: #FFA1B0;
+	/*beschreibt die Farbe der Links, wenn man mit dem Curser ueber sie faehrt*/
+}
+
+/*Responsive Design*/
+
+/*Smartphone*/
+@media screen and (min-width: 570px) {
+	/*sticky Menueleiste Kopfbereich*/
+	header /*beschreibt Headerbox*/ {
+		z-index: 2; /*hebt den Header vor alles*/
+		display: block;
+		float: left;
+		height: 6%; /*gibt die hoehe (Ausmasse) des headers an */
+		background: rgba(255, 161, 176, .9);
+		/*macht den hintergrund schwarz und transparent*/
+		color: #FFFFFF; /*macht die schrift weiss vom header*/
+		position: fixed;
+		/*gibt an, das der Kopf/hauptmenue auch beim scrollen sichtbar bleibt, wird fixiert*/
+		border: 1px solid #DDD; /*beschreibt die Breite und Farbe der Border*/
+		box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
+		/*gibt der Box einen Hervorhebungseffekt durch einen transparenten Schatten*/
+		width: 40%;
+	}
+	nav {
+		margin: 2%;
+	}
+}
+/*Tablet Portraet*/
+@media screen and (min-width: 768px) {
+	header {
+		height: 7%;
+	}
+}
+
+/*Desktop*/
+@media screen and (min-width: 1024px) {
 }

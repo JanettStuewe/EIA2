@@ -7,6 +7,16 @@
 var Form;
 (function (Form) {
     window.addEventListener("load", init);
+    //RESET-Button
+    //        document.getElementById("reset").addEventListener("click", function() 
+    //        {
+    //        clickCounter = 0;
+    //        ausgabe = (organizations[clickCounter]);
+    //        protokoll= "";
+    //        document.getElementById("Ausgabe").innerHTML = ausgabe;
+    //        document.getElementById("Protokoll").innerHTML = protokoll;
+    //        });
+    //});
     function init(_event) {
         console.log("Init");
         var fieldsets = document.getElementsByTagName("fieldset");

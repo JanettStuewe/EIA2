@@ -7,7 +7,18 @@
 
 namespace Form {
     window.addEventListener("load", init);
-
+    
+    //RESET-Button
+//        document.getElementById("reset").addEventListener("click", function() 
+//        {
+//        clickCounter = 0;
+//        ausgabe = (organizations[clickCounter]);
+//        protokoll= "";
+//        document.getElementById("Ausgabe").innerHTML = ausgabe;
+//        document.getElementById("Protokoll").innerHTML = protokoll;
+//        });
+//});
+    
     function init(_event: Event): void {
         console.log("Init");
         let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
