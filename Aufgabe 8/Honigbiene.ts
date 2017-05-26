@@ -22,19 +22,21 @@ namespace Aufgabe8_Wiese {
         move(): void {
             let xDiff: number = this.xtarget - this.x + 5;
             let yDiff: number = this.ytarget - this.y - 10;
-            if (Math.abs(xDiff) < 0.7 && Math.abs(yDiff) < 0.7)
+            if (Math.abs(xDiff) < 0.7 && Math.abs(yDiff) < 0.7) {
                 this.setRandomFlowerTarget();
+                console.log("Angeflogen");
+            }
             else {
                 this.x += xDiff * this.speed;
                 this.y += yDiff * this.speed;
             }
-            
+
         }
 
         drawBiene(s: Bee): void {
             crc2.fillStyle = "white";
             crc2.beginPath();
-            crc2.arc(this.x, this.y, 4 , 0 * Math.PI, 2 * Math.PI); //oberste Kreis
+            crc2.arc(this.x, this.y, 4, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
             crc2.fill();
             crc2.closePath();
             crc2.strokeStyle = "black";

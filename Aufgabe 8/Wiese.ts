@@ -76,7 +76,8 @@ namespace Aufgabe8_Wiese {
             s.start();
             alleBienen.push(s);
             let h: HonigBiene = new HonigBiene(950, 550, true);
-            s.start();
+            h.move();
+            h.start();
             alleBienen.push(h);
 
 

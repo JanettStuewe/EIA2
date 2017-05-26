@@ -62,7 +62,8 @@ var Aufgabe8_Wiese;
             s.start();
             Aufgabe8_Wiese.alleBienen.push(s);
             var h = new Aufgabe8_Wiese.HonigBiene(950, 550, true);
-            s.start();
+            h.move();
+            h.start();
             Aufgabe8_Wiese.alleBienen.push(h);
         }
         canvas.addEventListener("click", drawNeuesBienchen); //wenn auf den Canvas geklickt wird, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen l�sst

@@ -21,8 +21,10 @@ var Aufgabe8_Wiese;
         HonigBiene.prototype.move = function () {
             var xDiff = this.xtarget - this.x + 5;
             var yDiff = this.ytarget - this.y - 10;
-            if (Math.abs(xDiff) < 0.7 && Math.abs(yDiff) < 0.7)
+            if (Math.abs(xDiff) < 0.7 && Math.abs(yDiff) < 0.7) {
                 this.setRandomFlowerTarget();
+                console.log("Angeflogen");
+            }
             else {
                 this.x += xDiff * this.speed;
                 this.y += yDiff * this.speed;
