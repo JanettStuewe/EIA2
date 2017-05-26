@@ -14,11 +14,7 @@ namespace Aufgabe8_Wiese {
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
 
-        for (let i: number = 0; i < n; i++) {
-            let s: Bee = new Bee(0, 0, (i % 2) == 0); // default-values
-            alleBienen[i] = s;
-        }
-
+        
         //________________HINTERGRUND______________________________
         //Himmel_hellblau
         crc2.fillStyle = "#b0e2ff";
@@ -73,14 +69,9 @@ namespace Aufgabe8_Wiese {
         //Bienenstart
         for (let i: number = 0; i < n; i++) {
             let s: Bee = new Bee(950, 550, true);
-            s.start();
             alleBienen.push(s);
             let h: HonigBiene = new HonigBiene(950, 550, true);
-            h.move();
-            h.start();
             alleBienen.push(h);
-
-
         }
 
         canvas.addEventListener("click", drawNeuesBienchen);    //wenn auf den Canvas geklickt wird, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen lässt

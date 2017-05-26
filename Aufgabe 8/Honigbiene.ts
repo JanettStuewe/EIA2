@@ -17,12 +17,13 @@ namespace Aufgabe8_Wiese {
             let flowertarget: number = Math.round(Math.random() * (alleBlumen.length - 1));
             this.xtarget = alleBlumen[flowertarget].x;
             this.ytarget = alleBlumen[flowertarget].y;
+            console.log(alleBlumen[flowertarget].x);
         }
-
+        
         move(): void {
-            let xDiff: number = this.xtarget - this.x + 5;
-            let yDiff: number = this.ytarget - this.y - 10;
-            if (Math.abs(xDiff) < 0.7 && Math.abs(yDiff) < 0.7) {
+            let xDiff: number = this.xtarget - this.x - 10;
+            let yDiff: number = this.ytarget - this.y - 60;
+            if (Math.abs(xDiff) < 1 && Math.abs(yDiff) < 1) {
                 this.setRandomFlowerTarget();
                 console.log("Angeflogen");
             }

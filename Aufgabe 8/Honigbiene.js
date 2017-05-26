@@ -17,11 +17,12 @@ var Aufgabe8_Wiese;
             var flowertarget = Math.round(Math.random() * (Aufgabe8_Wiese.alleBlumen.length - 1));
             this.xtarget = Aufgabe8_Wiese.alleBlumen[flowertarget].x;
             this.ytarget = Aufgabe8_Wiese.alleBlumen[flowertarget].y;
+            console.log(Aufgabe8_Wiese.alleBlumen[flowertarget].x);
         };
         HonigBiene.prototype.move = function () {
-            var xDiff = this.xtarget - this.x + 5;
-            var yDiff = this.ytarget - this.y - 10;
-            if (Math.abs(xDiff) < 0.7 && Math.abs(yDiff) < 0.7) {
+            var xDiff = this.xtarget - this.x - 10;
+            var yDiff = this.ytarget - this.y - 60;
+            if (Math.abs(xDiff) < 1 && Math.abs(yDiff) < 1) {
                 this.setRandomFlowerTarget();
                 console.log("Angeflogen");
             }

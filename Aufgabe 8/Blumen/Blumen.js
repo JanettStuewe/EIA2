@@ -11,7 +11,6 @@ var Aufgabe8_Wiese;
             this.x = Math.floor(Math.random() * (700 - 300)) + 300;
             this.y = Math.floor(Math.random() * (600 - 550)) + 550;
             this.type = Aufgabe8_Wiese.sorts[sort];
-            this.draw();
         }; //setRandomFlower
         return Blume;
     }());

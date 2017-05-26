@@ -10,10 +10,6 @@ var Aufgabe8_Wiese;
         var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         Aufgabe8_Wiese.crc2 = canvas.getContext("2d");
-        for (var i_1 = 0; i_1 < n; i_1++) {
-            var s = new Aufgabe8_Wiese.Bee(0, 0, (i_1 % 2) == 0); // default-values
-            Aufgabe8_Wiese.alleBienen[i_1] = s;
-        }
         //________________HINTERGRUND______________________________
         //Himmel_hellblau
         Aufgabe8_Wiese.crc2.fillStyle = "#b0e2ff";
@@ -57,13 +53,10 @@ var Aufgabe8_Wiese;
         //Hintergrundbild speichern
         imgData = Aufgabe8_Wiese.crc2.getImageData(0, 0, 1000, 600);
         //Bienenstart
-        for (var i_2 = 0; i_2 < n; i_2++) {
+        for (var i_1 = 0; i_1 < n; i_1++) {
             var s = new Aufgabe8_Wiese.Bee(950, 550, true);
-            s.start();
             Aufgabe8_Wiese.alleBienen.push(s);
             var h = new Aufgabe8_Wiese.HonigBiene(950, 550, true);
-            h.move();
-            h.start();
             Aufgabe8_Wiese.alleBienen.push(h);
         }
         canvas.addEventListener("click", drawNeuesBienchen); //wenn auf den Canvas geklickt wird, springt die Funktion Animation an, welche eine weitere Biene aus dem Bienenkorb heraus fliegen l�sst

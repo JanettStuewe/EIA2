@@ -48,9 +48,6 @@ namespace Aufgabe8_Wiese {
             }
         }
 
-
-
-
         start(): void {
             this.x = 950;
             this.y = 550;
