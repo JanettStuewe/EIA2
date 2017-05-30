@@ -9,8 +9,8 @@ html {
 }
 
 body {
-	margin-left: 10%;
-	margin-right: 10%;
+	margin-left: 15%;
+	margin-right: 15%;
 }
 
 main {
@@ -37,18 +37,6 @@ label::after {
 	display: block;
 }
 
-input:invalid {
-	background: "red";
-}
-
-input:valid {
-	background: white;
-}
-
-input:required {
-	background: #aaaaaa;
-}
-
 fieldset {
 	width: 200px;
 	background: #FFFFFF;
@@ -56,11 +44,7 @@ fieldset {
 	margin: 2%;
 }
 
-svg, figure, button, option {
-	display: inline;
-	margin: 0px;
-	padding: 0px;
-}
+
 
 footer>img {
 	float: left;
@@ -72,9 +56,12 @@ footer>img {
 	float: right;
 	margin-bottom: 5em;
 	display: block;
-	position: absolute;
-	top: 0.5em;
-	right: 2em;
+	margin: 5%;
+}
+
+#eis {
+	margin: 2%;
+	margin-top: 5%;
 }
 
 a {
@@ -100,24 +87,25 @@ a:hover /*wirkt bei "Beruehrung"*/ {
 		background: rgba(255, 161, 176, .9);
 		/*macht den hintergrund schwarz und transparent*/
 		color: #FFFFFF; /*macht die schrift weiss vom header*/
-		position: fixed;
-		/*gibt an, das der Kopf/hauptmenue auch beim scrollen sichtbar bleibt, wird fixiert*/
+		position: fixed;/*gibt an, das der Kopf/hauptmenue auch beim scrollen sichtbar bleibt, wird fixiert*/
 		border: 1px solid #DDD; /*beschreibt die Breite und Farbe der Border*/
 		box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
 		/*gibt der Box einen Hervorhebungseffekt durch einen transparenten Schatten*/
-		width: 40%;
+		width: 70%;
 	}
 	nav {
-		margin: 2%;
+		padding: 1%;
+		text-align: center;
+		
 	}
 }
 /*Tablet Portraet*/
 @media screen and (min-width: 768px) {
-	header {
-		height: 7%;
-	}
+
+
 }
 
 /*Desktop*/
 @media screen and (min-width: 1024px) {
+
 }
