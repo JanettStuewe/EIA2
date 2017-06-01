@@ -17,7 +17,7 @@ var Form;
     //        document.getElementById("Ausgabe").innerHTML = ausgabe;
     //        document.getElementById("Protokoll").innerHTML = protok
     //    });
-    //});
+    //}        
     //    let sorts: string[] = ["schoko", "Erdbeer", "K�se", "Schwarzw�lderkirsch"];
     //
     //    function Input []: void {
@@ -38,10 +38,8 @@ var Form;
     }
     function handleChange(_event) {
         var target = _event.target;
-        if (target.name == "Slider") {
-            var progress = document.getElementsByTagName("progress")[0];
-            progress.value = parseFloat(target.value);
-        }
+        if (this.id == "checkbox")
+            console.log("Changed " + target.name + " to " + target.checked);
         if (target.name == "Stepper") {
             var progress = document.getElementsByTagName("meter")[0];
             progress.value = parseFloat(target.value);

@@ -20,8 +20,8 @@ var Aufgabe8_Wiese;
             console.log(Aufgabe8_Wiese.alleBlumen[flowertarget].x);
         };
         HonigBiene.prototype.move = function () {
-            var xDiff = this.xtarget - this.x - 10;
-            var yDiff = this.ytarget - this.y - 60;
+            var xDiff = this.xtarget - this.x - 5;
+            var yDiff = this.ytarget - this.y - 15;
             if (Math.abs(xDiff) < 1 && Math.abs(yDiff) < 1) {
                 this.setRandomFlowerTarget();
                 console.log("Angeflogen");

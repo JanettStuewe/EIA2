@@ -4,7 +4,7 @@ var Aufgabe8_Wiese;
         function Bee(_x, _y, _geschwindigkeit) {
             this.x = _x;
             this.y = _y;
-            this.setRandomSpeed();
+            this.move();
             this.setRandomSize();
             this.setRandomColor();
         }
@@ -23,7 +23,7 @@ var Aufgabe8_Wiese;
         Bee.prototype.setRandomColor = function () {
             this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
         };
-        Bee.prototype.setRandomSpeed = function () {
+        Bee.prototype.move = function () {
             // let i: number = 0;
             if (this.geschwindigkeit == true) {
                 this.x += Math.random() * 5 - 3;

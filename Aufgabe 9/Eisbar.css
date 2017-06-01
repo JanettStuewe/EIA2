@@ -44,8 +44,6 @@ fieldset {
 	margin: 2%;
 }
 
-
-
 footer>img {
 	float: left;
 	background-color: #FFA1B0;
@@ -53,15 +51,10 @@ footer>img {
 
 #Anmeldebereich { /* Anmeldebereich */
 	width: 33%;
-	float: right;
+	float: left;
 	margin-bottom: 5em;
 	display: block;
 	margin: 5%;
-}
-
-#eis {
-	margin: 2%;
-	margin-top: 5%;
 }
 
 a {
@@ -77,7 +70,13 @@ a:hover /*wirkt bei "Beruehrung"*/ {
 /*Responsive Design*/
 
 /*Smartphone*/
-@media screen and (min-width: 570px) {
+@media screen and (min-width: 500px) {
+	#eis {
+		width: 50%;
+		margin: 2%;
+		margin-top: 5%;
+	}
+
 	/*sticky Menueleiste Kopfbereich*/
 	header /*beschreibt Headerbox*/ {
 		z-index: 2; /*hebt den Header vor alles*/
@@ -87,7 +86,8 @@ a:hover /*wirkt bei "Beruehrung"*/ {
 		background: rgba(255, 161, 176, .9);
 		/*macht den hintergrund schwarz und transparent*/
 		color: #FFFFFF; /*macht die schrift weiss vom header*/
-		position: fixed;/*gibt an, das der Kopf/hauptmenue auch beim scrollen sichtbar bleibt, wird fixiert*/
+		position: fixed;
+		/*gibt an, das der Kopf/hauptmenue auch beim scrollen sichtbar bleibt, wird fixiert*/
 		border: 1px solid #DDD; /*beschreibt die Breite und Farbe der Border*/
 		box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
 		/*gibt der Box einen Hervorhebungseffekt durch einen transparenten Schatten*/
@@ -96,16 +96,21 @@ a:hover /*wirkt bei "Beruehrung"*/ {
 	nav {
 		padding: 1%;
 		text-align: center;
-		
 	}
 }
 /*Tablet Portraet*/
 @media screen and (min-width: 768px) {
+	#eis {
+		width: 70%;
+	}
+	#Anmeldebereich { /* Anmeldebereich */
+		float: left;
+	}
 
-
-}
-
-/*Desktop*/
-@media screen and (min-width: 1024px) {
-
+	/*Desktop*/
+	@media screen and (min-width: 1024px) {
+		#eis {
+			width: 50%;
+		}
+	}
 }

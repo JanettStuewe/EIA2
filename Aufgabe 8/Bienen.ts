@@ -11,7 +11,7 @@ namespace Aufgabe8_Wiese {
         constructor(_x: number, _y: number, _geschwindigkeit: boolean) {
             this.x = _x;
             this.y = _y;
-            this.setRandomSpeed();
+            this.move();
             this.setRandomSize();
             this.setRandomColor();
         }
@@ -35,7 +35,7 @@ namespace Aufgabe8_Wiese {
             this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
         }
 
-        setRandomSpeed(): void {
+        move(): void {
             // let i: number = 0;
             if (this.geschwindigkeit == true) {
                 this.x += Math.random() * 5 - 3;

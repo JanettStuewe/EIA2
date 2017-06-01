@@ -94,7 +94,7 @@ namespace Aufgabe8_Wiese {
 
         for (let i: number = 0; i < alleBienen.length; i++) {
             let s: Bee = (alleBienen[i]);
-            s.setRandomSpeed();
+            s.move();
             s.overflow();
             s.drawBiene(s);  //Malen der Bienen an der neuen Position
         }

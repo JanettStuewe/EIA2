@@ -74,7 +74,7 @@ var Aufgabe8_Wiese;
         Aufgabe8_Wiese.crc2.putImageData(imgData, 0, 0); //Hintergrundbild aufrufen
         for (var i = 0; i < Aufgabe8_Wiese.alleBienen.length; i++) {
             var s = (Aufgabe8_Wiese.alleBienen[i]);
-            s.setRandomSpeed();
+            s.move();
             s.overflow();
             s.drawBiene(s); //Malen der Bienen an der neuen Position
         }

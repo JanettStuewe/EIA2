@@ -21,8 +21,8 @@ namespace Aufgabe8_Wiese {
         }
         
         move(): void {
-            let xDiff: number = this.xtarget - this.x - 10;
-            let yDiff: number = this.ytarget - this.y - 60;
+            let xDiff: number = this.xtarget - this.x - 5;
+            let yDiff: number = this.ytarget - this.y - 15;
             if (Math.abs(xDiff) < 1 && Math.abs(yDiff) < 1) {
                 this.setRandomFlowerTarget();
                 console.log("Angeflogen");
