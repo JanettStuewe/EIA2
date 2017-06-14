@@ -1,90 +1,233 @@
-//kugelanzahl: number
-//eissorten: erdbeer, kiwi, melone, haselnus, giotto, zitrone,Sahne, Schokosoße, Erbeersoße, Streusel, Krokant - checkboxen
-//Waffel:true oder Becher:false  - boolean - radiobutton
-//lieferoptionen : boolean - radiobutton
-//eigene adresse: string
-//momentanen preis mit anzeigen
-//Button zur Prüfung der Bestellung - Information über fehlende oder invalide Daten
-
-namespace Form {
+namespace FormElements {
     window.addEventListener("load", init);
 
-    //RESET-Button
-    //        document.getElementById("reset").addEventListener("click", function() 
-    //        {
-    //        clickCounter = 0;
-    //        ausgabe = (organizations[clickCounter]);
-    //        protokoll= "";
-    //        document.getElementById("Ausgabe").innerHTML = ausgabe;
-    //        document.getElementById("Protokoll").innerHTML = protok
-    //    });
-    //}        
-    //    let sorts: string[] = ["schoko", "Erdbeer", "Käse", "Schwarzwälderkirsch"];
-    //
-    //    function Input []: void {
-    //        createInputs();
-    //    }
-    //
-    //    function createInputs(): void {
-    //        for (let i: number = 0; i < sorts.lenght; i++) {
-    //            createInput(sorts[i]);
-    //        }
-    //    }
+    //Array aller Eissorten
+    let Eissorten: string[] = ["Erdbeereis", "Kiwieis", "Meloneneis", "Haselnusseis", "Giottoeis", "Zitroneneis", "Cookieeis", "Krokanteis", "Amarettoeis", "Straciatellaeis", "Pfirsicheis"];
+    let inputsEis: HTMLInputElement[] = [];
 
-    // Array für alle Sorten, die in meiner Konditorei angeboten werden sollen
-    let sorts: string[] = ["Schoko", "Erdbeer", "Käse", "Schwarzwälder Kirsch", "Bienenstich"];
-    // Das Fieldset in dem alle Inputs für die verschiedenen Kuchen angeordnet werden sollen.
-    let fieldset: HTMLFieldSetElement;
-    // Array in dem alle inputs für die Sorten untergebracht werden
-    let inputs: HTMLInputElement[] = [];
-    function createInputs(): void {
-        // Erstelle pro Sorte Kuchen einen Input
-        for (let i: number = 0; i < sorts.length; i++) {
-            console.log(sorts[i]);
-            createInput(sorts[i]);
-        }
+    //Array aller Zusaetze
+    let zusaetzeauswahl: string[] = ["Sahne", "Schokososse", "Erdbeersosse", "Streusel", "Krokant"];
+    let inputsZusaetze: HTMLInputElement[] = [];
+
+    //Array aller Darreichungsformen
+    let Darreichungsform: string[] = ["Waffel", "Becher", "Box"];
+    let inputsDarreichung: HTMLInputElement[] = [];
+
+    //HTMLElemente kreieren
+    let Darreichung: HTMLElement;
+    let Eis: HTMLElement;
+    let Zusaetze: HTMLElement;
+    let Bestelluebersicht: HTMLElement;
+    let Bestellbutton: HTMLElement;
+
+
+    function init(): void {
+        Eis = document.getElementById("Eissorten"); //auf Eisssorten im HTML zugreifen
+        Eis.addEventListener("change", change);
+
+        Zusaetze = document.getElementById("Zusaetze");//auf Zusaetze im HTML zugreifen
+        Zusaetze.addEventListener("change", change);
+
+        Darreichung = document.getElementById("Darreichungsform");//auf Darreichungsformen im HTML zugreifen
+        Darreichung.addEventListener("change", change);
+
+        Bestelluebersicht = document.getElementById("Bestelluebersicht");//auf Bestelluebersicht im HTML zugreifen
+
+        Bestellbutton = document.getElementById("BestellungAbschicken");//auf Bestellbutton im HTML zugreifen
+        Bestellbutton.addEventListener("click", BestellungPruefen);
+
+        createEissorten();
+        createZusaetze();
+        createDarreichungsform();
     }
 
-    function createInput(_sort: string): void {
-        // Ein Label ist ein Text den man anklicken kann um damit den Input auszulösen
+
+    //Input Eisssorten kreieren
+    function createEissorten(): void {
+        for (let i: number = 0; i < Eissorten.length; i++) {
+            createInput(Eissorten[i]);
+        }
+    }
+    function createInput(_Eissorte: string): void {
         let label: HTMLLabelElement = document.createElement("label");
         let input: HTMLInputElement = document.createElement("input");
-
-        label.innerText = _sort;
+        label.innerText = _Eissorte;
         label.appendChild(input);
-        // Die Art des Inputs wird über den Typ definiert
-        input.type = "number";
+        input.type = "number"; //Art des Inputs
         input.min = "0";
+        input.max = "20";
         input.value = "0";
-
-        fieldset.appendChild(label);
-        inputs.push(input);
+        label.id = _Eissorte;
+        Eis.appendChild(label);
+        inputsEis.push(input);
     }
 
-    function init(_event: Event): void {
-        let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("Bestelluebersicht");
-
-        fieldset = document.getElementsByTagName("Bestelluebersicht")[0];
-
-        createInputs();
-
-        fieldset.addEventListener("change", change);
-        for (let i: number = 0; i < fieldsets.length; i++) {
-            let fieldset: HTMLFieldSetElement = fieldsets[i];
-            fieldset.addEventListener("change", handleChange);
+    //Input Zusaetze kreieren
+    function createZusaetze(): void {
+        for (let i: number = 0; i < zusaetzeauswahl.length; i++) {
+            createCheckbox(zusaetzeauswahl[i]);
         }
     }
+    function createCheckbox(_Checkboxen: string): void {
+        let label: HTMLLabelElement = document.createElement("label");
+        let input: HTMLInputElement = document.createElement("input");
+        label.innerText = _Checkboxen;
+        label.appendChild(input);
+        input.type = "checkbox"; //Art des Inputs
+        label.id = _Checkboxen;
+        Zusaetze.appendChild(label);
+        inputsZusaetze.push(input);
+    }
 
-    function handleChange(_event: Event): void {
-        let target: HTMLInputElement = <HTMLInputElement>_event.target;
+    //Input Darreichungsform kreieren
+    function createDarreichungsform(): void {
+        for (let i: number = 0; i < Darreichungsform.length; i++) {
+            createRadio(Darreichungsform[i]);
+        }
+    }
+    function createRadio(_Radiobutton: string): void {
+        let label: HTMLLabelElement = document.createElement("label");
+        let input: HTMLInputElement = document.createElement("input");
+        label.innerText = _Radiobutton;
+        label.appendChild(input);
+        input.type = "radio"; //Art des Inputs
+        input.name = "Radiobutton";
+        label.id = _Radiobutton;
+        Darreichung.appendChild(label);
+        inputsDarreichung.push(input);
+    }
 
-        if (this.id == "checkbox")
-            console.log("Changed " + target.name + " to " + target.checked);
 
-        if (target.name == "Stepper") {
-            let progress: HTMLProgressElement = <HTMLProgressElement>document.getElementsByTagName("meter")[0];
-            progress.value = parseFloat(target.value);
+    //Zeigt ausgewählte Produkte mit ihren Preisen in der Bestellübersicht an
+    function changeWarenuebersicht(_summe: number): void {
+        let BestellungUebersicht: HTMLElement = document.getElementById("Warenuebersicht");
+        BestellungUebersicht.innerText = "";
+
+        for (let i: number = 0; i < inputsEis.length; i++) {
+            if (parseInt(inputsEis[i].value) > 0) {
+                BestellungUebersicht.innerText += Eissorten[i] + " " + (parseInt(inputsEis[i].value) * 1) + "Euro" + "\n";
+            }
         }
 
+        for (let i: number = 0; i < inputsZusaetze.length; i++) {
+            if (inputsZusaetze[i].checked) {
+                BestellungUebersicht.innerText += zusaetzeauswahl[i] + " 0.30 Euro" + "\n";
+            }
+        }
+
+        for (let i: number = 0; i < inputsDarreichung.length; i++) {
+            if (inputsDarreichung[i].checked) {
+                BestellungUebersicht.innerText += Darreichungsform[i] + "\n";
+            }
+        }
+
+        //Summe wird in HTML geschrieben
+        let summeHtml: HTMLElement = document.getElementById("Summe");
+        summeHtml.innerText = _summe.toString() + " Euro";
+    }
+
+
+    function change(): void {
+        let summe: number = 0;
+        for (let i: number = 0; i < inputsEis.length; i++) {
+            summe += parseInt(inputsEis[i].value); // Preis wird immer der Summer addiert oder subtrahiert, wenn die Zahl im Inputfeld verändert wird
+        }
+        for (let i: number = 0; i < inputsZusaetze.length; i++) {
+            if (inputsZusaetze[i].checked) //Preis wird immer der Summer addiert oder subtrahiert, wenn ein Zusatz im Inputfeld angeklickt wird
+            { summe += 0.30; }
+        }
+        changeWarenuebersicht(summe);
+    }
+
+
+    //Bestellung wird auf Vollstaendigkeit und Richtigkeit ueberprueft
+    function BestellungPruefen(): void {
+        let Pruefung: string[] = ["Ups. Bitte ueberpruefen Sie ihre Eingaben! \n"];
+
+        //Name
+        let Name: HTMLInputElement = <HTMLInputElement>document.getElementById("Name");
+        if (Name.validity.valid == false) {
+            Pruefung.push("Name \n");
+            Name.style.backgroundColor = "#FFA1B0";
+        }
+        else {
+            Name.style.backgroundColor = "white";
+        }
+
+        //Vorname
+        let Vorname: HTMLInputElement = <HTMLInputElement>document.getElementById("Vorname");
+        if (Vorname.validity.valid == false) {
+            Pruefung.push("Vorname \n")
+            Vorname.style.backgroundColor = "#FFA1B0";
+        }
+        else {
+            Vorname.style.backgroundColor = "white";
+        }
+
+        //Straße
+        let Strasse: HTMLInputElement = <HTMLInputElement>document.getElementById("Strasse");
+        if (Strasse.validity.valid == false) {
+            Pruefung.push("Strasse \n");
+            Strasse.style.backgroundColor = "#FFA1B0";
+        }
+        else {
+            Strasse.style.backgroundColor = "white";
+        }
+
+        //Ort, PLZ
+        let OrtPLZ: HTMLInputElement = <HTMLInputElement>document.getElementById("Ort,PLZ");
+        if (OrtPLZ.validity.valid == false) {
+            Pruefung.push("Ort, PLZ \n");
+            OrtPLZ.style.backgroundColor = "#FFA1B0";
+        }
+        else {
+            OrtPLZ.style.backgroundColor = "white";
+        }
+
+        //Email
+        let Mail: HTMLInputElement = <HTMLInputElement>document.getElementById("Email");
+        if (Mail.validity.valid == false) {
+            Pruefung.push("Email \n");
+            Mail.style.backgroundColor = "#FFA1B0";
+        }
+        else {
+            Mail.style.backgroundColor = "white";
+        }
+
+        //Eisanzahl
+        let kugelanzahl: number = 0;
+        for (let i: number = 0; i < inputsEis.length; i++) {
+            if (parseInt(inputsEis[i].value) > 0)
+                kugelanzahl += 1;
+        }
+        if (kugelanzahl == 0)
+            Pruefung.push("Eissorten\n");
+
+        //Zusaetze
+        let Zusaetze: number = 0;
+        for (let i: number = 0; i < inputsZusaetze.length; i++) {
+            if (inputsZusaetze[i].checked)
+                Zusaetze += 1;
+        }
+        if (Zusaetze == 0)
+            Pruefung.push("Zusaetze\n");
+
+        //Darreichungsform
+        let Darreichung: number = 0;
+        for (let i: number = 0; i < inputsDarreichung.length; i++) {
+            if (inputsDarreichung[i].checked)
+                Darreichung += 1;
+        }
+        if (Darreichung == 0)
+            Pruefung.push("Darreichungsform");
+
+        if (Pruefung.length > 0) {
+            for (let i: number = 0; i < Pruefung.length; i++)
+                Pruefung.push
+            alert(Pruefung.join(""));
+        }
+        else {
+            alert("Danke für Ihre Bestellung. Besuchen Sie uns bald wieder, wir wuerden uns freuen! :)");
+        }
     }
 }

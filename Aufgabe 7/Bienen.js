@@ -1,5 +1,5 @@
-var Bienenschwarm_Classes;
-(function (Bienenschwarm_Classes) {
+var Aufgabe7_Wiese;
+(function (Aufgabe7_Wiese) {
     var Bee = (function () {
         function Bee(_x, _y, _geschwindigkeit) {
             this.x = _x;
@@ -50,18 +50,18 @@ var Bienenschwarm_Classes;
                 this.y = 3;
         };
         Bee.prototype.drawBiene = function (s) {
-            Bienenschwarm_Classes.crc2.fillStyle = this.color;
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.arc(this.x, this.y, this.size, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
-            Bienenschwarm_Classes.crc2.fill();
-            Bienenschwarm_Classes.crc2.closePath();
-            Bienenschwarm_Classes.crc2.strokeStyle = "black";
-            Bienenschwarm_Classes.crc2.moveTo(this.x + 2, this.y + 2);
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y);
-            Bienenschwarm_Classes.crc2.stroke();
+            Aufgabe7_Wiese.crc2.fillStyle = this.color;
+            Aufgabe7_Wiese.crc2.beginPath();
+            Aufgabe7_Wiese.crc2.arc(this.x, this.y, this.size, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
+            Aufgabe7_Wiese.crc2.fill();
+            Aufgabe7_Wiese.crc2.closePath();
+            Aufgabe7_Wiese.crc2.strokeStyle = "black";
+            Aufgabe7_Wiese.crc2.moveTo(this.x + 2, this.y + 2);
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y);
+            Aufgabe7_Wiese.crc2.stroke();
         }; //drawBiene
         return Bee;
     }());
-    Bienenschwarm_Classes.Bee = Bee; //classes
-})(Bienenschwarm_Classes || (Bienenschwarm_Classes = {})); //namespace
+    Aufgabe7_Wiese.Bee = Bee; //classes
+})(Aufgabe7_Wiese || (Aufgabe7_Wiese = {})); //namespace
 //# sourceMappingURL=Bienen.js.map

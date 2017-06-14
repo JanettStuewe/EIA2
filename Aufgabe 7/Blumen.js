@@ -1,5 +1,5 @@
-var Bienenschwarm_Classes;
-(function (Bienenschwarm_Classes) {
+var Aufgabe7_Wiese;
+(function (Aufgabe7_Wiese) {
     var Blume = (function () {
         function Blume(_x, _y, _type) {
             this.x = _x;
@@ -23,142 +23,142 @@ var Bienenschwarm_Classes;
         ////////////////////////////////BLUMEN/////////////////////////////////////////
         Blume.prototype.drawBlumeTulpe = function () {
             //Stiel
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.strokeStyle = "#006400";
-            Bienenschwarm_Classes.crc2.moveTo(this.x, this.y);
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y - 32);
-            Bienenschwarm_Classes.crc2.stroke();
-            Bienenschwarm_Classes.crc2.closePath();
+            Aufgabe7_Wiese.crc2.beginPath();
+            Aufgabe7_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe7_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y - 32);
+            Aufgabe7_Wiese.crc2.stroke();
+            Aufgabe7_Wiese.crc2.closePath();
             //Stielblatt1
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.strokeStyle = "#006400";
-            Bienenschwarm_Classes.crc2.moveTo(this.x, this.y);
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y - 13); //obere Punkt
-            Bienenschwarm_Classes.crc2.lineTo(this.x - 7, this.y - 26); //Blattspitze
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y - 5); //untere Punkt
-            Bienenschwarm_Classes.crc2.stroke();
-            Bienenschwarm_Classes.crc2.closePath();
-            Bienenschwarm_Classes.crc2.fillStyle = "#006400";
-            Bienenschwarm_Classes.crc2.fill();
+            Aufgabe7_Wiese.crc2.beginPath();
+            Aufgabe7_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe7_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y - 13); //obere Punkt
+            Aufgabe7_Wiese.crc2.lineTo(this.x - 7, this.y - 26); //Blattspitze
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y - 5); //untere Punkt
+            Aufgabe7_Wiese.crc2.stroke();
+            Aufgabe7_Wiese.crc2.closePath();
+            Aufgabe7_Wiese.crc2.fillStyle = "#006400";
+            Aufgabe7_Wiese.crc2.fill();
             //Stielblatt2
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.strokeStyle = "#006400";
-            Bienenschwarm_Classes.crc2.moveTo(this.x, this.y);
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y - 12); //obere Punkt
-            Bienenschwarm_Classes.crc2.lineTo(this.x + 7, this.y - 20); //Blattspitze
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y - 5); //untere Punkt
-            Bienenschwarm_Classes.crc2.stroke();
-            Bienenschwarm_Classes.crc2.closePath();
-            Bienenschwarm_Classes.crc2.fillStyle = "#006400";
-            Bienenschwarm_Classes.crc2.fill();
+            Aufgabe7_Wiese.crc2.beginPath();
+            Aufgabe7_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe7_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y - 12); //obere Punkt
+            Aufgabe7_Wiese.crc2.lineTo(this.x + 7, this.y - 20); //Blattspitze
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y - 5); //untere Punkt
+            Aufgabe7_Wiese.crc2.stroke();
+            Aufgabe7_Wiese.crc2.closePath();
+            Aufgabe7_Wiese.crc2.fillStyle = "#006400";
+            Aufgabe7_Wiese.crc2.fill();
             //TulpenBl�tenform
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.strokeStyle = "white"; //umrandet die Tulpe weiss
-            Bienenschwarm_Classes.crc2.arc(this.x, this.y - 40, 9, 0 * Math.PI, 1 * Math.PI); //Rundung der Tulpe
-            Bienenschwarm_Classes.crc2.lineTo(this.x - 10, this.y - 53); //links oben der Punkt
-            Bienenschwarm_Classes.crc2.lineTo(this.x - 5, this.y - 45);
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y - 53); //Spitze in der Mitte
-            Bienenschwarm_Classes.crc2.lineTo(this.x + 5, this.y - 45);
-            Bienenschwarm_Classes.crc2.lineTo(this.x + 10, this.y - 53); //rechts der Punkt
-            Bienenschwarm_Classes.crc2.closePath();
-            Bienenschwarm_Classes.crc2.stroke();
-            Bienenschwarm_Classes.crc2.fillStyle = "red";
-            Bienenschwarm_Classes.crc2.fill();
+            Aufgabe7_Wiese.crc2.beginPath();
+            Aufgabe7_Wiese.crc2.strokeStyle = "white"; //umrandet die Tulpe weiss
+            Aufgabe7_Wiese.crc2.arc(this.x, this.y - 40, 9, 0 * Math.PI, 1 * Math.PI); //Rundung der Tulpe
+            Aufgabe7_Wiese.crc2.lineTo(this.x - 10, this.y - 53); //links oben der Punkt
+            Aufgabe7_Wiese.crc2.lineTo(this.x - 5, this.y - 45);
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y - 53); //Spitze in der Mitte
+            Aufgabe7_Wiese.crc2.lineTo(this.x + 5, this.y - 45);
+            Aufgabe7_Wiese.crc2.lineTo(this.x + 10, this.y - 53); //rechts der Punkt
+            Aufgabe7_Wiese.crc2.closePath();
+            Aufgabe7_Wiese.crc2.stroke();
+            Aufgabe7_Wiese.crc2.fillStyle = "red";
+            Aufgabe7_Wiese.crc2.fill();
         };
         Blume.prototype.drawBlumeBlue = function () {
             //Stiel
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.strokeStyle = "#006400";
-            Bienenschwarm_Classes.crc2.moveTo(this.x, this.y);
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y + 50);
-            Bienenschwarm_Classes.crc2.stroke();
-            Bienenschwarm_Classes.crc2.closePath();
+            Aufgabe7_Wiese.crc2.beginPath();
+            Aufgabe7_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe7_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y + 50);
+            Aufgabe7_Wiese.crc2.stroke();
+            Aufgabe7_Wiese.crc2.closePath();
             //Stielblatt
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.strokeStyle = "#006400";
-            Bienenschwarm_Classes.crc2.moveTo(this.x, this.y);
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y + 30); //obere Punkt
-            Bienenschwarm_Classes.crc2.lineTo(this.x - 10, this.y + 25); //Blattspitze
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y + 43); //untere Punkt
-            Bienenschwarm_Classes.crc2.stroke();
-            Bienenschwarm_Classes.crc2.closePath();
-            Bienenschwarm_Classes.crc2.fillStyle = "#006400";
-            Bienenschwarm_Classes.crc2.fill();
+            Aufgabe7_Wiese.crc2.beginPath();
+            Aufgabe7_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe7_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y + 30); //obere Punkt
+            Aufgabe7_Wiese.crc2.lineTo(this.x - 10, this.y + 25); //Blattspitze
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y + 43); //untere Punkt
+            Aufgabe7_Wiese.crc2.stroke();
+            Aufgabe7_Wiese.crc2.closePath();
+            Aufgabe7_Wiese.crc2.fillStyle = "#006400";
+            Aufgabe7_Wiese.crc2.fill();
             //Bl�te
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.fillStyle = "blue";
-            Bienenschwarm_Classes.crc2.strokeStyle = "#66ccff";
-            Bienenschwarm_Classes.crc2.arc(this.x, this.y, 10, 0 * Math.PI, 2 * Math.PI);
-            Bienenschwarm_Classes.crc2.arc(this.x - 10, this.y, 7, 0 * Math.PI, 2 * Math.PI);
-            Bienenschwarm_Classes.crc2.arc(this.x + 10, this.y, 7, 0 * Math.PI, 2 * Math.PI);
-            Bienenschwarm_Classes.crc2.arc(this.x, this.y + 10, 7, 0 * Math.PI, 2 * Math.PI);
-            Bienenschwarm_Classes.crc2.arc(this.x, this.y - 10, 7, 0 * Math.PI, 2 * Math.PI);
-            Bienenschwarm_Classes.crc2.closePath();
-            Bienenschwarm_Classes.crc2.fill();
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.fillStyle = "white";
-            Bienenschwarm_Classes.crc2.arc(this.x, this.y, 5, 0 * Math.PI, 2 * Math.PI);
-            Bienenschwarm_Classes.crc2.fill();
-            Bienenschwarm_Classes.crc2.stroke();
-            Bienenschwarm_Classes.crc2.closePath();
+            Aufgabe7_Wiese.crc2.beginPath();
+            Aufgabe7_Wiese.crc2.fillStyle = "blue";
+            Aufgabe7_Wiese.crc2.strokeStyle = "#66ccff";
+            Aufgabe7_Wiese.crc2.arc(this.x, this.y, 10, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe7_Wiese.crc2.arc(this.x - 10, this.y, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe7_Wiese.crc2.arc(this.x + 10, this.y, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe7_Wiese.crc2.arc(this.x, this.y + 10, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe7_Wiese.crc2.arc(this.x, this.y - 10, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe7_Wiese.crc2.closePath();
+            Aufgabe7_Wiese.crc2.fill();
+            Aufgabe7_Wiese.crc2.beginPath();
+            Aufgabe7_Wiese.crc2.fillStyle = "white";
+            Aufgabe7_Wiese.crc2.arc(this.x, this.y, 5, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe7_Wiese.crc2.fill();
+            Aufgabe7_Wiese.crc2.stroke();
+            Aufgabe7_Wiese.crc2.closePath();
         };
         Blume.prototype.drawBlume3 = function () {
             //Stiel
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.strokeStyle = "#006400";
-            Bienenschwarm_Classes.crc2.moveTo(this.x, this.y);
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y + 50);
-            Bienenschwarm_Classes.crc2.stroke();
-            Bienenschwarm_Classes.crc2.closePath();
+            Aufgabe7_Wiese.crc2.beginPath();
+            Aufgabe7_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe7_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y + 50);
+            Aufgabe7_Wiese.crc2.stroke();
+            Aufgabe7_Wiese.crc2.closePath();
             //Stielblatt1
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.strokeStyle = "#006400";
-            Bienenschwarm_Classes.crc2.moveTo(this.x, this.y);
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y + 36); //obere Punkt
-            Bienenschwarm_Classes.crc2.lineTo(this.x + 10, this.y + 27); //Blattspitze
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y + 43); //untere Punkt
-            Bienenschwarm_Classes.crc2.stroke();
-            Bienenschwarm_Classes.crc2.closePath();
-            Bienenschwarm_Classes.crc2.fillStyle = "#006400";
-            Bienenschwarm_Classes.crc2.fill();
+            Aufgabe7_Wiese.crc2.beginPath();
+            Aufgabe7_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe7_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y + 36); //obere Punkt
+            Aufgabe7_Wiese.crc2.lineTo(this.x + 10, this.y + 27); //Blattspitze
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y + 43); //untere Punkt
+            Aufgabe7_Wiese.crc2.stroke();
+            Aufgabe7_Wiese.crc2.closePath();
+            Aufgabe7_Wiese.crc2.fillStyle = "#006400";
+            Aufgabe7_Wiese.crc2.fill();
             //Stielblatt2
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.strokeStyle = "#006400";
-            Bienenschwarm_Classes.crc2.moveTo(this.x, this.y);
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y + 36); //obere Punkt
-            Bienenschwarm_Classes.crc2.lineTo(this.x - 10, this.y + 25); //Blattspitze
-            Bienenschwarm_Classes.crc2.lineTo(this.x, this.y + 43); //untere Punkt
-            Bienenschwarm_Classes.crc2.stroke();
-            Bienenschwarm_Classes.crc2.closePath();
-            Bienenschwarm_Classes.crc2.fillStyle = "#006400";
-            Bienenschwarm_Classes.crc2.fill();
+            Aufgabe7_Wiese.crc2.beginPath();
+            Aufgabe7_Wiese.crc2.strokeStyle = "#006400";
+            Aufgabe7_Wiese.crc2.moveTo(this.x, this.y);
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y + 36); //obere Punkt
+            Aufgabe7_Wiese.crc2.lineTo(this.x - 10, this.y + 25); //Blattspitze
+            Aufgabe7_Wiese.crc2.lineTo(this.x, this.y + 43); //untere Punkt
+            Aufgabe7_Wiese.crc2.stroke();
+            Aufgabe7_Wiese.crc2.closePath();
+            Aufgabe7_Wiese.crc2.fillStyle = "#006400";
+            Aufgabe7_Wiese.crc2.fill();
             //Bl�te
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.fillStyle = "#DF7CF3";
-            Bienenschwarm_Classes.crc2.strokeStyle = "white";
-            Bienenschwarm_Classes.crc2.arc(this.x, this.y, 10, 0 * Math.PI, 2 * Math.PI);
-            Bienenschwarm_Classes.crc2.arc(this.x - 10, this.y, 7, 0 * Math.PI, 2 * Math.PI);
-            Bienenschwarm_Classes.crc2.arc(this.x + 10, this.y, 7, 0 * Math.PI, 2 * Math.PI);
-            Bienenschwarm_Classes.crc2.arc(this.x, this.y + 10, 7, 0 * Math.PI, 2 * Math.PI);
-            Bienenschwarm_Classes.crc2.arc(this.x, this.y - 10, 7, 0 * Math.PI, 2 * Math.PI);
-            Bienenschwarm_Classes.crc2.closePath();
-            Bienenschwarm_Classes.crc2.fill();
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.fillStyle = "#722F80";
-            Bienenschwarm_Classes.crc2.arc(this.x, this.y, 5, 0 * Math.PI, 2 * Math.PI);
-            Bienenschwarm_Classes.crc2.fill();
-            Bienenschwarm_Classes.crc2.stroke();
-            Bienenschwarm_Classes.crc2.closePath();
+            Aufgabe7_Wiese.crc2.beginPath();
+            Aufgabe7_Wiese.crc2.fillStyle = "#DF7CF3";
+            Aufgabe7_Wiese.crc2.strokeStyle = "white";
+            Aufgabe7_Wiese.crc2.arc(this.x, this.y, 10, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe7_Wiese.crc2.arc(this.x - 10, this.y, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe7_Wiese.crc2.arc(this.x + 10, this.y, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe7_Wiese.crc2.arc(this.x, this.y + 10, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe7_Wiese.crc2.arc(this.x, this.y - 10, 7, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe7_Wiese.crc2.closePath();
+            Aufgabe7_Wiese.crc2.fill();
+            Aufgabe7_Wiese.crc2.beginPath();
+            Aufgabe7_Wiese.crc2.fillStyle = "#722F80";
+            Aufgabe7_Wiese.crc2.arc(this.x, this.y, 5, 0 * Math.PI, 2 * Math.PI);
+            Aufgabe7_Wiese.crc2.fill();
+            Aufgabe7_Wiese.crc2.stroke();
+            Aufgabe7_Wiese.crc2.closePath();
         };
         Blume.prototype.setRandomFlower = function () {
             var sort = Math.round(Math.random() * 2);
             this.x = Math.floor(Math.random() * (700 - 300)) + 300;
             this.y = Math.floor(Math.random() * (600 - 550)) + 550;
-            this.type = Bienenschwarm_Classes.sorts[sort];
+            this.type = Aufgabe7_Wiese.sorts[sort];
             this.draw();
         }; //setRandomFlower
         return Blume;
     }());
-    Bienenschwarm_Classes.Blume = Blume; //class
-})(Bienenschwarm_Classes || (Bienenschwarm_Classes = {})); //namespace
+    Aufgabe7_Wiese.Blume = Blume; //class
+})(Aufgabe7_Wiese || (Aufgabe7_Wiese = {})); //namespace
 //# sourceMappingURL=Blumen.js.map

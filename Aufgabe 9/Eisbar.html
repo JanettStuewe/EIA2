@@ -29,102 +29,62 @@
 			value="z.B. Max Mustermann" /> Passwort: <input type="password"
 			name="pwd" value="dfgdfg" /> <input type="submit" value="Anmelden" />
 	</div>
-	<img id="eis" src="eis.gif">
-	<div>
-		<fieldset id="checkbox">
-			<legend> Eissorte - Eine Kugel 0,80€ </legend>
-			<input type="checkbox" name="Erdbeereis" value="check1"
-				class="Eissorte" id="check1" /> <label for="check1">Erdbeereis</label>
-			<input type="number" name="Stepper" step="1" min="0" max="10"
-				value="0" />
-			<hr />
-			<input type="checkbox" name="Kiwieis" value="check2" class="Eissorte"
-				id="check2" /> <label for="check2">Kiwieis</label> <input
-				type="number" name="Stepper" step="1" min="0" max="10" value="0" />
-			<hr />
-			<input type="checkbox" name="Meloneneis" value="check3" id="check3" />
-			<label for="check3">Meloneneis</label> <input type="number"
-				name="Stepper" step="1" min="0" max="10" value="0" />
-			<hr />
-			<input type="checkbox" name="Haselnusseis" value="check4" id="check4" />
-			<label for="check4">Haselnusseis</label> <input type="number"
-				name="Stepper" step="1" min="0" max="10" value="0" />
-			<hr />
-			<input type="checkbox" name="Giottoeis" value="check2"
-				class="Eissorte" id="check5" /> <label for="check5">Giottoeis</label>
-			<input type="number" name="Stepper" step="1" min="0" max="10"
-				value="0" />
-			<hr />
-			<input type="checkbox" name="Zitoneneis" value="check6" id="check6" />
-			<label for="check6">Zitoneneis</label> <input type="number"
-				name="Stepper" step="1" min="0" max="10" value="0" />
-		</fieldset>
-
-		<fieldset>
-			<legend> Zusätze - Ein Zusatz 0,30€ </legend>
-			<input type="checkbox" name="Sahne" value="check3" id="check3" /> <label
-				for="check3">Sahne</label> <input type="checkbox" name="Schokosoße"
-				value="check3" id="check3" /> <label for="check3">Schokosoße</label>
-
-			<input type="checkbox" name="Erdbeersoße" value="check3" id="check3" />
-			<label for="check3">Erdbeersoße</label> <input type="checkbox"
-				name="Streusel" value="check3" id="check3" /> <label for="check3">Streusel</label>
-
-			<input type="checkbox" name="Krokant" value="check3" id="check3" />
-			<label for="check3">Krokant</label>
-		</fieldset>
-
-		<div></div>
-		<fieldset id="radio">
-			<legend> Darreichungsform </legend>
-			<input type="radio" name="Radiogroup" value="radio1" id="radio1" />
-			<label for="radio1">Waffel</label> <input type="radio"
-				name="Radiogroup" value="radio2" id="radio2" /> <label for="radio2">Becher</label>
-			<input type="radio" name="Radiogroup" value="radio3" id="radio3" />
-			<label for="radio3">Box</label>
-		</fieldset>
-	</div>
-	<div>
-		<fieldset id="radio">
-			<legend> Lieferoptionen </legend>
-			<input type="radio" name="Radiogroup" value="radio1" id="radio1" />
-			<label for="radio1">Standardversand</label> <input type="radio"
-				name="Radiogroup" value="radio2" id="radio2" /> <label for="radio2">Expressversand</label>
-		</fieldset>
-	</div>
-	<div>
-		<fieldset id="text">
-			<legend> Kontakt </legend>
-			Name <input type="text" name="Text" placeholder="Mustermann" required />
-			<hr />
-			Vorname <input type="text" name="Text" placeholder="Max"
-				required />
-			<hr />
-			Straße <input type="text" name="Text" placeholder="Friedrichsstraße 7"
-				required />
-			<hr />
-			Ort <input type="text" name="Text" placeholder="Furtwangen" required />
-			<hr />
-			Postleitzahl <input type="text" name="Pattern" pattern="[0-9]{6}"
-				placeholder="78120" />
-			<hr />
-			Mail <input type="email" name="Mail" placeholder="place @ between" />
-			<hr />
-			Kommentar
-			<textarea name="Area" cols="30" rows="3" placeholder="z.B. Bitte Streusel extra."></textarea>
-		</fieldset>
-	</div>
-	<div>
-	<fieldset id="Bestelluebersicht">
-	<legend>
-	Bestellübersicht
-	</legend>
-	<p></p>
-	</fieldset>
-	</div>
-	<h2>
-		<input type="reset" value="Reset!" id="reset">
-	</h2>
+	<img id="eis" src="eis.gif">	
+		<div>
+			<!-- Darreichnugsfotm -->
+			<fieldset id="Darreichungsform">
+				<legend> Darreichungsform </legend>
+			</fieldset>
+	
+			<!-- Eissorten -->
+			<fieldset id="Eissorten">
+				<legend> Eissorten - je 1€ </legend>
+			</fieldset>
+		</div>
+		<div>
+			<!-- Zusätze -->
+			<fieldset id="Zusaetze">
+			<legend> Zusätze - je 0.30€ </legend>
+			</fieldset>
+	
+			<!-- Lieferoptionen -->
+			<fieldset id="Lieferoptionen">
+				<legend> Lieferoptionen </legend>
+				<select name="Lieferoptionen" id="Lieferoptionen">
+				<option value="Standard">Standard</option>
+				<option value="Express">Express</option> 
+				</select>
+			</fieldset>
+	
+			<!--Bestelluebersicht -->
+			<fieldset id="Bestelluebersicht">
+				<legend> Bestelluebersicht </legend>
+				<p id="Warenuebersicht"></p>
+				<h4>Summe:</h4>
+				<p id="Summe"></p>
+       		</fieldset>
+	
+			<!-- Kontaktdaten -->
+			<fieldset id="Kontaktdaten">
+				<legend> Kontaktdaten </legend>
+				Name
+				<input type="text" name="Name" placeholder="Mustermann" required id="Name"/>
+				<hr />
+				Vorname
+				<input type="text" name="Vorname" placeholder="Max" required id="Vorname"/>
+				<hr />
+				Straße
+				<input type="text" name="Straße" placeholder="Friedrichsstraße 7" required id="Strasse"/>
+				<hr />
+				Ort,PLZ
+				<input type="text" name="Ort, PLZ" placeholder="Furtwangen, 78120" required id="Ort,PLZ"/>
+				<hr />
+				Mail
+				<input type="email" name="Mail" placeholder="place @ between" id="Email"/>
+			</fieldset>
+	
+			<button name="Bestellbutton" type="button" id="BestellungAbschicken">Bestellung prüfen und abschicken!</button>
+		</div>
 	</main>
 	<footer>
 		<img src="instagram.png"> <img src="facebook.png"> <img
