@@ -7,7 +7,7 @@ var Bienenschwarm_Classes;
     function Wiese(_event) {
         var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
-        Bienenschwarm_Classes.crc2 = canvas.getContext("2d");
+        Bienenschwarm_Classes.inhalt = canvas.getContext("2d");
         for (var i_1 = 0; i_1 < n; i_1++) {
             var s = { x: 0, y: 0, size: 0, color: "#0000ff", geschwindigkeit: true }; // default-values
             s.x = Math.random() * 200; // m�gliche Schreibweise, hier sind variable Schl�ssel m�glich
@@ -25,8 +25,8 @@ var Bienenschwarm_Classes;
         }
         //________________HINTERGRUND______________________________
         //Himmel_hellblau
-        Bienenschwarm_Classes.crc2.fillStyle = "#b0e2ff";
-        Bienenschwarm_Classes.crc2.fillRect(0, 0, canvas.width, canvas.height);
+        Bienenschwarm_Classes.inhalt.fillStyle = "#b0e2ff";
+        Bienenschwarm_Classes.inhalt.fillRect(0, 0, canvas.width, canvas.height);
         //Berge_gro�ers
         drawBerg(850, 210, "#919191", "#919191");
         drawBergSpitze(850, 210, "#e0eeee", "#e0eeee");
@@ -34,8 +34,8 @@ var Bienenschwarm_Classes;
         drawKleinenBerg(500, 400, "#cccccc", "#cccccc");
         drawKleinenBergSpitze(500, 400, "#f0ffff", "#f0ffff");
         //Wiese_gr�n
-        Bienenschwarm_Classes.crc2.fillStyle = "#b3ee3a";
-        Bienenschwarm_Classes.crc2.fillRect(0, 500, canvas.width, canvas.height);
+        Bienenschwarm_Classes.inhalt.fillStyle = "#b3ee3a";
+        Bienenschwarm_Classes.inhalt.fillRect(0, 500, canvas.width, canvas.height);
         //____________________MITTE__________________________________________
         drawBaeume(20, 460, "#a0522d", "#006400");
         drawBaeume(800, 500, "#a0522d", "#006400");
@@ -68,7 +68,7 @@ var Bienenschwarm_Classes;
             }
         }
         //Hintergrundbild speichern
-        imgData = Bienenschwarm_Classes.crc2.getImageData(0, 0, 1000, 600);
+        imgData = Bienenschwarm_Classes.inhalt.getImageData(0, 0, 1000, 600);
         //Bienenstart
         for (var i_2 = 0; i_2 < n; i_2++) {
             var s = alleBienen[i_2];
@@ -87,7 +87,7 @@ var Bienenschwarm_Classes;
     }
     //Animation der Bienen
     function Animation() {
-        Bienenschwarm_Classes.crc2.putImageData(imgData, 0, 0); //Hintergrundbild aufrufen
+        Bienenschwarm_Classes.inhalt.putImageData(imgData, 0, 0); //Hintergrundbild aufrufen
         for (var i = 0; i < alleBienen.length; i++) {
             var s = alleBienen[i];
             if (s.geschwindigkeit == true) {
@@ -113,247 +113,247 @@ var Bienenschwarm_Classes;
     }
     /////////////////////////////GRO�ER BERG/////////////////////////////////////////////   
     function drawBerg(_x, _y, _strokeColor, _fillColor) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _strokeColor;
-        Bienenschwarm_Classes.crc2.moveTo(_x - 348, _y + 320); //punkt unten links des berges
-        Bienenschwarm_Classes.crc2.lineTo(_x + 90, _y - 200); //oberepunkt/spitze des berges
-        Bienenschwarm_Classes.crc2.lineTo(_x + 300, _y + 320); //punkt unten rechts vom berg
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.fillStyle = _fillColor;
+        Bienenschwarm_Classes.inhalt.strokeStyle = _strokeColor;
+        Bienenschwarm_Classes.inhalt.moveTo(_x - 348, _y + 320); //punkt unten links des berges
+        Bienenschwarm_Classes.inhalt.lineTo(_x + 90, _y - 200); //oberepunkt/spitze des berges
+        Bienenschwarm_Classes.inhalt.lineTo(_x + 300, _y + 320); //punkt unten rechts vom berg
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.fill();
+        Bienenschwarm_Classes.inhalt.stroke();
     }
     function drawBergSpitze(_x, _y, _strokeColor, _fillColor) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _strokeColor;
-        Bienenschwarm_Classes.crc2.moveTo(_x - 80, _y + 0); //punkt unten links des berges
-        Bienenschwarm_Classes.crc2.lineTo(_x + 90, _y - 200); //oberepunkt/spitze des berges
-        Bienenschwarm_Classes.crc2.lineTo(_x + 180, _y + 0); //punkt unten rechts vom berg
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.fillStyle = _fillColor;
+        Bienenschwarm_Classes.inhalt.strokeStyle = _strokeColor;
+        Bienenschwarm_Classes.inhalt.moveTo(_x - 80, _y + 0); //punkt unten links des berges
+        Bienenschwarm_Classes.inhalt.lineTo(_x + 90, _y - 200); //oberepunkt/spitze des berges
+        Bienenschwarm_Classes.inhalt.lineTo(_x + 180, _y + 0); //punkt unten rechts vom berg
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.fill();
+        Bienenschwarm_Classes.inhalt.stroke();
     }
     ////////////////////////////////////KLEINER BERG//////////////////////////////////
     function drawKleinenBerg(_x, _y, _strokeColor, _fillColor) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _strokeColor;
-        Bienenschwarm_Classes.crc2.moveTo(_x - 380, _y + 220); //punkt unten links des berges
-        Bienenschwarm_Classes.crc2.lineTo(_x + 90, _y - 200); //oberepunkt/spitze des berges
-        Bienenschwarm_Classes.crc2.lineTo(_x + 300, _y + 220); //punkt unten rechts vom berg
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.fillStyle = _fillColor;
+        Bienenschwarm_Classes.inhalt.strokeStyle = _strokeColor;
+        Bienenschwarm_Classes.inhalt.moveTo(_x - 380, _y + 220); //punkt unten links des berges
+        Bienenschwarm_Classes.inhalt.lineTo(_x + 90, _y - 200); //oberepunkt/spitze des berges
+        Bienenschwarm_Classes.inhalt.lineTo(_x + 300, _y + 220); //punkt unten rechts vom berg
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.fill();
+        Bienenschwarm_Classes.inhalt.stroke();
     }
     function drawKleinenBergSpitze(_x, _y, _strokeColor, _fillColor) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _strokeColor;
-        Bienenschwarm_Classes.crc2.moveTo(_x - 60, _y - 67); //punkt unten links des berges
-        Bienenschwarm_Classes.crc2.lineTo(_x + 90, _y - 200); //oberepunkt/spitze des berges
-        Bienenschwarm_Classes.crc2.lineTo(_x + 156, _y - 67); //punkt unten rechts vom berg
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.fillStyle = _fillColor;
+        Bienenschwarm_Classes.inhalt.strokeStyle = _strokeColor;
+        Bienenschwarm_Classes.inhalt.moveTo(_x - 60, _y - 67); //punkt unten links des berges
+        Bienenschwarm_Classes.inhalt.lineTo(_x + 90, _y - 200); //oberepunkt/spitze des berges
+        Bienenschwarm_Classes.inhalt.lineTo(_x + 156, _y - 67); //punkt unten rechts vom berg
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.fill();
+        Bienenschwarm_Classes.inhalt.stroke();
     }
     ////////////////////////////////B�UME/////////////////////////////////////////
     function drawBaeume(_x, _y, _strokeColor, _fillColor) {
         //Baumstamm
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _strokeColor;
-        Bienenschwarm_Classes.crc2.fillRect(_x, _y - 15, 40, 60);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.stroke();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.fillStyle = _strokeColor;
+        Bienenschwarm_Classes.inhalt.fillRect(_x, _y - 15, 40, 60);
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.stroke();
         //Baumkrone
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.arc(_x + 20, _y - 90, 80, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(_x - 60, _y - 130, 50, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(_x + 60, _y - 120, 80, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(_x + 20, _y - 240, 80, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(_x + 100, _y - 180, 70, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(_x - 30, _y - 200, 80, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(_x + 80, _y - 260, 60, 0 * Math.PI, 2 * Math.PI);
-        //        crc2.arc( _x, _y, 40, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.stroke();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.arc(_x + 20, _y - 90, 80, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(_x - 60, _y - 130, 50, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(_x + 60, _y - 120, 80, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(_x + 20, _y - 240, 80, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(_x + 100, _y - 180, 70, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(_x - 30, _y - 200, 80, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(_x + 80, _y - 260, 60, 0 * Math.PI, 2 * Math.PI);
+        //        inhalt.arc( _x, _y, 40, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.fillStyle = _fillColor;
+        Bienenschwarm_Classes.inhalt.strokeStyle = _fillColor;
+        Bienenschwarm_Classes.inhalt.fill();
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.stroke();
     }
     function drawSonne(_x, _y, _strokeColor, _fillColor) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.arc(_x, _y, 40, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.stroke();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.arc(_x, _y, 40, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.fillStyle = _fillColor;
+        Bienenschwarm_Classes.inhalt.strokeStyle = _fillColor;
+        Bienenschwarm_Classes.inhalt.fill();
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.stroke();
     }
     ////////////////////////////////BLUMEN/////////////////////////////////////////
     function drawBlumeTulpe(_x, _y, _stalkColor, _petalColor) {
         //Stiel
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.strokeStyle = _stalkColor;
-        Bienenschwarm_Classes.crc2.moveTo(_x, _y);
-        Bienenschwarm_Classes.crc2.lineTo(_x, _y - 32);
-        Bienenschwarm_Classes.crc2.stroke();
-        Bienenschwarm_Classes.crc2.closePath();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.strokeStyle = _stalkColor;
+        Bienenschwarm_Classes.inhalt.moveTo(_x, _y);
+        Bienenschwarm_Classes.inhalt.lineTo(_x, _y - 32);
+        Bienenschwarm_Classes.inhalt.stroke();
+        Bienenschwarm_Classes.inhalt.closePath();
         //Stielblatt1
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.strokeStyle = _stalkColor;
-        Bienenschwarm_Classes.crc2.moveTo(_x, _y);
-        Bienenschwarm_Classes.crc2.lineTo(_x, _y - 13); //obere Punkt
-        Bienenschwarm_Classes.crc2.lineTo(_x - 7, _y - 26); //Blattspitze
-        Bienenschwarm_Classes.crc2.lineTo(_x, _y - 5); //untere Punkt
-        Bienenschwarm_Classes.crc2.stroke();
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fillStyle = _stalkColor;
-        Bienenschwarm_Classes.crc2.fill();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.strokeStyle = _stalkColor;
+        Bienenschwarm_Classes.inhalt.moveTo(_x, _y);
+        Bienenschwarm_Classes.inhalt.lineTo(_x, _y - 13); //obere Punkt
+        Bienenschwarm_Classes.inhalt.lineTo(_x - 7, _y - 26); //Blattspitze
+        Bienenschwarm_Classes.inhalt.lineTo(_x, _y - 5); //untere Punkt
+        Bienenschwarm_Classes.inhalt.stroke();
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.fillStyle = _stalkColor;
+        Bienenschwarm_Classes.inhalt.fill();
         //Stielblatt2
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.strokeStyle = _stalkColor;
-        Bienenschwarm_Classes.crc2.moveTo(_x, _y);
-        Bienenschwarm_Classes.crc2.lineTo(_x, _y - 12); //obere Punkt
-        Bienenschwarm_Classes.crc2.lineTo(_x + 7, _y - 20); //Blattspitze
-        Bienenschwarm_Classes.crc2.lineTo(_x, _y - 5); //untere Punkt
-        Bienenschwarm_Classes.crc2.stroke();
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fillStyle = _stalkColor;
-        Bienenschwarm_Classes.crc2.fill();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.strokeStyle = _stalkColor;
+        Bienenschwarm_Classes.inhalt.moveTo(_x, _y);
+        Bienenschwarm_Classes.inhalt.lineTo(_x, _y - 12); //obere Punkt
+        Bienenschwarm_Classes.inhalt.lineTo(_x + 7, _y - 20); //Blattspitze
+        Bienenschwarm_Classes.inhalt.lineTo(_x, _y - 5); //untere Punkt
+        Bienenschwarm_Classes.inhalt.stroke();
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.fillStyle = _stalkColor;
+        Bienenschwarm_Classes.inhalt.fill();
         //TulpenBl�tenform
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.strokeStyle = "white"; //umrandet die Tulpe weiss
-        Bienenschwarm_Classes.crc2.arc(_x, _y - 40, 9, 0 * Math.PI, 1 * Math.PI); //Rundung der Tulpe
-        Bienenschwarm_Classes.crc2.lineTo(_x - 10, _y - 53); //links oben der Punkt
-        Bienenschwarm_Classes.crc2.lineTo(_x - 5, _y - 45);
-        Bienenschwarm_Classes.crc2.lineTo(_x, _y - 53); //Spitze in der Mitte
-        Bienenschwarm_Classes.crc2.lineTo(_x + 5, _y - 45);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 10, _y - 53); //rechts der Punkt
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.stroke();
-        Bienenschwarm_Classes.crc2.fillStyle = _petalColor;
-        Bienenschwarm_Classes.crc2.fill();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.strokeStyle = "white"; //umrandet die Tulpe weiss
+        Bienenschwarm_Classes.inhalt.arc(_x, _y - 40, 9, 0 * Math.PI, 1 * Math.PI); //Rundung der Tulpe
+        Bienenschwarm_Classes.inhalt.lineTo(_x - 10, _y - 53); //links oben der Punkt
+        Bienenschwarm_Classes.inhalt.lineTo(_x - 5, _y - 45);
+        Bienenschwarm_Classes.inhalt.lineTo(_x, _y - 53); //Spitze in der Mitte
+        Bienenschwarm_Classes.inhalt.lineTo(_x + 5, _y - 45);
+        Bienenschwarm_Classes.inhalt.lineTo(_x + 10, _y - 53); //rechts der Punkt
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.stroke();
+        Bienenschwarm_Classes.inhalt.fillStyle = _petalColor;
+        Bienenschwarm_Classes.inhalt.fill();
     }
     function drawBlumeBlue(_x, _y, _fillColor, _fillColor1, _stalkColor) {
         //Stiel
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.strokeStyle = _stalkColor;
-        Bienenschwarm_Classes.crc2.moveTo(_x, _y);
-        Bienenschwarm_Classes.crc2.lineTo(_x, _y + 50);
-        Bienenschwarm_Classes.crc2.stroke();
-        Bienenschwarm_Classes.crc2.closePath();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.strokeStyle = _stalkColor;
+        Bienenschwarm_Classes.inhalt.moveTo(_x, _y);
+        Bienenschwarm_Classes.inhalt.lineTo(_x, _y + 50);
+        Bienenschwarm_Classes.inhalt.stroke();
+        Bienenschwarm_Classes.inhalt.closePath();
         //Stielblatt
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.strokeStyle = _stalkColor;
-        Bienenschwarm_Classes.crc2.moveTo(_x, _y);
-        Bienenschwarm_Classes.crc2.lineTo(_x, _y + 30); //obere Punkt
-        Bienenschwarm_Classes.crc2.lineTo(_x - 10, _y + 25); //Blattspitze
-        Bienenschwarm_Classes.crc2.lineTo(_x, _y + 43); //untere Punkt
-        Bienenschwarm_Classes.crc2.stroke();
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fillStyle = _stalkColor;
-        Bienenschwarm_Classes.crc2.fill();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.strokeStyle = _stalkColor;
+        Bienenschwarm_Classes.inhalt.moveTo(_x, _y);
+        Bienenschwarm_Classes.inhalt.lineTo(_x, _y + 30); //obere Punkt
+        Bienenschwarm_Classes.inhalt.lineTo(_x - 10, _y + 25); //Blattspitze
+        Bienenschwarm_Classes.inhalt.lineTo(_x, _y + 43); //untere Punkt
+        Bienenschwarm_Classes.inhalt.stroke();
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.fillStyle = _stalkColor;
+        Bienenschwarm_Classes.inhalt.fill();
         //Bl�te
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = "#66ccff";
-        Bienenschwarm_Classes.crc2.arc(_x, _y, 10, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(_x - 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(_x + 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(_x, _y + 10, 7, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(_x, _y - 10, 7, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor1;
-        Bienenschwarm_Classes.crc2.arc(_x, _y, 5, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
-        Bienenschwarm_Classes.crc2.closePath();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.fillStyle = _fillColor;
+        Bienenschwarm_Classes.inhalt.strokeStyle = "#66ccff";
+        Bienenschwarm_Classes.inhalt.arc(_x, _y, 10, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(_x - 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(_x + 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(_x, _y + 10, 7, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(_x, _y - 10, 7, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.fill();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.fillStyle = _fillColor1;
+        Bienenschwarm_Classes.inhalt.arc(_x, _y, 5, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.fill();
+        Bienenschwarm_Classes.inhalt.stroke();
+        Bienenschwarm_Classes.inhalt.closePath();
     }
     function drawBlume3(_x, _y, _fillColor, _fillColor1, _stalkColor) {
         //Stiel
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.strokeStyle = _stalkColor;
-        Bienenschwarm_Classes.crc2.moveTo(_x, _y);
-        Bienenschwarm_Classes.crc2.lineTo(_x, _y + 50);
-        Bienenschwarm_Classes.crc2.stroke();
-        Bienenschwarm_Classes.crc2.closePath();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.strokeStyle = _stalkColor;
+        Bienenschwarm_Classes.inhalt.moveTo(_x, _y);
+        Bienenschwarm_Classes.inhalt.lineTo(_x, _y + 50);
+        Bienenschwarm_Classes.inhalt.stroke();
+        Bienenschwarm_Classes.inhalt.closePath();
         //Stielblatt1
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.strokeStyle = _stalkColor;
-        Bienenschwarm_Classes.crc2.moveTo(_x, _y);
-        Bienenschwarm_Classes.crc2.lineTo(_x, _y + 36); //obere Punkt
-        Bienenschwarm_Classes.crc2.lineTo(_x + 10, _y + 27); //Blattspitze
-        Bienenschwarm_Classes.crc2.lineTo(_x, _y + 43); //untere Punkt
-        Bienenschwarm_Classes.crc2.stroke();
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fillStyle = _stalkColor;
-        Bienenschwarm_Classes.crc2.fill();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.strokeStyle = _stalkColor;
+        Bienenschwarm_Classes.inhalt.moveTo(_x, _y);
+        Bienenschwarm_Classes.inhalt.lineTo(_x, _y + 36); //obere Punkt
+        Bienenschwarm_Classes.inhalt.lineTo(_x + 10, _y + 27); //Blattspitze
+        Bienenschwarm_Classes.inhalt.lineTo(_x, _y + 43); //untere Punkt
+        Bienenschwarm_Classes.inhalt.stroke();
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.fillStyle = _stalkColor;
+        Bienenschwarm_Classes.inhalt.fill();
         //Stielblatt2
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.strokeStyle = _stalkColor;
-        Bienenschwarm_Classes.crc2.moveTo(_x, _y);
-        Bienenschwarm_Classes.crc2.lineTo(_x, _y + 36); //obere Punkt
-        Bienenschwarm_Classes.crc2.lineTo(_x - 10, _y + 25); //Blattspitze
-        Bienenschwarm_Classes.crc2.lineTo(_x, _y + 43); //untere Punkt
-        Bienenschwarm_Classes.crc2.stroke();
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fillStyle = _stalkColor;
-        Bienenschwarm_Classes.crc2.fill();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.strokeStyle = _stalkColor;
+        Bienenschwarm_Classes.inhalt.moveTo(_x, _y);
+        Bienenschwarm_Classes.inhalt.lineTo(_x, _y + 36); //obere Punkt
+        Bienenschwarm_Classes.inhalt.lineTo(_x - 10, _y + 25); //Blattspitze
+        Bienenschwarm_Classes.inhalt.lineTo(_x, _y + 43); //untere Punkt
+        Bienenschwarm_Classes.inhalt.stroke();
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.fillStyle = _stalkColor;
+        Bienenschwarm_Classes.inhalt.fill();
         //Bl�te
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = "white";
-        Bienenschwarm_Classes.crc2.arc(_x, _y, 10, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(_x - 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(_x + 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(_x, _y + 10, 7, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(_x, _y - 10, 7, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor1;
-        Bienenschwarm_Classes.crc2.arc(_x, _y, 5, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
-        Bienenschwarm_Classes.crc2.closePath();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.fillStyle = _fillColor;
+        Bienenschwarm_Classes.inhalt.strokeStyle = "white";
+        Bienenschwarm_Classes.inhalt.arc(_x, _y, 10, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(_x - 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(_x + 10, _y, 7, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(_x, _y + 10, 7, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(_x, _y - 10, 7, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.fill();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.fillStyle = _fillColor1;
+        Bienenschwarm_Classes.inhalt.arc(_x, _y, 5, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.fill();
+        Bienenschwarm_Classes.inhalt.stroke();
+        Bienenschwarm_Classes.inhalt.closePath();
     }
     function drawBienenkorb(_x, _y) {
-        Bienenschwarm_Classes.crc2.fillStyle = "brown";
-        Bienenschwarm_Classes.crc2.fillRect(_x, _y, 50, 50);
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.arc(955, 525, 25, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.arc(933, 550, 10, 0 * Math.PI, 2 * Math.PI); //linke Seite
-        Bienenschwarm_Classes.crc2.arc(933, 532, 10, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(933, 567, 10, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.arc(978, 550, 10, 0 * Math.PI, 2 * Math.PI); //rechte Seite
-        Bienenschwarm_Classes.crc2.arc(978, 532, 10, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.arc(978, 567, 10, 0 * Math.PI, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.closePath();
+        Bienenschwarm_Classes.inhalt.fillStyle = "brown";
+        Bienenschwarm_Classes.inhalt.fillRect(_x, _y, 50, 50);
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.arc(955, 525, 25, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
+        Bienenschwarm_Classes.inhalt.fill();
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.arc(933, 550, 10, 0 * Math.PI, 2 * Math.PI); //linke Seite
+        Bienenschwarm_Classes.inhalt.arc(933, 532, 10, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(933, 567, 10, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.fill();
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.arc(978, 550, 10, 0 * Math.PI, 2 * Math.PI); //rechte Seite
+        Bienenschwarm_Classes.inhalt.arc(978, 532, 10, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.arc(978, 567, 10, 0 * Math.PI, 2 * Math.PI);
+        Bienenschwarm_Classes.inhalt.fill();
+        Bienenschwarm_Classes.inhalt.closePath();
     }
     function drawBienenkorbBlack(_x, _y) {
-        Bienenschwarm_Classes.crc2.fillStyle = "black";
-        Bienenschwarm_Classes.crc2.fillRect(944, 547, 11, 11);
+        Bienenschwarm_Classes.inhalt.fillStyle = "black";
+        Bienenschwarm_Classes.inhalt.fillRect(944, 547, 11, 11);
     }
     function drawBiene(s) {
-        Bienenschwarm_Classes.crc2.fillStyle = s.color;
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.arc(s.x, s.y, s.size, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.strokeStyle = "black";
-        Bienenschwarm_Classes.crc2.moveTo(s.x + 2, s.y + 2);
-        Bienenschwarm_Classes.crc2.lineTo(s.x, s.y);
-        Bienenschwarm_Classes.crc2.stroke();
+        Bienenschwarm_Classes.inhalt.fillStyle = s.color;
+        Bienenschwarm_Classes.inhalt.beginPath();
+        Bienenschwarm_Classes.inhalt.arc(s.x, s.y, s.size, 0 * Math.PI, 2 * Math.PI); //oberste Kreis
+        Bienenschwarm_Classes.inhalt.fill();
+        Bienenschwarm_Classes.inhalt.closePath();
+        Bienenschwarm_Classes.inhalt.strokeStyle = "black";
+        Bienenschwarm_Classes.inhalt.moveTo(s.x + 2, s.y + 2);
+        Bienenschwarm_Classes.inhalt.lineTo(s.x, s.y);
+        Bienenschwarm_Classes.inhalt.stroke();
     }
 })(Bienenschwarm_Classes || (Bienenschwarm_Classes = {}));
 //# sourceMappingURL=Bienen.js.map
