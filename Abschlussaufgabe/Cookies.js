@@ -15,7 +15,7 @@ var Abschlussaufgabe_Bild;
             Abschlussaufgabe_Bild.crc2.beginPath();
             Abschlussaufgabe_Bild.crc2.arc(this.x, this.y, 50, 0 * Math.PI, 2 * Math.PI);
             Abschlussaufgabe_Bild.crc2.fillStyle = "brown";
-            Abschlussaufgabe_Bild.crc2.strokeStyle = "brown";
+            Abschlussaufgabe_Bild.crc2.strokeStyle = "black";
             Abschlussaufgabe_Bild.crc2.fill();
             Abschlussaufgabe_Bild.crc2.closePath();
             Abschlussaufgabe_Bild.crc2.stroke();
