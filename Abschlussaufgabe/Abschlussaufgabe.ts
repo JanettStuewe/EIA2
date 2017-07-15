@@ -37,7 +37,7 @@ namespace Abschlussaufgabe_Bild {
     switch (ausgabeVariation) {
 
         case "falsch":
-            ausgabeText = "Die Antwort ist leider falsch." + "\r\n" + "Zähle die Cookies für die richtige Lösung." ;
+            ausgabeText = "Die Antwort ist leider falsch." + "\r\n" + "Z%E4hle die Cookies für die richtige L%F6sung." ;
             break;
         case "dumm":
             ausgabeText = "Bitte die Zahl als Ziffer eintragen!";

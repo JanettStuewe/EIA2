@@ -24,7 +24,7 @@ var Abschlussaufgabe_Bild;
     }
     switch (Abschlussaufgabe_Bild.ausgabeVariation) {
         case "falsch":
-            Abschlussaufgabe_Bild.ausgabeText = "Die Antwort ist leider falsch." + "\r\n" + "Z�hle die Cookies f�r die richtige L�sung.";
+            Abschlussaufgabe_Bild.ausgabeText = "Die Antwort ist leider falsch." + "\r\n" + "Z%E4hle die Cookies f�r die richtige L%F6sung.";
             break;
         case "dumm":
             Abschlussaufgabe_Bild.ausgabeText = "Bitte die Zahl als Ziffer eintragen!";
