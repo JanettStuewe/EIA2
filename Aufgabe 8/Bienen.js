@@ -4,7 +4,7 @@ var Aufgabe8_Wiese;
         function Bee(_x, _y, _geschwindigkeit) {
             this.x = _x;
             this.y = _y;
-            this.move();
+            this.move(); //beginnt direkt bei erstellung durch new und aufruf dieser klasse  Bee
             this.setRandomSize();
             this.setRandomColor();
         }

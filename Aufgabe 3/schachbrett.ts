@@ -22,7 +22,7 @@ window.onload = function(): void {
                         document.body.appendChild(elem);    //hier wird das neue div in den body eingefügt
                         elem.className = "textMittig";
                         elem.className = "white";           //hier wird dem neuen div die cssKlasse zugewiesen "white" welches es weiß macht
-                        elem.textContent = (k + "");        //hier wird dem neuen div der Textinhalt(=Anzahl der Reiskörner auf dem Feld) gegeben
+                        elem.textContent = (k + "");        //hier wi en div der Textinhalt(=Anzahl der Reiskörner auf dem Feld) gegeben
                         k = k * 2;                          //hier wird der Textinhalt berechnet, in dem vom vorheriegen schahbrettfeld die zahl genommen wird und verdoppelt wird
                     }
                 }

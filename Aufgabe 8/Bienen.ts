@@ -1,6 +1,6 @@
 namespace Aufgabe8_Wiese {
 
-    export class Bee {
+    export class Bee { //Superklasse
         x: number;
         y: number;
         size: number;
@@ -11,7 +11,7 @@ namespace Aufgabe8_Wiese {
         constructor(_x: number, _y: number, _geschwindigkeit: boolean) {
             this.x = _x;
             this.y = _y;
-            this.move();
+            this.move(); //beginnt direkt bei erstellung durch new und aufruf dieser klasse  Bee
             this.setRandomSize();
             this.setRandomColor();
         }

@@ -8,7 +8,7 @@ var Aufgabe_4_Bild;
         crc2 = canvas.getContext("2d");
         //________________HINTERGRUND______________________________
         //Himmel_hellblau
-        crc2.fillStyle = "#b0e2ff";
+        crc2.fillStyle = "blue";
         crc2.fillRect(0, 0, canvas.width, canvas.height);
         //Berge_gro�ers
         drawBerg(850, 210, "#919191", "#919191");

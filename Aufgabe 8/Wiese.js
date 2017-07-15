@@ -67,7 +67,7 @@ var Aufgabe8_Wiese;
     function drawNeuesBienchen() {
         var bee = new Aufgabe8_Wiese.Bee(0, 0, (Math.round(Math.random())) == 1);
         bee.start();
-        Aufgabe8_Wiese.alleBienen.push(bee);
+        Aufgabe8_Wiese.alleBienen.push(bee); // per Superklasse erstellte Biene wird nun in den array alleBienen abgespeichert
     }
     //Animation der Bienen
     function Animation() {

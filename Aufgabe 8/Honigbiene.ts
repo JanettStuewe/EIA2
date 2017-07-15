@@ -1,6 +1,6 @@
 namespace Aufgabe8_Wiese {
 
-    export class HonigBiene extends Bee {
+    export class HonigBiene extends Bee { //Subklasse
 
         xtarget: number;
         ytarget: number;
@@ -9,7 +9,7 @@ namespace Aufgabe8_Wiese {
         constructor(_x: number, _y: number, _geschwindigkeit: boolean) {
             super(_x, _y, _geschwindigkeit);
             this.speed = 0.02;
-            this.start();
+            this.start(); //greift auf superklasse zu
             this.setRandomFlowerTarget();
         }
 

@@ -9,7 +9,7 @@ namespace Aufgabe_4_Bild {
 
         //________________HINTERGRUND______________________________
         //Himmel_hellblau
-        crc2.fillStyle = "#b0e2ff";
+        crc2.fillStyle = "blue";
         crc2.fillRect(0, 0, canvas.width, canvas.height);
 
         //Berge_groﬂers

@@ -84,7 +84,7 @@ namespace Aufgabe8_Wiese {
     function drawNeuesBienchen(): void {
         let bee: Bee = new Bee(0, 0, (Math.round(Math.random())) == 1);
         bee.start();
-        alleBienen.push(bee);
+        alleBienen.push(bee); // per Superklasse erstellte Biene wird nun in den array alleBienen abgespeichert
 
     }
 

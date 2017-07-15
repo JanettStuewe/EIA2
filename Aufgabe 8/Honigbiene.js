@@ -10,7 +10,7 @@ var Aufgabe8_Wiese;
         function HonigBiene(_x, _y, _geschwindigkeit) {
             _super.call(this, _x, _y, _geschwindigkeit);
             this.speed = 0.02;
-            this.start();
+            this.start(); //greift auf superklasse zu
             this.setRandomFlowerTarget();
         }
         HonigBiene.prototype.setRandomFlowerTarget = function () {

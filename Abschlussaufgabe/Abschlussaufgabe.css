@@ -1,0 +1,18 @@
+html {
+	background-color: ivory;;
+	width:100%;
+	margin: 5%;
+}
+
+body {
+	background-color: #b0e2ff;
+	width:80%;
+	float:left;
+}
+
+canvas {
+	background-color: green;
+}
+div {
+	float:left;
+}
