@@ -1,11 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
 html {
 	background-color: ivory;;
 	width:100%;
 	margin: 5%;
+	font-family: 'Gloria Hallelujah', cursive;
+	font-weight: bold;
+	font-size: 20pt;
 }
 
 body {
-	background-color: #b0e2ff;
+	padding: 5%;
+	background-color: #19aece;
 	width:80%;
 	float:left;
 }
@@ -16,3 +22,18 @@ canvas {
 div {
 	float:left;
 }
+
+img {
+	dispplay: none;
+	width: 30%;
+	float:left;
+}
+
+.verbbergen{
+	display:none;
+}
+
+.alert-info {
+	background: #19aece; color: #fff;
+}
+

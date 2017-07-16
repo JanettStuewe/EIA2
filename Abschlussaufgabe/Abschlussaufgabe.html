@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" charset="ISO-8859-1">
     <meta name="author" content="Janett Stüwe"> 
@@ -7,15 +8,33 @@
     <meta name="description" content="Dieses Spiel bringt Kinder das rechnen bis 10 bei, unterstützt durch Keksmotivation."> 
     <meta name="keywords" content="Cookies, Krümelmonster, rechnen, lernen">
     <meta name="inspiration" content="Dieses Spiel ist meinem bestem Freund gewidmet der Kekse liebt.^^">
+    
     <title>Abschlussaufgabe</title>
+    
     <script type="text/javascript" src="Abschlussaufgabe.js"></script>
     <script type="text/javascript" src="Cookies.js"></script>
 	<link rel="stylesheet" href="Abschlussaufgabe.css">
 </head>
-<body>
-<h1>Kr&uumlmelmonster in Not!</h1>
-<p>Hilf Kr&uumlmmelmonster bei seinem Problem. Er m&oumlchte wissen wieviele Kekse er hat.</p>
-<div><canvas width= 200px height= 800px ></canvas></div>
 
+<body>
+	<h1>Kr&uumlmelmonster in Not!</h1>
+	<p>Hilf Kr&uumlmmelmonster bei seinem Problem. Er m&oumlchte wissen wieviele Kekse er hat.</p>
+
+	<div>
+	<canvas id="richtigesErgebnis" width= 200px height= 800px >
+	</canvas>
+	</div>
+	
+	<div>
+	<canvas id="nutzerErgebnis" width= 200px height= 800px >
+	</canvas>
+	</div>
+  
+	<div>
+	<img class="verbergen" id="Salat" src="kruemelmonsterSalat.jpg" />
+	<img class="verbergen" id="Richtig" src="KruemelmonsterIsst.jpg" />
+	<img class="verbergen" id="Falsch" src="grafzahlUndKruemelmonster.jpg" />
+	</div>
 </body>
+
 </html>
