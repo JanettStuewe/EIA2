@@ -24,12 +24,12 @@ div {
 }
 
 img {
-	dispplay: none;
+	display: none;
 	width: 30%;
 	float:left;
 }
 
-.verbbergen{
+.verbergen{
 	display:none;
 }
 

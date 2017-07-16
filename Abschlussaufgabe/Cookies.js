@@ -1,9 +1,7 @@
 var Abschlussaufgabe_Bild;
 (function (Abschlussaufgabe_Bild) {
     var Cookie = (function () {
-        function Cookie(_x, _y, _schokostueckchen) {
-            this.x = _x;
-            this.y = _y;
+        function Cookie(_schokostueckchen) {
             this.schokostueckchen = _schokostueckchen;
             this.setRandomPosition();
         } //schlie�t constructor
@@ -11,7 +9,7 @@ var Abschlussaufgabe_Bild;
             this.x = Math.random() * 190;
             this.y = Math.random() * 790;
         };
-        Cookie.prototype.drawCookie = function (c) {
+        Cookie.prototype.drawCookie = function () {
             Abschlussaufgabe_Bild.crc2.beginPath();
             Abschlussaufgabe_Bild.crc2.arc(this.x, this.y, 50, 0 * Math.PI, 2 * Math.PI);
             Abschlussaufgabe_Bild.crc2.fillStyle = "brown";

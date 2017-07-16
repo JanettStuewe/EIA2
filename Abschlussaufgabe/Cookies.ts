@@ -5,9 +5,7 @@ namespace Abschlussaufgabe_Bild {
         y: number;
         schokostueckchen: string;
 
-        constructor(_x: number, _y: number, _schokostueckchen: string) {
-            this.x = _x;
-            this.y = _y;
+        constructor(_schokostueckchen: string) {
             this.schokostueckchen = _schokostueckchen;
             this.setRandomPosition();
             
@@ -18,7 +16,7 @@ namespace Abschlussaufgabe_Bild {
             this.y = Math.random() * 790;  
         }
 
-        drawCookie(c: Cookie): void {
+        drawCookie(): void {
             crc2.beginPath();
             crc2.arc(this.x, this.y, 50, 0 * Math.PI, 2 * Math.PI);
             crc2.fillStyle = "brown";
