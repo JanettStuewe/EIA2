@@ -1,8 +1,8 @@
 namespace Abschlussaufgabe_Bild {
     window.addEventListener("load", bild);
 
-    export let inhaltEins: CanvasRenderingContext2D;
-    export let inhaltZwei: CanvasRenderingContext2D;
+    export let crc2: CanvasRenderingContext2D;
+    export let inhaltZwei: CanvasRenderingContext2D; //Bei den Cookies ist halt crc2, ist dies hier überhaupt sinnvoll?
     export let alleCookies: Cookie[] = [];
     
     //a:deklaiert eine gerundete, variable Zahl bis 10, mit Typ number
@@ -63,7 +63,7 @@ namespace Abschlussaufgabe_Bild {
     function bild(_event: Event): void { // malt cookie.canvas
         let canvasEins: HTMLCanvasElement;
         canvasEins = document.getElementById("richtigesErgebnis")[0];
-        inhaltEins = canvasEins.getContext("2d");
+        crc2 = canvasEins.getContext("2d");
 
         for (var i: number = 0; i < nutzerAntwort; i++) { //
             let c: Cookie = new Cookie(150, 150, "black");
@@ -78,7 +78,7 @@ namespace Abschlussaufgabe_Bild {
     function bildZwei (_event: Event): void { // malt cookie.canvas
         let canvasZwei: HTMLCanvasElement;
         canvasZwei = document.getElementById("nutzerErgebnis")[0];
-        inhaltZwei = canvasZwei.getContext("2d");
+        inhaltZwei = canvasZwei.getContext("2d"); //wie ich beim deklarieren von inhaltZwei bereits mich fragte, da bei Cookoie.ts mein Cookie mit crc2 erstellt wird, ist es überhaupt sinnvoll ein zweiten inhalt zu deklarieren?
 
         for (var i: number = 0; i < ergebnis; i++) { //
             let c: Cookie = new Cookie(150, 150, "black");

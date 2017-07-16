@@ -48,7 +48,7 @@ var Abschlussaufgabe_Bild;
     function bild(_event) {
         var canvasEins;
         canvasEins = document.getElementById("richtigesErgebnis")[0];
-        Abschlussaufgabe_Bild.inhaltEins = canvasEins.getContext("2d");
+        Abschlussaufgabe_Bild.crc2 = canvasEins.getContext("2d");
         for (var i = 0; i < Abschlussaufgabe_Bild.nutzerAntwort; i++) {
             var c = new Abschlussaufgabe_Bild.Cookie(150, 150, "black");
             Abschlussaufgabe_Bild.alleCookies.push(c);
@@ -59,7 +59,7 @@ var Abschlussaufgabe_Bild;
     function bildZwei(_event) {
         var canvasZwei;
         canvasZwei = document.getElementById("nutzerErgebnis")[0];
-        Abschlussaufgabe_Bild.inhaltZwei = canvasZwei.getContext("2d");
+        Abschlussaufgabe_Bild.inhaltZwei = canvasZwei.getContext("2d"); //wie ich beim deklarieren von inhaltZwei bereits mich fragte, da bei Cookoie.ts mein Cookie mit crc2 erstellt wird, ist es �berhaupt sinnvoll ein zweiten inhalt zu deklarieren?
         for (var i = 0; i < Abschlussaufgabe_Bild.ergebnis; i++) {
             var c = new Abschlussaufgabe_Bild.Cookie(150, 150, "black");
             Abschlussaufgabe_Bild.alleCookies.push(c);
