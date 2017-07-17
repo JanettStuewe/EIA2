@@ -30,7 +30,15 @@ img {
 	float:left;
 }
 
-.verbergen{
+#Salat{
+	display:none;
+}
+
+#Richtig{
+	display:none;
+}
+
+#Falsch{
 	display:none;
 }
 

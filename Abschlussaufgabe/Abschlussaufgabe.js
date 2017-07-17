@@ -18,10 +18,10 @@ var Abschlussaufgabe_Bild;
     var salat = document.getElementById("Salat");
     ///////////////Entscheidet wie auf welche Arten die Nutzereingabe geteilt wird
     if (isNaN(nutzerAntwortNumber)) {
-        //salat.style.display = "block";
         Abschlussaufgabe_Bild.ausgabeVariation = "dumm";
     }
     else if (nutzerAntwortNumber != Abschlussaufgabe_Bild.ergebnis) {
+        //salat.style.visibility = "visible";
         Abschlussaufgabe_Bild.ausgabeVariation = "falsch";
     }
     else {
@@ -31,7 +31,7 @@ var Abschlussaufgabe_Bild;
     switch (Abschlussaufgabe_Bild.ausgabeVariation) {
         case "falsch":
             Abschlussaufgabe_Bild.ausgabeText = "Die Antwort ist leider falsch." + "\r\n" + "Nun muss Kr\u00fcmelmonster Salat essen.";
-            //salat.style.visibility = "visible";
+            salat.style.display = "block";
             break;
         case "dumm":
             Abschlussaufgabe_Bild.ausgabeText = "Grafzahl verzweifelt, da dir nicht mal Ziffern gel\u00e4ufig sind?!";

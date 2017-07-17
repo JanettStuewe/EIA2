@@ -33,10 +33,10 @@ namespace Abschlussaufgabe_Bild {
     
 ///////////////Entscheidet wie auf welche Arten die Nutzereingabe geteilt wird
     if (isNaN(nutzerAntwortNumber)) { // wenn die NutzerAntwort keine Zahl ist
-        //salat.style.display = "block";
         ausgabeVariation = "dumm";    
         
     }else if (nutzerAntwortNumber != ergebnis) {  // wenn die NutzerAntwort nicht das richtige Ergebnis ist
+        //salat.style.visibility = "visible";
         ausgabeVariation = "falsch";        
         
     } else { // wenn die NutzerAntwort das richtige Ergebnis ist
@@ -48,7 +48,7 @@ namespace Abschlussaufgabe_Bild {
     switch (ausgabeVariation) {   
         case "falsch": 
             ausgabeText = "Die Antwort ist leider falsch." + "\r\n" +  "Nun muss Kr\u00fcmelmonster Salat essen.";
-            //salat.style.visibility = "visible";
+            salat.style.display = "block";
             
             break;
         case "dumm":
