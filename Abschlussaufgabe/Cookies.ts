@@ -16,6 +16,7 @@ namespace Abschlussaufgabe_Bild {
             this.y = Math.random() * 790;  
         }
 
+        
         drawCookie(): void {
             crc2.beginPath();
             crc2.arc(this.x, this.y, 50, 0 * Math.PI, 2 * Math.PI);
