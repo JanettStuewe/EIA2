@@ -27,9 +27,9 @@ namespace Abschlussaufgabe_Bild {
         a = Math.random() * 10; // variable zahl bis 10
         a = Math.round(a);
         b = Math.random() * 10; // variable zahl bis 10
-        b = Math.round(b)
+        b = Math.round(b);
         ergebnis = a + b;
-        nutzerAntwort = prompt("Grafzahl will Kr\u00fcmelmonster rechnen bei bringen und stellt zwei Teller mit Keksen hin." + "\r\n" + "Auf dem ersten Teller sind" + "  " + a + "   " + "und auf dem zweiten Teller" + "  " + b + "  " + "Kekse." + "\r\n" + "\r\n" + "Wie viele Kekse hat Kr\u00fcmelmonster insgesamt?" + "\r\n" + " ", nutzerAntwort);
+        nutzerAntwort = prompt("Graf Zahl will Kr\u00fcmelmonster rechnen beibringen und stellt zwei Teller mit Keksen hin." + "\r\n" + "Auf dem ersten Teller sind" + "  " + a + "   " + "und auf dem zweiten Teller" + "  " + b + "  " + "Kekse." + "\r\n" + "\r\n" + "Wie viele Kekse hat Kr\u00fcmelmonster insgesamt?" + "\r\n" + " ", nutzerAntwort);
         nutzerAntwortNumber = parseInt(nutzerAntwort);
         salat = <HTMLImageElement>document.getElementById("Salat");
         falsch = <HTMLImageElement>document.getElementById("Falsch");
@@ -71,11 +71,11 @@ namespace Abschlussaufgabe_Bild {
                 salat.style.display = "block";
                 break;
             case "dumm":
-                ausgabeText = "Grafzahl verzweifelt, da dir nicht mal Ziffern gel\u00e4ufig sind?!";
+                ausgabeText = "Graf Zahl verzweifelt, da dir nicht mal Ziffern gel\u00e4ufig sind?!";
                 falsch.style.display = "block";
                 break;
             case "richtig":
-                ausgabeText = ergebnis + "Kekse ist richtig! Da freut sich Grazahl und erstrecht Kr\u00fcmelmonster. Omnomnom!";
+                ausgabeText = ergebnis + "Kekse ist richtig! Da freut sich Graf Zahl und erstrecht Kr\u00fcmelmonster. Omnomnom!";
                 richtig.style.display = "block";
                 break;
             default:
@@ -90,7 +90,7 @@ namespace Abschlussaufgabe_Bild {
     
     ////////////////Erste Canvas mit sovielen Cookie wie es richtig ist
     function bild(): void { // malt cookie.canvas
-        for (var i: number = 0; i < ergebnis; i++) { //
+        for (let i: number = 0; i < ergebnis; i++) { //
             let c: Cookie = new Cookie("black");
             alleCookies.push(c);
             console.log(c);
@@ -103,7 +103,7 @@ namespace Abschlussaufgabe_Bild {
 
     ////////////Zweiter Canvas mit so vielen Cookies wie Nutzer sagte
     function bildZwei(): void { // malt cookie.canvas
-        for (var i: number = 0; i < nutzerAntwortNumber; i++) { //
+        for (let i: number = 0; i < nutzerAntwortNumber; i++) { //
             let k: CookieZwei = new CookieZwei("black");
             alleCookie.push(k);
             console.log(k);

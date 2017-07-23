@@ -12,7 +12,7 @@ var Abschlussaufgabe_Bild;
         Abschlussaufgabe_Bild.b = Math.random() * 10; // variable zahl bis 10
         Abschlussaufgabe_Bild.b = Math.round(Abschlussaufgabe_Bild.b);
         Abschlussaufgabe_Bild.ergebnis = Abschlussaufgabe_Bild.a + Abschlussaufgabe_Bild.b;
-        Abschlussaufgabe_Bild.nutzerAntwort = prompt("Grafzahl will Kr\u00fcmelmonster rechnen bei bringen und stellt zwei Teller mit Keksen hin." + "\r\n" + "Auf dem ersten Teller sind" + "  " + Abschlussaufgabe_Bild.a + "   " + "und auf dem zweiten Teller" + "  " + Abschlussaufgabe_Bild.b + "  " + "Kekse." + "\r\n" + "\r\n" + "Wie viele Kekse hat Kr\u00fcmelmonster insgesamt?" + "\r\n" + " ", Abschlussaufgabe_Bild.nutzerAntwort);
+        Abschlussaufgabe_Bild.nutzerAntwort = prompt("Graf Zahl will Kr\u00fcmelmonster rechnen beibringen und stellt zwei Teller mit Keksen hin." + "\r\n" + "Auf dem ersten Teller sind" + "  " + Abschlussaufgabe_Bild.a + "   " + "und auf dem zweiten Teller" + "  " + Abschlussaufgabe_Bild.b + "  " + "Kekse." + "\r\n" + "\r\n" + "Wie viele Kekse hat Kr\u00fcmelmonster insgesamt?" + "\r\n" + " ", Abschlussaufgabe_Bild.nutzerAntwort);
         nutzerAntwortNumber = parseInt(Abschlussaufgabe_Bild.nutzerAntwort);
         salat = document.getElementById("Salat");
         falsch = document.getElementById("Falsch");
@@ -49,11 +49,11 @@ var Abschlussaufgabe_Bild;
                 salat.style.display = "block";
                 break;
             case "dumm":
-                ausgabeText = "Grafzahl verzweifelt, da dir nicht mal Ziffern gel\u00e4ufig sind?!";
+                ausgabeText = "Graf Zahl verzweifelt, da dir nicht mal Ziffern gel\u00e4ufig sind?!";
                 falsch.style.display = "block";
                 break;
             case "richtig":
-                ausgabeText = Abschlussaufgabe_Bild.ergebnis + "Kekse ist richtig! Da freut sich Grazahl und erstrecht Kr\u00fcmelmonster. Omnomnom!";
+                ausgabeText = Abschlussaufgabe_Bild.ergebnis + "Kekse ist richtig! Da freut sich Graf Zahl und erstrecht Kr\u00fcmelmonster. Omnomnom!";
                 richtig.style.display = "block";
                 break;
             default:
